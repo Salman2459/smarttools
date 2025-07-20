@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react" // Import useEffect
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
@@ -20,60 +20,72 @@ export function TextToSpeechTool() {
   const [pitch, setPitch] = useState([1])
   const [volume, setVolume] = useState([0.8])
   const [currentUtterance, setCurrentUtterance] = useState(null)
+  const [availableVoices, setAvailableVoices] = useState([])
+
+  // Move voice loading into useEffect to ensure it runs only on the client
+  useEffect(() => {
+    const loadVoices = () => {
+      if ("speechSynthesis" in window) {
+        const voices = window.speechSynthesis.getVoices()
+        setAvailableVoices(voices)
+        // Fallback for browsers that load voices asynchronously
+        window.speechSynthesis.onvoiceschanged = () => {
+          setAvailableVoices(window.speechSynthesis.getVoices())
+        }
+      }
+    }
+    loadVoices()
+  }, [])
+
 
   const handleProcess = async () => {
     if (!inputText.trim()) return
 
-    setIsProcessing(true)
+    // Ensure this runs only on the client
+    if (typeof window !== "undefined" && "speechSynthesis" in window) {
+      setIsProcessing(true)
 
-    try {
-      // Check if speech synthesis is supported
-      if ("speechSynthesis" in window) {
-        const utterance = new SpeechSynthesisUtterance(inputText)
+      const utterance = new SpeechSynthesisUtterance(inputText)
+      utterance.rate = rate[0]
+      utterance.pitch = pitch[0]
+      utterance.volume = volume[0]
 
-        // Set voice properties
-        utterance.rate = rate[0]
-        utterance.pitch = pitch[0]
-        utterance.volume = volume[0]
-
-        // Get available voices
-        const voices = speechSynthesis.getVoices()
-        if (voices.length > 0 && voice !== "default") {
-          const selectedVoice = voices.find((v) => v.name === voice)
-          if (selectedVoice) {
-            utterance.voice = selectedVoice
-          }
+      const voices = window.speechSynthesis.getVoices()
+      if (voices.length > 0 && voice !== "default") {
+        const selectedVoice = voices.find((v) => v.name === voice)
+        if (selectedVoice) {
+          utterance.voice = selectedVoice
         }
-
-        setCurrentUtterance(utterance)
-
-        // Create audio blob for download (simplified approach)
-        // Note: Real implementation would need server-side TTS for audio file generation
-        const blob = new Blob([inputText], { type: "text/plain" })
-        const url = URL.createObjectURL(blob)
-        setAudioUrl(url)
-
-        setIsProcessing(false)
-      } else {
-        alert("Speech synthesis is not supported in your browser")
-        setIsProcessing(false)
       }
-    } catch (error) {
-      console.error("Error processing text:", error)
+
+      setCurrentUtterance(utterance)
+
+      // The download functionality is also client-side
+      const blob = new Blob([inputText], { type: "text/plain" })
+      const url = URL.createObjectURL(blob)
+      setAudioUrl(url)
+
+      setIsProcessing(false)
+    } else {
+      // Handle the case where speech synthesis is not supported
+      if (typeof window !== "undefined") {
+        alert("Speech synthesis is not supported in your browser")
+      }
       setIsProcessing(false)
     }
   }
 
+
   const handlePlay = () => {
     if (currentUtterance && "speechSynthesis" in window) {
       if (isPlaying) {
-        speechSynthesis.pause()
+        window.speechSynthesis.pause()
         setIsPlaying(false)
       } else {
-        if (speechSynthesis.paused) {
-          speechSynthesis.resume()
+        if (window.speechSynthesis.paused) {
+          window.speechSynthesis.resume()
         } else {
-          speechSynthesis.speak(currentUtterance)
+          window.speechSynthesis.speak(currentUtterance)
         }
         setIsPlaying(true)
 
@@ -86,7 +98,7 @@ export function TextToSpeechTool() {
 
   const handleStop = () => {
     if ("speechSynthesis" in window) {
-      speechSynthesis.cancel()
+      window.speechSynthesis.cancel()
       setIsPlaying(false)
     }
   }
@@ -96,7 +108,9 @@ export function TextToSpeechTool() {
       const link = document.createElement("a")
       link.href = audioUrl
       link.download = "speech-text.txt"
+      document.body.appendChild(link) // Required for Firefox
       link.click()
+      document.body.removeChild(link) // Clean up
     }
   }
 
@@ -111,24 +125,11 @@ export function TextToSpeechTool() {
     setVolume([0.8])
 
     if ("speechSynthesis" in window) {
-      speechSynthesis.cancel()
+      window.speechSynthesis.cancel()
     }
   }
-
-  // Get available voices
-  const [availableVoices, setAvailableVoices] = useState([])
-
-  useState(() => {
-    if ("speechSynthesis" in window) {
-      const updateVoices = () => {
-        const voices = speechSynthesis.getVoices()
-        setAvailableVoices(voices)
-      }
-
-      updateVoices()
-      speechSynthesis.onvoiceschanged = updateVoices
-    }
-  }, [])
+  
+  // No longer need the second useState for voices
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">

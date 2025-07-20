@@ -138,65 +138,8 @@ export function DocToPdfTool() {
         container.appendChild(wrapper)
       } else if (ext === "pptx") {
         try {
-          if (typeof window === "undefined" || typeof document === "undefined") {
-            throw new Error("PPTX conversion requires a browser environment")
-          }
 
-          // ** CORRECTED JQUERY HANDLING WITH PROPER DOCUMENT CONTEXT **
-          // Dynamically import both pptx2html and jQuery
-          const [pptx2htmlModule, jqueryModule] = await Promise.all([import("pptx2html"), import("jquery")])
-          const pptx2html = pptx2htmlModule.default
-
-          // Initialize jQuery with the proper document context
-          const jQuery = jqueryModule.default(window)
-
-          // Assign jQuery to both window.jQuery AND window.$ with proper context
-          window.jQuery = jQuery
-          window.$ = jQuery
-
-          const tempContainer = document.createElement("div")
-          tempContainer.style.display = "none"
-          document.body.appendChild(tempContainer)
-
-          // The pptx2html library requires a jQuery object as its first argument
-          const $tempContainer = jQuery(tempContainer)
-          const options = {
-            slideMode: false,
-            usePng: true,
-            showSlideNum: false,
-            showTotalSlideNum: false,
-            keyBoardShortCut: false,
-            showSlideBarBtn: false,
-          }
-
-          try {
-            // Now this call will succeed because jQuery is properly initialized
-            await pptx2html($tempContainer, file, options)
-            // Use the jQuery object to manipulate styles as the library expects
-            $tempContainer.find("*").css({
-              "background-color": "transparent",
-              color: "black",
-              "font-family": "Arial, sans-serif",
-            })
-            $tempContainer.find(".slide").css({
-              "page-break-after": "always",
-              margin: "20px 0",
-              padding: "20px",
-              border: "1px solid #ccc",
-              "background-color": "white",
-              "min-height": "500px",
-              width: "100%",
-            })
-            $tempContainer.find(".slide:last").css("page-break-after", "auto")
-            container.innerHTML = tempContainer.innerHTML
-          } finally {
-            // ** IMPORTANT CLEANUP STEP **
-            // Remove the temporary container from the body
-            document.body.removeChild(tempContainer)
-            // Remove both jQuery and $ from the global window object to avoid conflicts
-            delete window.jQuery
-            delete window.$
-          }
+          
         } catch (pptxError) {
           console.error("PPTX conversion error:", pptxError)
           const fallbackDiv = document.createElement("div")
