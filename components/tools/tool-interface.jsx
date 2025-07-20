@@ -14,7 +14,7 @@ import { DocToPdfTool } from "./doc-to-pdf-tool.jsx"
 import { TextToSpeechTool } from "./text-to-speech-tool.jsx"
 import { AiHumanizerTool } from "./ai-humanizer-tool.jsx"
 import { TextSummarizerTool } from "./text-summarizer.jsx"
-import { VideoResizerTool } from "./video-resize-tool.jsx"
+// import { VideoResizerTool } from "./video-resize-tool.jsx"
 
 export function ToolInterface({ tool }) {
 
@@ -29,7 +29,7 @@ export function ToolInterface({ tool }) {
         : tool.id == "text-to-speech" ? <TextToSpeechTool /> 
         : tool.id == "text-summarizer" ? <TextSummarizerTool /> 
         : tool.id == "ai-humanizer" ? <AiHumanizerTool /> 
-        : tool.id == "video-resizer" ? <VideoResizerTool /> 
+        // : tool.id == "video-resizer" ? <VideoResizerTool /> 
         : null}
       {/* Tool Header
       <Card className={`border-0 bg-gradient-to-br from-background to-muted/10 shadow-lg`}>
