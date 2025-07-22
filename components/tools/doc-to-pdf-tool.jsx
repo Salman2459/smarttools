@@ -21,10 +21,12 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import * as XLSX from "xlsx"
 import mammoth from "mammoth"
 import $ from 'jquery';
+import { toolsData, iconMap } from "@/lib/tools-data" // Adjust this import path if needed
+
 
 
 // NOTE: No top-level jQuery import here.
-export function DocToPdfTool() {
+export function DocToPdfTool({ toolId }) {
   const [selectedFiles, setSelectedFiles] = useState([])
   const [isProcessing, setIsProcessing] = useState(false)
   const [compressionLevel, setCompressionLevel] = useState("medium")
@@ -32,6 +34,8 @@ export function DocToPdfTool() {
   const [pdfBlob, setPdfBlob] = useState(null)
   const fileInputRef = useRef(null)
   const html2pdfRef = useRef(null)
+  const toolData = toolsData.find(tool => tool.id === toolId)
+
 
   useEffect(() => {
     // Dynamically import html2pdf.js once the component mounts
@@ -139,7 +143,7 @@ export function DocToPdfTool() {
       } else if (ext === "pptx") {
         try {
 
-          
+
         } catch (pptxError) {
           console.error("PPTX conversion error:", pptxError)
           const fallbackDiv = document.createElement("div")
@@ -258,7 +262,7 @@ export function DocToPdfTool() {
           <Card className="border-0 bg-gradient-to-br from-background to-muted/10 shadow-lg">
             <CardHeader className="border-b border-muted/20">
               <CardTitle className="text-lg flex items-center gap-2">
-                <Upload className="w-5 h-5 text-green-600" />
+                <Upload className={`w-5 h-5 ${toolData.color}`} />
                 Upload Documents
               </CardTitle>
               <CardDescription>Select DOCX, TXT, XLSX, PPTX or Image files to convert to PDF</CardDescription>
@@ -266,11 +270,17 @@ export function DocToPdfTool() {
             <CardContent className="p-6">
               <Label htmlFor="doc-files" className="cursor-pointer">
                 <div
-                  className="border-2 border-dashed border-green-200 dark:border-green-800/50 rounded-xl p-8 text-center hover:border-green-400 dark:hover:border-green-600 hover:bg-green-50/50 dark:hover:bg-green-950/10 transition-all duration-300 group"
+                  className={`border-2 border-dashed rounded-xl p-8 text-center transition-all duration-300 group
+                    border-green-200
+                    hover:${toolData.color.replace("text-", "border-")}
+                    dark:${toolData.color.replace("text-", "border-")}
+                    dark:hover:${toolData.color.replace("text-", "border-")}
+                  `}
                   onDragOver={(e) => e.preventDefault()}
                   onDrop={handleDragDrop}
                 >
-                  <File className="w-12 h-12 mx-auto text-green-400 mb-4 group-hover:text-green-600 group-hover:scale-110 transition-all duration-300" />
+
+                  <File className={`w-12 h-12 mx-auto ${toolData.color} mb-4 group-hover:${toolData.color} group-hover:scale-110 transition-all duration-300`} />
                   <Input
                     id="doc-files"
                     type="file"
@@ -280,7 +290,7 @@ export function DocToPdfTool() {
                     className="hidden"
                     ref={fileInputRef}
                   />
-                  <p className="cursor-pointer text-sm text-muted-foreground hover:text-green-600 transition-colors duration-300 font-medium">
+                  <p className={`cursor-pointer text-sm text-muted-foreground hover:${toolData.color} transition-colors duration-300 font-medium`}>
                     Click to browse or drag and drop your file here
                   </p>
                   <div className="text-xs text-muted-foreground mt-2 px-4 py-1 bg-green-50 dark:bg-green-950/20 rounded-full inline-block">
@@ -372,7 +382,7 @@ export function DocToPdfTool() {
                 <p className="text-center text-white text-[12px]">Supported Types</p>
                 <div className="flex flex-wrap justify-center gap-2 px-4">
                   {[
-                    "docx", "txt", "xlsx", "xls", "csv",, "pptx", "png", "jpg", "jpeg", "gif"
+                    "docx", "txt", "xlsx", "xls", "csv", , "pptx", "png", "jpg", "jpeg", "gif"
                   ].map((item, index) => (
                     <div
                       key={index}
@@ -387,16 +397,20 @@ export function DocToPdfTool() {
             </CardContent>
           </Card>
         </div>
-      </div>
+      </div >
 
       <Card className="mt-6 border-0 bg-gradient-to-br from-background to-muted/10 shadow-lg">
         <CardContent className="p-6">
           <Button
             onClick={handleProcess}
             disabled={isProcessing || !selectedFiles || selectedFiles.length === 0}
-            className="w-full h-12 text-base bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] disabled:transform-none"
+            className={
+              `w-full h-12 text-base shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] disabled:transform-none",
+              `
+            }
             size="lg"
           >
+
             {isProcessing ? (
               <>
                 <Loader2 className="w-5 h-5 mr-2 animate-spin" />

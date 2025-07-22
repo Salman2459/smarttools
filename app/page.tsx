@@ -96,9 +96,9 @@ export default function HomePage() {
     <div className="min-h-screen">
       <HeroSection />
       <StatsSection stats={stats} />
-      <HowItWorksSection steps={steps} />
       <FeaturesSection features={features} />
-      <WhyChooseUsSection whyChooseUs={whyChooseUs} />
+      {/* <HowItWorksSection steps={steps} />
+      <WhyChooseUsSection whyChooseUs={whyChooseUs} /> */}
       <TestimonialsSection />
       <CTASection />
     </div>

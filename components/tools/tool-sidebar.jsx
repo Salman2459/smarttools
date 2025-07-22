@@ -1,13 +1,44 @@
 "use client"
 
+import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Sheet, SheetContent } from "@/components/ui/sheet"
-import { Plus, ArrowLeft } from "lucide-react"
+import { Plus, ArrowLeft, ChevronDown, ChevronUp, Image } from "lucide-react"
 
 export function ToolSidebar({ tools, activeToolId, isOpen, onClose }) {
   const categories = [...new Set(tools.map((tool) => tool.category))]
+  const [expandedCategories, setExpandedCategories] = useState({})
+  const [userToggled, setUserToggled] = useState({})
+  const toolRefs = useRef({})
+
+  const toggleCategory = (category) => {
+    setExpandedCategories((prev) => ({
+      ...prev,
+      [category]: !prev[category],
+    }))
+    setUserToggled((prev) => ({ ...prev, [category]: true }))
+  }
+
+  useEffect(() => {
+    const currentTool = tools.find(t => t.id === activeToolId)
+    if (
+      currentTool?.category === "Image Tools" &&
+      (currentTool.title.toLowerCase().includes("converter") || currentTool.title.toLowerCase().includes("to")) &&
+      !userToggled["Image Tools"]
+    ) {
+      setExpandedCategories(prev => ({ ...prev, "Image Tools": true }))
+    }
+
+    // Scroll to active tool
+    if (toolRefs.current[activeToolId]) {
+      toolRefs.current[activeToolId].scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      })
+    }
+  }, [activeToolId, tools, userToggled])
 
   const SidebarContent = () => (
     <div className="flex flex-col h-full">
@@ -27,41 +58,133 @@ export function ToolSidebar({ tools, activeToolId, isOpen, onClose }) {
 
       <ScrollArea className="flex-1 p-4">
         <div className="space-y-6">
-          {categories.map((category) => (
-            <div key={category}>
-              <h3 className="font-medium text-sm text-muted-foreground mb-3 px-2">{category}</h3>
-              <div className="space-y-1">
-                {tools
-                  .filter((tool) => tool.category === category)
-                  .map((tool) => (
-                    <Button
-                      key={tool.id}
-                      asChild
-                      variant={activeToolId === tool.id ? "secondary" : "ghost"}
-                      className={`w-full justify-start h-auto p-3 transition-all duration-300 hover:scale-[1.02] ${
-                        activeToolId === tool.id
-                          ? "bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 shadow-sm"
-                          : "hover:bg-muted/50"
-                      }`}
-                    >
-                      <Link href={`/tools/${tool.id}`} onClick={onClose}>
-                        <div
-                          className={`w-8 h-8 rounded-lg ${tool.bgColor} flex items-center justify-center mr-3 flex-shrink-0 transition-transform duration-300 ${
-                            activeToolId === tool.id ? "scale-110" : "group-hover:scale-105"
+          {categories.map((category) => {
+            const filteredTools = tools.filter((tool) => tool.category === category)
+            const isExpanded = expandedCategories[category] || false
+
+            return (
+              <div key={category}>
+                <h3 className="font-medium text-sm text-muted-foreground mb-3 px-2">{category}</h3>
+                <div className="space-y-1">
+                  {filteredTools
+                    .filter(tool => {
+                      if (category === "Image Tools") {
+                        return !tool.title.toLowerCase().includes('converter') &&
+                          !tool.title.toLowerCase().includes('to')
+                      }
+                      return true
+                    })
+                    .map((tool) => (
+                      <Button
+                        key={tool.id}
+                        asChild
+                        ref={(el) => toolRefs.current[tool.id] = el}
+                        variant={activeToolId === tool.id ? "secondary" : "ghost"}
+                        className={`w-full justify-start h-auto p-3 transition-all duration-300 hover:scale-[1.02] ${activeToolId === tool.id
+                            ? "bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 shadow-sm"
+                            : "hover:bg-muted/50"
                           }`}
-                        >
-                          <tool.icon className={`w-4 h-4 ${tool.color}`} />
+                      >
+                        <Link href={`/tools/${tool.id}`} onClick={onClose}>
+                          <div
+                            className={`w-8 h-8 rounded-lg ${tool.bgColor} flex items-center justify-center mr-3 flex-shrink-0 transition-transform duration-300 ${activeToolId === tool.id ? "scale-110" : "group-hover:scale-105"
+                              }`}
+                          >
+                            <tool.icon className={`w-4 h-4 ${tool.color}`} />
+                          </div>
+                          <div className="text-left flex-1 min-w-0">
+                            <div className="font-medium text-sm truncate">{tool.title}</div>
+                            <div className="text-xs text-muted-foreground truncate">{tool.description}</div>
+                          </div>
+                        </Link>
+                      </Button>
+                    ))}
+
+                  {/* Image Converter Dropdown */}
+                  {category === "Image Tools" && (
+                    <div className="relative">
+                      <Button
+                        variant="ghost"
+                        className={`w-full justify-start h-auto p-3 transition-all duration-300 hover:scale-[1.02] ${isExpanded
+                            ? "bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 shadow-sm"
+                            : "hover:bg-muted/50"
+                          }`}
+                        onClick={() => toggleCategory(category)}
+                      >
+                        <div className="flex items-center gap-3 w-full">
+                          <div
+                            className={`w-8 h-8 rounded-lg bg-muted flex items-center justify-center flex-shrink-0 transition-transform duration-300 ${isExpanded ? "scale-110" : "group-hover:scale-105"
+                              }`}
+                          >
+                            <Image className="w-4 h-4" alt="icon" color="yellow" />
+                          </div>
+                          <div className="flex-1 text-left">
+                            <div className="font-medium text-sm truncate flex gap-2">
+                              Image Converters
+                              {isExpanded ? (
+                                <ChevronUp className="w-4 h-4 mt-[1px]" />
+                              ) : (
+                                <ChevronDown className="w-4 h-4 mt-[1px]" />
+                              )}
+                            </div>
+                            <div className="text-xs text-muted-foreground truncate mt-1">
+                              Convert your images in another format
+                            </div>
+                          </div>
+                          <div className="flex items-center">
+                            {isExpanded ? (
+                              <ChevronUp className="w-4 h-4 text-muted-foreground" />
+                            ) : (
+                              <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                            )}
+                          </div>
                         </div>
-                        <div className="text-left flex-1 min-w-0">
-                          <div className="font-medium text-sm truncate">{tool.title}</div>
-                          <div className="text-xs text-muted-foreground truncate">{tool.description}</div>
+                      </Button>
+
+                      {/* Dropdown Content - Show Image Converter Tools */}
+                      <div
+                        className={`overflow-hidden transition-all duration-300 ease-in-out ${isExpanded
+                            ? 'h-auto opacity-100 mt-1'
+                            : 'max-h-0 opacity-0'
+                          }`}
+                      >
+                        <div className="bg-background border border-border rounded-md shadow-lg">
+                          {filteredTools
+                            .filter(tool =>
+                              tool.title.toLowerCase().includes('converter') ||
+                              tool.title.toLowerCase().includes('to')
+                            )
+                            .map((tool) => (
+                              <Button
+                                key={tool.id}
+                                asChild
+                                ref={(el) => toolRefs.current[tool.id] = el}
+                                variant="ghost"
+                                className={`w-full justify-start px-3 py-2 text-sm rounded-none border-0 hover:bg-muted ${activeToolId === tool.id ? "bg-primary/10 text-primary" : ""
+                                  }`}
+                              >
+                                <Link href={`/tools/${tool.id}`} onClick={onClose}>
+                                  <div className="flex items-center gap-3 w-full">
+                                    <div
+                                      className={`w-6 h-6 rounded ${tool.bgColor} flex items-center justify-center flex-shrink-0`}
+                                    >
+                                      <tool.icon className={`w-3 h-3 ${tool.color}`} />
+                                    </div>
+                                    <div className="text-left flex-1 min-w-0">
+                                      <div className="font-medium truncate">{tool.title}</div>
+                                    </div>
+                                  </div>
+                                </Link>
+                              </Button>
+                            ))}
                         </div>
-                      </Link>
-                    </Button>
-                  ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
 
           <div className="border-t pt-4">
             <Button
