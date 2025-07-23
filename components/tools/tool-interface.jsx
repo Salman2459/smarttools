@@ -14,6 +14,9 @@ import { DocToPdfTool } from "./doc-to-pdf-tool.jsx"
 import { TextToSpeechTool } from "./text-to-speech-tool.jsx"
 import { AiHumanizerTool } from "./ai-humanizer-tool.jsx"
 import { TextSummarizerTool } from "./text-summarizer.jsx"
+import { GrammarCheckerTool } from "./grammer-checker-tool.jsx"
+import { QrGeneratorTool } from "./qr-generator-tool.jsx"
+import { BarcodeGeneratorTool } from "./barcode-tool.jsx"
 // import { VideoResizerTool } from "./video-resize-tool.jsx"
 
 export function ToolInterface({ tool }) {
@@ -41,13 +44,16 @@ export function ToolInterface({ tool }) {
         : tool.id == "image-converter" ? <ImageConverterTool /> 
         : tool.id == "image-watermarker" ? <ImageWatermarkerTool /> 
         : tool.id == "image-to-pdf" ? <ImageToPdfTool /> 
-        : tool.id == "doc-to-pdf" ? <DocToPdfTool toolId={"doc-to-pdf"}/> 
-        : tool.id == "excel-to-pdf" ? <DocToPdfTool toolId={"excel-to-pdf"}/> 
-        : tool.id == "word-to-pdf" ? <DocToPdfTool toolId={"word-to-pdf"}/> 
-        : tool.id == "txt-to-pdf" ? <DocToPdfTool toolId={"txt-to-pdf"}/> 
+        : tool.id == "doc-to-pdf" ? <DocToPdfTool toolId="doc-to-pdf"/> 
+        : tool.id == "excel-to-pdf" ? <DocToPdfTool toolId="excel-to-pdf"/> 
+        : tool.id == "word-to-pdf" ? <DocToPdfTool toolId="word-to-pdf"/> 
+        : tool.id == "txt-to-pdf" ? <DocToPdfTool toolId="txt-to-pdf"/> 
         : tool.id == "text-to-speech" ? <TextToSpeechTool /> 
+        : tool.id == "grammar-checker" ? <GrammarCheckerTool /> 
         : tool.id == "text-summarizer" ? <TextSummarizerTool /> 
         : tool.id == "ai-humanizer" ? <AiHumanizerTool /> 
+        : tool.id == "qr-generator" ? <QrGeneratorTool /> 
+        : tool.id == "barcode-generator" ? <BarcodeGeneratorTool /> 
         // : tool.id == "video-resizer" ? <VideoResizerTool /> 
         : null}
       {/* Tool Header

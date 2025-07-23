@@ -61,10 +61,10 @@ export function DocToPdfTool({ toolId }) {
     if (files) {
       const newFiles = Array.from(files).filter((file) => {
         const ext = file.name.split(".").pop().toLowerCase()
-        return ["docx", "txt", "xlsx", "xls", "csv", "png", "jpg", "jpeg", "gif", "svg", "pptx"].includes(ext)
+        return ["docx", "txt", "xlsx", "xls", "csv", "png", "jpg", "jpeg", "gif", "svg"].includes(ext)
       })
       if (newFiles.length === 0) {
-        alert("Please drop supported file types: DOCX, TXT, XLSX, PPTX, Images")
+        alert("Please drop supported file types: DOCX, TXT, XLSX, Images")
         return
       }
       const allFiles = [...selectedFiles, ...newFiles]
@@ -265,17 +265,11 @@ export function DocToPdfTool({ toolId }) {
                 <Upload className={`w-5 h-5 ${toolData.color}`} />
                 Upload Documents
               </CardTitle>
-              <CardDescription>Select DOCX, TXT, XLSX, PPTX or Image files to convert to PDF</CardDescription>
+              <CardDescription>Select DOCX, TXT, XLSX, or Image files to convert to PDF</CardDescription>
             </CardHeader>
             <CardContent className="p-6">
               <Label htmlFor="doc-files" className="cursor-pointer">
-                <div
-                  className={`border-2 border-dashed rounded-xl p-8 text-center transition-all duration-300 group
-                    border-green-200
-                    hover:${toolData.color.replace("text-", "border-")}
-                    dark:${toolData.color.replace("text-", "border-")}
-                    dark:hover:${toolData.color.replace("text-", "border-")}
-                  `}
+                <div className={`border-2 border-dashed border-gray-600 rounded-xl p-8 text-center hover:border-current ${toolData.color} hover:bg-muted/30 transition-all duration-300 group `}
                   onDragOver={(e) => e.preventDefault()}
                   onDrop={handleDragDrop}
                 >
@@ -294,7 +288,7 @@ export function DocToPdfTool({ toolId }) {
                     Click to browse or drag and drop your file here
                   </p>
                   <div className="text-xs text-muted-foreground mt-2 px-4 py-1 bg-green-50 dark:bg-green-950/20 rounded-full inline-block">
-                    Supported: DOCX, TXT, XLSX, PPTX, Images
+                    Supported: DOCX, TXT, XLSX, Images
                   </div>
                 </div>
               </Label>
@@ -378,11 +372,11 @@ export function DocToPdfTool({ toolId }) {
                 </Select>
                 <p className="text-xs text-muted-foreground pt-2">Applies to images within the document.</p>
               </div>
-              <div className="space-y-2 bg-[#080E1E] min-h-[100px] py-4" style={{ color: 'black' }}>
+              <Card className={`space-y-2  min-h-[100px] py-4`} style={{ color: 'black' }}>
                 <p className="text-center text-white text-[12px]">Supported Types</p>
                 <div className="flex flex-wrap justify-center gap-2 px-4">
                   {[
-                    "docx", "txt", "xlsx", "xls", "csv", , "pptx", "png", "jpg", "jpeg", "gif"
+                    "docx", "txt", "xlsx", "xls", "csv", "png", "jpg", "jpeg", "gif"
                   ].map((item, index) => (
                     <div
                       key={index}
@@ -392,7 +386,7 @@ export function DocToPdfTool({ toolId }) {
                     </div>
                   ))}
                 </div>
-              </div>
+              </Card>
 
             </CardContent>
           </Card>

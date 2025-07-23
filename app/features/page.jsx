@@ -35,7 +35,7 @@ export default function FeaturesPage() {
           {toolsData.map((tool) => (
             <Card
               key={tool.id}
-              className="group hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 border-0 bg-gradient-to-br from-background/80 to-background/40 backdrop-blur-sm hover:scale-105 hover:-translate-y-2 cursor-pointer"
+              className="group hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 border-0 bg-gradient-to-br from-background/80 to-background/40 backdrop-blur-sm hover:scale-105 hover:-translate-y-2 cursor-pointer border border-gray-600 dark:border-gray-800"
             >
               <Link href={`/tools/${tool.id}`}>
                 <CardHeader className="text-center pb-3 sm:pb-4">

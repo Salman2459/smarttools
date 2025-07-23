@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Zap, Menu, X, ChevronDown } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
+import { toolsData } from "@/lib/tools-data"
 
 export function Header() {
   const pathname = usePathname()
@@ -21,10 +22,11 @@ export function Header() {
   ]
 
   const allToolsSections = [
-    { name: "Image Converters", href: "/tools/image-convert" },
-    { name: "Video Tools", href: "/tools/video-tools" },
-    { name: "Text Utilities", href: "/tools/text-utils" },
-    { name: "PDF Tools", href: "/tools/pdf-tools" },
+    { name: "Image Tools", href: "/tools/image-compressor" },
+    { name: "PDF Tools", href: "/tools/image-to-pdf" },
+    { name: "Text Utilities", href: "/tools/text-to-speech" },
+    { name: "Video Tools", href: "/tools/video-resizer" },
+    { name: "Other Tools", href: "/tools/qr-generator" },
   ]
 
   // Close dropdown when clicking outside (desktop)
@@ -56,7 +58,7 @@ export function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6">
+        <nav className="hidden md:flex items-center space-x-6 -mt-1">
           {navigation.map((item) =>
             item.name === "All Tools" ? (
               <div
@@ -68,9 +70,7 @@ export function Header() {
               >
                 {/* All Tools Button */}
                 <button
-                  className={`flex items-center gap-1 text-sm font-medium transition-colors border-b-2 border-transparent hover:border-primary ${pathname === item.href
-                      ? "text-primary border-primary"
-                      : "text-muted-foreground"
+                  className={`flex items-center gap-1 text-sm font-medium transition-colors border-b-2 border-transparent hover:border-primary ${pathname === item.href ? "text-primary border-primary" : "text-muted-foreground"
                     }`}
                 >
                   {item.name}
@@ -79,28 +79,35 @@ export function Header() {
 
                 {/* Dropdown Panel */}
                 <div
-                  className={`absolute left-1/2 -translate-x-1/2 top-full mt-0 w-[90vw] max-w-7xl bg-background border rounded-lg shadow-md p-4 grid grid-cols-2 sm:grid-cols-4 gap-4 transition-opacity duration-200 ${isAllToolsDropdownOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+                  className={`absolute left-1/2 -translate-x-1/2 top-full mt-2 w-[90vw] max-w-7xl bg-background border rounded-lg shadow-md p-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 transition-all duration-200 ${isAllToolsDropdownOpen
+                      ? "opacity-100 visible"
+                      : "opacity-0 invisible pointer-events-none"
                     }`}
                 >
-                  {allToolsSections.map((section) => (
-                    <Link
-                      key={section.name}
-                      href={section.href}
-                      className="block text-sm font-medium text-muted-foreground hover:text-foreground"
-                      onClick={() => setIsAllToolsDropdownOpen(false)}
-                    >
-                      {section.name}
-                    </Link>
-                  ))}
+                  {["Image Tools", "PDF Tools", "Text Tools", "Video Tools", "Other Tools"].map(
+                    (category) => (
+                      <div key={category} className="space-y-2">
+                        <div className="text-[20px] font-semibold text-foreground mb-1">{category}</div>
+                        {toolsData
+                          .filter((tool) => tool.category === category)
+                          .map((tool) => (
+                            <Link key={tool.id} href={`/tools/${tool.id}`}>
+                              <div className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mt-[10px]">
+                                <tool.icon className={`w-4 h-4 ${tool.color}`} />
+                                {tool.title.replace(" Converter", "")}
+                              </div>
+                            </Link>
+                          ))}
+                      </div>
+                    )
+                  )}
                 </div>
               </div>
             ) : (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-sm font-medium transition-colors border-b-2 border-transparent hover:border-primary ${pathname === item.href
-                    ? "text-primary border-primary"
-                    : "text-muted-foreground"
+                className={`text-sm font-medium transition-colors border-b-2 border-transparent hover:border-primary ${pathname === item.href ? "text-primary border-primary" : "text-muted-foreground"
                   }`}
               >
                 {item.name}
@@ -108,6 +115,7 @@ export function Header() {
             )
           )}
         </nav>
+
 
 
         {/* Right Controls */}
@@ -176,8 +184,8 @@ export function Header() {
                       key={item.name}
                       href={item.href}
                       className={`block px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 ${pathname === item.href
-                          ? "text-primary bg-primary/10 shadow-sm"
-                          : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                        ? "text-primary bg-primary/10 shadow-sm"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                         }`}
                       onClick={() => setIsMobileMenuOpen(false)}
                     >

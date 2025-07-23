@@ -165,7 +165,7 @@ export function ImageConverterTool({ toolId, fromFormat, toFormat }) {
             </CardHeader>
             <CardContent className="p-6 flex-1">
               <label htmlFor={`convert-files-${toolId}`}>
-                <div className={`border-2 border-dashed border-muted/30 rounded-xl p-8 text-center hover:border-current ${toolData.color} hover:bg-muted/30 transition-all duration-300 group`}
+                <div className={`border-2 border-dashed border-gray-600 rounded-xl p-8 text-center hover:border-current ${toolData.color} hover:bg-muted/30 transition-all duration-300 group`}
                   onDragOver={(e) => e.preventDefault()}
                   onDrop={(e) => {
                     e.preventDefault()
