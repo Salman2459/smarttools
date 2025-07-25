@@ -38,30 +38,41 @@ export function VideoCropperTool() {
     const [progress, setProgress] = useState(0);
     const [outputVideoUrl, setOutputVideoUrl] = useState(null);
 
-    const ffmpegRef = useRef(new FFmpeg());
+    // SOLVED: Step 1 - Initialize the ref to null
+    // This prevents FFmpeg from being instantiated on the server.
+    const ffmpegRef = useRef(null);
     const inputRef = useRef(null)
     const videoRef = useRef(null)
 
-    const load = async () => {
-        const ffmpeg = ffmpegRef.current;
-        const baseURL = 'https://unpkg.com/@ffmpeg/core@0.12.6/dist/umd'
-        ffmpeg.on('log', ({ message }) => {
-            console.log(message);
-        });
-        ffmpeg.on('progress', ({ progress, time }) => {
-            setProgress(Math.round(progress * 100));
-        });
-        // toBlobURL is used to bypass CORS issue, urls with the same domain can be used directly.
-        await ffmpeg.load({
-            coreURL: await toBlobURL(`${baseURL}/ffmpeg-core.js`, 'text/javascript'),
-            wasmURL: await toBlobURL(`${baseURL}/ffmpeg-core.wasm`, 'application/wasm'),
-        });
-        setIsReady(true);
-    };
 
+    // SOLVED: Step 2 - Move all FFmpeg loading logic into useEffect
+    // This ensures the code only runs on the client after the component has mounted.
     useEffect(() => {
-        load();
-    }, [])
+        const loadFFmpeg = async () => {
+            const baseURL = 'https://unpkg.com/@ffmpeg/core@0.12.6/dist/umd'
+
+            // Instantiate FFmpeg and assign it to the ref
+            const ffmpeg = new FFmpeg()
+            ffmpegRef.current = ffmpeg;
+
+            ffmpeg.on('log', ({ message }) => {
+                console.log(message);
+            });
+            ffmpeg.on('progress', ({ progress, time }) => {
+                setProgress(Math.round(progress * 100));
+            });
+
+            // toBlobURL is used to bypass CORS issue, urls with the same domain can be used directly.
+            await ffmpeg.load({
+                coreURL: await toBlobURL(`${baseURL}/ffmpeg-core.js`, 'text/javascript'),
+                wasmURL: await toBlobURL(`${baseURL}/ffmpeg-core.wasm`, 'application/wasm'),
+            });
+
+            setIsReady(true);
+        };
+
+        loadFFmpeg();
+    }, []) // The empty dependency array ensures this runs only once on mount
 
     function onVideoLoad(e) {
         const { videoWidth, videoHeight } = e.currentTarget;
@@ -110,10 +121,16 @@ export function VideoCropperTool() {
             return;
         }
 
+        // The 'isReady' state already prevents this from running if ffmpegRef.current is null
+        const ffmpeg = ffmpegRef.current;
+        if (!ffmpeg) {
+            alert("FFmpeg is not loaded yet. Please wait.");
+            return;
+        }
+
         setIsProcessing(true);
         setProgress(0);
 
-        const ffmpeg = ffmpegRef.current;
         const inputFileName = 'input.mp4';
         const outputFileName = 'output.mp4';
 

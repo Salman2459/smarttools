@@ -16,10 +16,7 @@ import { FileVideo, Upload, Download, Loader2, Settings, XCircle, Gauge } from "
 import { Progress } from "@/components/ui/progress"
 import { Slider } from "@/components/ui/slider"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-//
-// CHANGE 1: The problematic import is removed from here.
-// import { FFmpeg } from '@ffmpeg/ffmpeg'
-//
+import { FFmpeg } from '@ffmpeg/ffmpeg'
 import { fetchFile, toBlobURL } from '@ffmpeg/util'
 
 // Helper to format file size
@@ -52,11 +49,7 @@ export function VideoCompressorTool() {
     // Load FFmpeg
     useEffect(() => {
         const loadFFmpeg = async () => {
-            // CHANGE 2: Dynamically import FFmpeg inside useEffect
-            const { FFmpeg } = await import('@ffmpeg/ffmpeg');
-
             if (!ffmpegRef.current) {
-                // Now we can safely create a new FFmpeg instance
                 ffmpegRef.current = new FFmpeg();
             }
             const ffmpeg = ffmpegRef.current;
