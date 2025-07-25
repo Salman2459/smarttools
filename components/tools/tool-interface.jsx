@@ -19,7 +19,7 @@ import { QrGeneratorTool } from "./qr-generator-tool.jsx"
 import { BarcodeGeneratorTool } from "./barcode-tool.jsx"
 import { ImageCropperTool } from "./Image-copper-tool.jsx"
 import { VideoCropperTool } from "./video-cropper-tool.jsx"
-import { VideoTrimmerTool } from "./video-trimmer-tool.jsx"
+import { VideoTrimmerTool } from "./Video-trimmer-tool.jsx"
 import { VideoCompressorTool } from "./video-compressor-tool.jsx"
 // import { VideoResizerTool } from "./video-resize-tool.jsx"
 
