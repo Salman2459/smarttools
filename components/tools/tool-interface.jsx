@@ -21,7 +21,7 @@ import { ImageCropperTool } from "./Image-copper-tool.jsx"
 import { VideoCropperTool } from "./video-cropper-tool.jsx"
 import { VideoTrimmerTool } from "./Video-trimmer-tool.jsx"
 import { VideoCompressorTool } from "./video-compressor-tool.jsx"
-// import { VideoResizerTool } from "./video-resize-tool.jsx"
+import { VideoResizerTool } from "./video-resize-tool.jsx"
 
 export function ToolInterface({ tool }) {
 
@@ -62,7 +62,8 @@ export function ToolInterface({ tool }) {
                                                                       : tool.id == "video-compressor" ? <VideoCompressorTool />
                                                                         : tool.id == "video-trimmer" ? <VideoTrimmerTool />
                                                                           : tool.id == "video-cropper" ? <VideoCropperTool />
-                                                                            : null}
+                                                                            : tool.id == "video-resizer" ? <VideoResizerTool />
+                                                                              : null}
 
     </div>
   )

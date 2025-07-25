@@ -173,7 +173,7 @@ export function VideoTrimmerTool() {
                     <CardContent className="p-6 space-y-4">
                         {/* FIX 1: Set fixed height on video player */}
                         <div className="w-full flex justify-center bg-black rounded-lg">
-                            <video ref={videoRef} src={videoSrc} controls onLoadedMetadata={onVideoLoad} className="w-auto h-[300px] rounded-lg shadow-inner" />
+                            <video ref={videoRef} src={videoSrc} controls onLoadedMetadata={onVideoLoad} className="w-[300px] h-[300px] rounded-lg shadow-inner mx-auto d-block" />
                         </div>
 
                         {/* FIX 2: Prominent Slider Controls with handles at both ends */}
@@ -190,11 +190,7 @@ export function VideoTrimmerTool() {
                                 step={0.1}
                                 disabled={!duration}
                                 // These classes target both handles `[&_[role=slider]]`
-                                className="[&_span.bg-primary]:bg-blue-600 
-                           [&_[role=slider]]:h-5 [&_[role=slider]]:w-5 
-                           [&_[role=slider]]:bg-white dark:[&_[role=slider]]:bg-slate-950
-                           [&_[role=slider]]:border-2 [&_[role=slider]]:border-blue-600 
-                           [&>span]:h-2"
+                                className=""
                             />
                         </div>
 
@@ -237,7 +233,7 @@ export function VideoTrimmerTool() {
                         <div className="flex flex-col items-center gap-4">
                             {/* FIX 1: Set fixed height on output video as well */}
                             <div className="w-full flex justify-center bg-black rounded-lg">
-                                <video src={outputVideoUrl} controls className="w-auto h-[300px] rounded-lg shadow-md border" />
+                                <video src={outputVideoUrl} controls className="w-[300px] h-[300px] rounded-lg shadow-md border mx-auto d-block" />
                             </div>
                             <a href={outputVideoUrl} download="trimmed-video.mp4" className="w-full sm:w-auto">
                                 <Button className="w-full">

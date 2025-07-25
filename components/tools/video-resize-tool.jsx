@@ -7,7 +7,9 @@ import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Video, Settings, Loader2, RotateCcw, Download, UploadCloud, Film, AlertCircle, Crop, StretchHorizontal } from "lucide-react"
-import { createFFmpeg, fetchFile } from "@ffmpeg/ffmpeg"
+// --- CHANGE 1: REMOVE THE STATIC IMPORT ---
+// This line is the source of the error because it's evaluated in non-browser environments.
+// import { createFFmpeg, fetchFile } from "@ffmpeg/ffmpeg"
 
 const presets = [
   { name: "Instagram Square", width: 1080, height: 1080 },
@@ -19,9 +21,11 @@ const presets = [
   { name: "Full HD (1080p)", width: 1920, height: 1080 },
 ];
 
-const ffmpeg = createFFmpeg({ log: true });
 
 export function VideoResizerTool() {
+  // We still use a ref to hold the ffmpeg instance once it's created.
+  const ffmpegRef = useRef(null);
+
   const [videoFile, setVideoFile] = useState(null)
   const [resizedVideo, setResizedVideo] = useState(null)
   const [videoPreviewUrl, setVideoPreviewUrl] = useState(null)
@@ -65,8 +69,20 @@ export function VideoResizerTool() {
     setError("")
 
     try {
+      // --- CHANGE 2: DYNAMICALLY IMPORT THE LIBRARY HERE ---
+      // This ensures the code is only ever loaded in the browser when this function is called.
+      const { createFFmpeg, fetchFile } = await import('@ffmpeg/ffmpeg');
+
+      // Get the ffmpeg instance from the ref, or create it if it doesn't exist.
+      let ffmpeg = ffmpegRef.current;
+      if (!ffmpeg) {
+        ffmpeg = createFFmpeg({ log: true });
+        ffmpegRef.current = ffmpeg;
+      }
+
+      // Load the ffmpeg core if it's not already loaded.
       if (!ffmpeg.isLoaded()) {
-        await ffmpeg.load()
+        await ffmpeg.load();
       }
 
       const inputFile = "input.mp4"
@@ -78,8 +94,8 @@ export function VideoResizerTool() {
         resizeStrategy === "fit"
           ? `scale='min(${width},iw)':-2:force_original_aspect_ratio=decrease,pad=${width}:${height}:(ow-iw)/2:(oh-ih)/2`
           : resizeStrategy === "crop"
-          ? `scale=${width}:${height}:force_original_aspect_ratio=increase,crop=${width}:${height}`
-          : `scale=${width}:${height}` // stretch
+            ? `scale=${width}:${height}:force_original_aspect_ratio=increase,crop=${width}:${height}`
+            : `scale=${width}:${height}` // stretch
 
       await ffmpeg.run(
         "-i", inputFile,
@@ -134,6 +150,7 @@ export function VideoResizerTool() {
 
   return (
     <div className="max-w-6xl mx-auto space-y-6">
+      {/* ... The rest of your JSX remains unchanged ... */}
       <Card className="border-0 bg-gradient-to-br from-yellow-50/50 to-yellow-100/30 dark:from-yellow-950/20 dark:to-yellow-900/10 shadow-lg" />
 
       {error && (

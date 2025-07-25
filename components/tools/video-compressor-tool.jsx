@@ -175,7 +175,12 @@ export function VideoCompressorTool() {
                                             <XCircle className="w-5 h-5" />
                                         </Button>
                                     </div>
-                                    <video src={URL.createObjectURL(videoFile)} controls className="w-full h-auto rounded-lg shadow-inner bg-black" />
+                                    <video
+                                        src={URL.createObjectURL(videoFile)}
+                                        controls
+                                        className="w-[300px] h-[300px] rounded-lg shadow-inner bg-black mx-auto d-block"
+                                    />
+
                                 </div>
                             )}
                         </CardContent>
@@ -268,7 +273,12 @@ export function VideoCompressorTool() {
                                     </p>
                                 </div>
                             </div>
-                            <video src={outputVideoUrl} controls className="w-full h-auto rounded-lg shadow-md border" />
+                            <video
+                                src={outputVideoUrl}
+                                controls
+                                className="w-[300px] h-[300px] rounded-lg shadow-md border mx-auto d-block"
+                            />
+
                             <a href={outputVideoUrl} download={`compressed-${videoFile.name}`} className="w-full">
                                 <Button className="w-full">
                                     <Download className="w-4 h-4 mr-2" /> Download Video

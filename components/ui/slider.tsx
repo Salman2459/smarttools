@@ -1,9 +1,11 @@
+// Place this code in your `components/ui/slider.tsx` file
+
 "use client"
 
 import * as React from "react"
 import * as SliderPrimitive from "@radix-ui/react-slider"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils" // Assumes you have a `cn` utility function
 
 const Slider = React.forwardRef<
   React.ElementRef<typeof SliderPrimitive.Root>,
@@ -12,15 +14,34 @@ const Slider = React.forwardRef<
   <SliderPrimitive.Root
     ref={ref}
     className={cn(
+      // The parent is relative, allowing us to position the markers absolutely inside it.
       "relative flex w-full touch-none select-none items-center",
       className
     )}
     {...props}
   >
-    <SliderPrimitive.Track className="relative h-2 w-full grow overflow-hidden rounded-full bg-secondary">
-      <SliderPrimitive.Range className="absolute h-full bg-primary" />
+    <SliderPrimitive.Track className="relative h-2 w-full grow overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800">
+      <SliderPrimitive.Range className="absolute h-full bg-blue-600 dark:bg-blue-500" />
     </SliderPrimitive.Track>
-    <SliderPrimitive.Thumb className="block h-5 w-5 rounded-full border-2 border-primary bg-background ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50" />
+
+    {/* --- ADDITION: START MARKER --- */}
+    {/* This div is the vertical line at the beginning of the slider. */}
+    {/* It's positioned absolutely to the left edge. */}
+    {/* The `items-center` on the parent Root automatically centers it vertically. */}
+    <div className="absolute left-0 h-4 w-1 rounded-full bg-blue-600 dark:bg-blue-500" />
+
+    {/* --- ADDITION: END MARKER --- */}
+    {/* This div is the vertical line at the end of the slider. */}
+    {/* It's positioned absolutely to the right edge. */}
+    <div className="absolute right-0 h-4 w-1 rounded-full bg-blue-600 dark:bg-blue-500" />
+
+    {/* 
+      Radix UI's SliderPrimitive will automatically create a Thumb component 
+      for each value in the `value` prop array. This is what enables the 
+      two-handle range slider functionality.
+    */}
+    <SliderPrimitive.Thumb />
+
   </SliderPrimitive.Root>
 ))
 Slider.displayName = SliderPrimitive.Root.displayName
