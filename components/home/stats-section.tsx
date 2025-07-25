@@ -3,7 +3,7 @@ export function StatsSection() {
     { number: "50K+", label: "Files Processed" },
     { number: "10K+", label: "Happy Users" },
     { number: "99.9%", label: "Uptime" },
-    { number: "< 30s", label: "Average Processing Time" },
+    { number: "Less than 30s", label: "Average Processing Time" },
   ]
 
   return (

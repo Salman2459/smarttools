@@ -52,8 +52,10 @@ export function FeaturesSection() {
           {features.map((feature, index) => (
             <Link key={index} href={`/tools/${feature.id}`} className="no-underline">
               <Card
-                
-                className="group hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 border-0 bg-gradient-to-br from-background/80 to-background/40 backdrop-blur-sm hover:scale-105 hover:-translate-y-2 cursor-pointer"
+                className="group hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 border-0 
+             bg-gradient-to-br from-transparent to-transparent 
+             dark:from-background dark:to-background/40 
+             backdrop-blur-sm hover:scale-105 hover:-translate-y-2 cursor-pointer"
                 style={{
                   animationDelay: `${index * 100}ms`,
                 }}
@@ -65,7 +67,7 @@ export function FeaturesSection() {
                     />
                   </div>
                   <CardTitle className="text-base sm:text-lg group-hover:text-primary transition-colors duration-300">
-                    {feature.title}
+                    {feature.title.replace(" Converter", "")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="text-center pt-0">

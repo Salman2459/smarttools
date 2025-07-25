@@ -3,7 +3,7 @@ import { Zap } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="border-t bg-muted/30">
+    <footer className="border-t bg-muted/30 mx-auto d-block">
       <div className="container px-4 py-8 sm:py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           <div className="space-y-4 sm:col-span-2 lg:col-span-1">
@@ -28,7 +28,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/features" className="hover:text-primary transition-colors">
-                  "Document to PDF
+                  Document to PDF
                 </Link>
               </li>
               <li>

@@ -28,7 +28,7 @@ export function TestimonialsSection() {
     <section className="py-16 sm:py-20 px-4 bg-muted/30">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12 sm:mb-16">
-          <Badge variant="outline" className="mb-4">
+          <Badge variant="outline" className="mb-4 md:text-2xl">
             Testimonials
           </Badge>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Loved by Thousands</h2>
