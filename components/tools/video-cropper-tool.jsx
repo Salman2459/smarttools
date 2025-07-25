@@ -278,7 +278,7 @@ export function VideoCropperTool() {
                         <Download className="w-5 h-5 text-cyan-600" /> Download Cropped Video
                     </CardTitle>
                 </CardHeader>
-                <CardContent className="p-6">
+                <CardContent className="p-6 d-block">
                     {outputVideoUrl ? (
                         <div className="flex flex-col items-center gap-4">
                             <video src={outputVideoUrl} controls className="w-full rounded-lg shadow-md border" />
