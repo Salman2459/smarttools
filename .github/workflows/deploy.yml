@@ -3,11 +3,10 @@ name: Deploy to Hostinger
 on:
   push:
     branches:
-      - main  # or your deployment branch
+      - main
 
 jobs:
   deploy:
-    name: Build and Deploy
     runs-on: ubuntu-latest
 
     steps:
