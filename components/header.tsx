@@ -30,7 +30,7 @@ export function Header() {
     { name: "All Tools", href: "/features" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
-    { name: "Privacy&Policy", href: "/privacypolicy" },
+    { name: "Privacy Policy", href: "/privacypolicy" },
   ]
 
   // Filtered tool data for convenience
@@ -105,13 +105,13 @@ export function Header() {
                             key={tool.id}
                             href={`/tools/${tool.id}`}
                             onClick={closeAllDropdowns}
-                            className="group flex items-center gap-3 p-2 rounded-md hover:bg-muted/50"
+                            className="group flex items-center gap-3 p-0 rounded-md hover:bg-muted/50 -mt-1"
                           >
-                            <div className={`flex items-center justify-center w-8 h-8 rounded-md bg-muted ${tool.color}`}>
-                              <tool.icon className={`w-5 h-5 text-muted-foreground group-hover:text-foreground ${tool.color}`} />
+                            <div className={`flex items-center justify-center text-sm w-6 h-6 rounded-md bg-muted ${tool.color}`}>
+                              <tool.icon className={`w-4 h-4 text-muted-foreground group-hover:text-foreground ${tool.color}`} />
                             </div>
                             <div>
-                              <p className="text-sm font-medium text-foreground">{tool.title.replace("Converter", "")}</p>
+                              <p className="text-[12px] font-medium text-foreground">{tool.title.replace("Converter", "")}</p>
                               {/* <p className="text-xs text-muted-foreground">{tool.description}</p> */}
                             </div>
                           </Link>

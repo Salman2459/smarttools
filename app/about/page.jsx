@@ -184,7 +184,7 @@ export default function AboutPage() {
             </section>
 
             {/* Section 4: Meet the Team */}
-            <section className="py-16 sm:py-24 bg-background">
+            {/* <section className="py-16 sm:py-24 bg-background">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12 sm:mb-16">
                         <h2 className="text-3xl sm:text-4xl font-bold">Meet the Team</h2>
@@ -196,7 +196,7 @@ export default function AboutPage() {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section> */}
         </main>
     );
 }

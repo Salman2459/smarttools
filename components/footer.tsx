@@ -49,12 +49,12 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/features" className="hover:text-primary transition-colors">
-                  Image Compression
+                  Image Tools
                 </Link>
               </li>
               <li>
                 <Link href="/features" className="hover:text-primary transition-colors">
-                  AI Text Humanizer
+                  Text Tools
                 </Link>
               </li>
             </ul>
@@ -74,7 +74,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="hover:text-primary transition-colors">
+                <Link href="/privacypolicy" className="hover:text-primary transition-colors">
                   Privacy Policy
                 </Link>
               </li>
@@ -90,20 +90,20 @@ export function Footer() {
             <h3 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Support</h3>
             <ul className="space-y-2 text-xs sm:text-sm text-muted-foreground">
               <li>
-                <Link href="/help" className="hover:text-primary transition-colors">
+                <Link href="/contect" className="hover:text-primary transition-colors">
                   Help Center
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/faq" className="hover:text-primary transition-colors">
                   FAQ
                 </Link>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <Link href="/contact" className="hover:text-primary transition-colors">
                   Contact Support
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

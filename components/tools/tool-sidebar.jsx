@@ -23,8 +23,8 @@ const ToolItem = ({ tool, activeToolId, toolRefs, onClose }) => (
         ref={(el) => (toolRefs.current[tool.id] = el)}
         variant={activeToolId === tool.id ? "secondary" : "ghost"}
         className={`w-full justify-start h-auto p-3 transition-all duration-300 hover:scale-[1.02] ${activeToolId === tool.id
-            ? "bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 shadow-sm"
-            : "hover:bg-muted/50"
+          ? "bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 shadow-sm"
+          : "hover:bg-muted/50"
           }`}
       >
         <Link href={`/tools/${tool.id}`} onClick={onClose}>
@@ -71,7 +71,7 @@ function SidebarContent({
   return (
     <TooltipProvider>
       <div className="flex flex-col h-full">
-        <div className="p-6 border-b">
+        <div className="p-6 border-b">a
           <div className="flex items-center gap-2 mb-4">
             <Button asChild variant="ghost" size="sm" className="p-2">
               <Link href="/features">
@@ -80,7 +80,7 @@ function SidebarContent({
             </Button>
             <div>
               <h2 className="font-semibold text-lg">Tools</h2>
-              <p className="text-sm text-muted-foreground">Select a tool to get started</p>
+              {/* <p className="text-sm text-muted-foreground">Select a tool to get started</p> */}
             </div>
           </div>
           <div className="relative">
