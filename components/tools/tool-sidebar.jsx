@@ -71,7 +71,7 @@ function SidebarContent({
   return (
     <TooltipProvider>
       <div className="flex flex-col h-full">
-        <div className="p-6 border-b">a
+        <div className="p-6 border-b">
           <div className="flex items-center gap-2 mb-4">
             <Button asChild variant="ghost" size="sm" className="p-2">
               <Link href="/features">

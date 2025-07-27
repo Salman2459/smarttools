@@ -82,7 +82,7 @@ export function ImageToPdfTool() {
 
         // 2. Draw the image (PNG, WEBP, JPG) onto the canvas
         ctx.drawImage(img, 0, 0, img.width, img.height);
-        
+
         // 3. Convert the canvas to a JPEG data URL, applying the quality setting
         const jpegQuality = quality[0] / 100; // Convert slider value (0-100) to 0.0-1.0
         const finalImageData = canvas.toDataURL('image/jpeg', jpegQuality);
@@ -102,7 +102,7 @@ export function ImageToPdfTool() {
         if (addedImages > 0) {
           pdf.addPage()
         }
-        
+
         // Now, we always add a JPEG, making the process highly reliable
         pdf.addImage(finalImageData, "JPEG", x, y, imgWidth, imgHeight)
         addedImages++
@@ -282,23 +282,7 @@ export function ImageToPdfTool() {
                 </Select>
               </div>
 
-              <div className="space-y-3">
-                <div className="flex justify-between items-center">
-                  {/* Updated Label */}
-                  <Label className="text-sm font-medium">Image Quality</Label>
-                  <Badge
-                    variant="outline"
-                    className="bg-blue-50 dark:bg-blue-950/50 border-blue-200 dark:border-blue-800"
-                  >
-                    {quality[0]}%
-                  </Badge>
-                </div>
-                <Slider defaultValue={quality} onValueChange={setQuality} max={100} step={1} className="w-full" />
-                <div className="flex justify-between text-xs text-muted-foreground">
-                  <span>Smaller file</span>
-                  <span>Better quality</span>
-                </div>
-              </div>
+
             </CardContent>
           </Card>
         </div>
