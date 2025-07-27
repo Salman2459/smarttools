@@ -19,7 +19,7 @@ export async function generateMetadata({ params }) {
   }
 
   return {
-    title: `${tool.title} - ProductivityHub`,
+    title: `${tool.title} - SmartTools`,
     description: tool.description,
     keywords: [tool.title.toLowerCase(), tool.category.toLowerCase(), "productivity tools", "file conversion"],
   }

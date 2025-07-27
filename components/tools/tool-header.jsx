@@ -10,7 +10,7 @@ export function ToolHeader({ tool, onMenuClick }) {
   const IconComponent = tool.icon
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 shadow-sm">
+    <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 shadow-sm lg:hidden">
       <div className="flex h-16 items-center justify-between px-4 lg:px-8">
         <div className="flex items-center gap-4">
           <Button
@@ -21,19 +21,6 @@ export function ToolHeader({ tool, onMenuClick }) {
           >
             <Menu className="h-5 w-5" />
           </Button>
-
-          <div className="flex items-center gap-3">
-            <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-primary/80 shadow-md">
-                <Zap className="w-5 h-5 text-primary-foreground" />
-              </div>
-              <div className="hidden sm:block">
-                <h1 className="font-semibold text-lg bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text">
-                  ProductivityHub
-                </h1>
-              </div>
-            </Link>
-          </div>
         </div>
 
         <div className="flex items-center gap-4">

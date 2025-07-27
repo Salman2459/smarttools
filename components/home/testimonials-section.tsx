@@ -33,7 +33,7 @@ export function TestimonialsSection() {
           </Badge>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Loved by Thousands</h2>
           <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
-            See what our users have to say about their experience with ProductivityHub.
+            See what our users have to say about their experience with SmartTools.
           </p>
         </div>
 

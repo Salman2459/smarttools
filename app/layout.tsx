@@ -9,18 +9,18 @@ import { Footer } from "@/components/footer"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "ProductivityHub - Essential Tools for Daily Tasks",
+  title: "SmartTools - Essential Tools for Daily Tasks",
   description:
     "Transform, convert, and optimize your files with our suite of powerful productivity tools. Convert images to PDF, compress files, and humanize AI text.",
   keywords: ["productivity tools", "file conversion", "PDF converter", "image compression", "AI text humanizer"],
-  authors: [{ name: "ProductivityHub" }],
+  authors: [{ name: "SmartTools" }],
   viewport: "width=device-width, initial-scale=1",
   openGraph: {
-    title: "ProductivityHub - Essential Tools for Daily Tasks",
+    title: "SmartTools - Essential Tools for Daily Tasks",
     description: "Transform, convert, and optimize your files with our suite of powerful productivity tools.",
     type: "website",
   },
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({

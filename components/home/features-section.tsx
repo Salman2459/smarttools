@@ -1,38 +1,24 @@
+"use client" // Add this directive to use React hooks
+
+import { useState } from "react"
+import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { FileImage, FileText, ImageIcon, Zap } from "lucide-react"
+import { Search } from "lucide-react" // Import the Search icon
 import { toolsData } from "@/lib/tools-data"
-import Link from "next/link"
 
 export function FeaturesSection() {
-  // const features = [
-  //   {
-  //     icon: FileImage,
-  //     title: "Image to PDF",
-  //     description: "Convert your images to high-quality PDF documents instantly",
-  //     color: "text-blue-600 dark:text-blue-400",
-  //   },
-  //   {
-  //     icon: FileText,
-  //     title: "Doc & Image to PDF",
-  //     description: "Transform Excel and Word files into professional PDFs",
-  //     color: "text-green-600 dark:text-green-400",
-  //   },
-  //   {
-  //     icon: ImageIcon,
-  //     title: "Image Compression",
-  //     description: "Reduce file sizes while maintaining image quality",
-  //     color: "text-purple-600 dark:text-purple-400",
-  //   },
-  //   {
-  //     icon: Zap,
-  //     title: "AI Text Humanizer",
-  //     description: "Convert AI-generated text into natural, human-like content",
-  //     color: "text-orange-600 dark:text-orange-400",
-  //   },
-  // ]
+  // State to hold the user's search query
+  const [searchQuery, setSearchQuery] = useState("")
 
-  const features = toolsData
+  // Filter the tools based on the search query.
+  // The filter is case-insensitive and checks both title and description.
+  const filteredFeatures = toolsData.filter((tool) => {
+    const query = searchQuery.toLowerCase()
+    const titleMatch = tool.title.toLowerCase().includes(query)
+    const descriptionMatch = tool.description.toLowerCase().includes(query)
+    return titleMatch || descriptionMatch
+  })
 
   return (
     <section className="py-16 sm:py-20 px-4 bg-muted/30">
@@ -48,16 +34,34 @@ export function FeaturesSection() {
           </p>
         </div>
 
+        {/* --- ADDED: Styled Search Bar --- */}
+        <div className="relative max-w-lg mx-auto mb-12">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+          <input
+            type="text"
+            placeholder="Search for a tool by name or description..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full pl-10 pr-4 py-2.5 border rounded-lg bg-background focus:ring-2 focus:ring-primary focus:outline-none transition-shadow"
+          />
+        </div>
+
+        {/* --- MODIFIED: Grid now uses the filtered list --- */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {features.map((feature, index) => (
-            <Link key={index} href={`/tools/${feature.id}`} className="no-underline">
+          {filteredFeatures.map((feature, index) => (
+            <Link key={feature.id} href={`/tools/${feature.id}`} className="no-underline">
               <Card
-                className="group hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 border-0 
+                className="group h-full hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 border-0 
              bg-gradient-to-br from-transparent to-transparent 
              dark:from-background dark:to-background/40 
              backdrop-blur-sm hover:scale-105 hover:-translate-y-2 cursor-pointer"
                 style={{
                   animationDelay: `${index * 100}ms`,
+                  // The animation can be applied to the component itself,
+                  // assuming you have a fade-in animation defined in your global CSS
+                  // animationName: "fadeInUp",
+                  // animationDuration: "0.5s",
+                  // animationFillMode: "forwards"
                 }}
               >
                 <CardHeader className="text-center pb-3 sm:pb-4">
@@ -79,6 +83,16 @@ export function FeaturesSection() {
             </Link>
           ))}
         </div>
+
+        {/* --- ADDED: "No Results" Message --- */}
+        {filteredFeatures.length === 0 && (
+          <div className="text-center py-12">
+            <h3 className="text-xl font-semibold text-foreground">No Tools Found</h3>
+            <p className="text-muted-foreground mt-2">
+              We couldn't find any tools matching your search for "{searchQuery}".
+            </p>
+          </div>
+        )}
       </div>
     </section>
   )

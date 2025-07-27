@@ -31,7 +31,7 @@ export function DashboardHeader({ activeTool, onMenuClick }: DashboardHeaderProp
             </div>
             <div className="hidden sm:block">
               <h1 className="font-semibold text-lg bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text">
-                ProductivityHub
+                SmartTools
               </h1>
               <p className="text-sm text-muted-foreground">Dashboard</p>
             </div>
