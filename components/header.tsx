@@ -4,47 +4,37 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { Zap, Menu, X, ChevronDown } from "lucide-react"
+import { Zap, Menu, X, ChevronDown, Icon, AlignRight, AlignLeft } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import { toolsData } from "@/lib/tools-data"
 
 export function Header() {
   const pathname = usePathname()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-
-  // --- MODIFIED: State for two separate dropdowns ---
   const [isImageToolsDropdownOpen, setIsImageToolsDropdownOpen] = useState(false)
   const [isAllToolsDropdownOpen, setIsAllToolsDropdownOpen] = useState(false)
-
-  // --- MODIFIED: Refs for both dropdowns to handle outside clicks ---
   const imageToolsDropdownRef = useRef<HTMLDivElement>(null)
   const allToolsDropdownRef = useRef<HTMLDivElement>(null)
-
-  // --- MODIFIED: State for mobile accordions. Using a string allows only one to be open at a time.
   const [openMobileAccordion, setOpenMobileAccordion] = useState<string | null>(null)
+  const [menuOpenType, setMenuOpenType] = useState<number | null>(null)
 
-  // --- MODIFIED: Updated navigation array with a dedicated "Image Tools" link ---
   const navigation = [
     { name: "Home", href: "/" },
-    { name: "Image Tools", href: "#" }, // Href is '#' as it only opens a dropdown
+    { name: "Image Tools", href: "#" },
     { name: "All Tools", href: "/features" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
     { name: "Privacy Policy", href: "/privacypolicy" },
   ]
 
-  // Filtered tool data for convenience
   const imageTools = toolsData.filter((tool) => tool.category === "Image Tools");
   const otherToolsCategories = ["PDF Tools", "Text Tools", "Video Tools", "Other Tools"];
 
-  // --- MODIFIED: useEffect now handles closing both dropdowns ---
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      // Close Image Tools dropdown if click is outside
       if (imageToolsDropdownRef.current && !imageToolsDropdownRef.current.contains(event.target as Node)) {
         setIsImageToolsDropdownOpen(false)
       }
-      // Close All Tools dropdown if click is outside
       if (allToolsDropdownRef.current && !allToolsDropdownRef.current.contains(event.target as Node)) {
         setIsAllToolsDropdownOpen(false)
       }
@@ -56,15 +46,40 @@ export function Header() {
     }
   }, [])
 
+  // FIX: Close mobile menu when navigating on mobile
+  const handleMobileLinkClick = () => {
+    setIsMobileMenuOpen(false)
+    setOpenMobileAccordion(null) // Also close accordions
+  }
+
   const closeAllDropdowns = () => {
     setIsImageToolsDropdownOpen(false)
     setIsAllToolsDropdownOpen(false)
+  }
+
+  const handleOpenMobileMenu = (type: number = 1): void => {
+    setIsMobileMenuOpen(!isMobileMenuOpen)
+    if (type === 1) {
+      setMenuOpenType(1)
+
+    } else {
+      setMenuOpenType(2)
+    }
   }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="flex h-14 sm:h-16 items-center justify-between px-4">
         {/* Logo */}
+        <Button
+          variant="ghost"
+          size="sm"
+          className="md:hidden"
+          onClick={() => handleOpenMobileMenu(1)}
+        >
+
+          {isMobileMenuOpen && menuOpenType === 1 ? <X className="w-5 h-5" /> : <AlignLeft className="w-5 h-5" />}
+        </Button>
         <Link href="/" className="flex items-center space-x-2">
           <div className="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-primary">
             <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
@@ -75,7 +90,6 @@ export function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6 -mt-1">
           {navigation.map((item) => {
-            // --- NEW: Dedicated "Image Tools" Dropdown ---
             if (item.name === "Image Tools") {
               return (
                 <div
@@ -112,7 +126,6 @@ export function Header() {
                             </div>
                             <div>
                               <p className="text-[12px] font-medium text-foreground">{tool.title.replace("Converter", "")}</p>
-                              {/* <p className="text-xs text-muted-foreground">{tool.description}</p> */}
                             </div>
                           </Link>
                         ))}
@@ -123,7 +136,6 @@ export function Header() {
               );
             }
 
-            // --- MODIFIED: "All Tools" Dropdown now excludes Image tools ---
             if (item.name === "All Tools") {
               return (
                 <div
@@ -170,8 +182,6 @@ export function Header() {
                 </div>
               );
             }
-
-            // --- Default navigation link ---
             return (
               <Link
                 key={item.name}
@@ -192,9 +202,9 @@ export function Header() {
             variant="ghost"
             size="sm"
             className="md:hidden"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={() => handleOpenMobileMenu(2)}
           >
-            {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {isMobileMenuOpen && menuOpenType === 2 ? <X className="w-5 h-5" /> : <AlignRight className="w-5 h-5" />}
           </Button>
         </div>
       </div>
@@ -203,78 +213,41 @@ export function Header() {
       {isMobileMenuOpen && (
         <>
           <div
-            className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm md:hidden"
+            className="fixed inset-0 z-40 bg-black/20  md:hidden" // FIX: Removed unnecessary scroll classes
             onClick={() => setIsMobileMenuOpen(false)}
           />
-          <div className="fixed top-16 left-0 right-0 z-50 md:hidden">
-            <div className="mx-4 mt-2 bg-background/95 backdrop-blur-md border rounded-lg shadow-lg">
-              <nav className="p-4 space-y-1">
+          <div className="fixed top-14 sm:top-16 left-0 right-0 z-50 md:hidden">
+            {/* FIX: Set a max-height and let the inner nav scroll */}
+            <div className="mx-4 mt-2 bg-background/95 backdrop-blur-md border rounded-lg shadow-lg max-h-[calc(100vh-6rem)] overflow-y-auto">
+              <nav className="p-4 space-y-1 overflow-y-auto" style={{ display: menuOpenType === 1 ? 'block' : 'none' }}>
+                {/* Regular Links */}
+                {toolsData.map((item, index) => (
+                  <Link
+                    key={index}
+                    href={"/tools/" + item.id}
+                    className={`block px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 ${pathname === item.href ? "text-primary bg-primary/10" : "text-muted-foreground hover:bg-muted/50"}`}
+                    onClick={handleMobileLinkClick}
+                  >
+                    <item.icon className={`inline-block w-4 h-4 mr-2 ${item.color}`} />
+                    {item.title}
+                  </Link>
+                ))}
+
+              </nav>
+
+              <nav className="p-4 space-y-1 overflow-y-auto" style={{ display: menuOpenType === 2 ? 'block' : 'none' }}>
                 {/* Regular Links */}
                 {navigation.filter(item => item.name !== 'Image Tools' && item.name !== 'All Tools').map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
                     className={`block px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 ${pathname === item.href ? "text-primary bg-primary/10" : "text-muted-foreground hover:bg-muted/50"}`}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={handleMobileLinkClick}
                   >
                     {item.name}
                   </Link>
                 ))}
 
-                {/* Mobile Image Tools Accordion */}
-                <div className="space-y-2">
-                  <button
-                    className="flex items-center justify-between w-full px-4 py-3 text-sm font-medium rounded-lg text-muted-foreground hover:bg-muted/50"
-                    onClick={() => setOpenMobileAccordion(openMobileAccordion === 'image' ? null : 'image')}
-                  >
-                    Image Tools
-                    <ChevronDown className={`w-4 h-4 transition-transform ${openMobileAccordion === 'image' ? 'rotate-180' : ''}`} />
-                  </button>
-                  {openMobileAccordion === 'image' && (
-                    <div className="pl-8 pr-4 pb-2 grid grid-cols-1 gap-1">
-                      {imageTools.map((tool) => (
-                        <Link
-                          key={tool.id}
-                          href={`/tools/${tool.id}`}
-                          className="block px-4 py-2 text-sm font-medium rounded-md text-muted-foreground hover:bg-muted/40 hover:text-foreground"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {tool.title}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                {/* Mobile All Other Tools Accordion */}
-                <div className="space-y-2">
-                  <button
-                    className="flex items-center justify-between w-full px-4 py-3 text-sm font-medium rounded-lg text-muted-foreground hover:bg-muted/50"
-                    onClick={() => setOpenMobileAccordion(openMobileAccordion === 'other' ? null : 'other')}
-                  >
-                    All Other Tools
-                    <ChevronDown className={`w-4 h-4 transition-transform ${openMobileAccordion === 'other' ? 'rotate-180' : ''}`} />
-                  </button>
-                  {openMobileAccordion === 'other' && (
-                    <div className="pl-8 pr-4 pb-2 grid grid-cols-1 gap-1">
-                      {otherToolsCategories.map((category) => (
-                        <div key={category} className="mt-2">
-                          <p className="px-4 text-xs font-semibold uppercase text-muted-foreground/80 mb-1">{category}</p>
-                          {toolsData.filter(t => t.category === category).map(tool => (
-                            <Link
-                              key={tool.id}
-                              href={`/tools/${tool.id}`}
-                              className="block px-4 py-2 text-sm font-medium rounded-md text-muted-foreground hover:bg-muted/40 hover:text-foreground"
-                              onClick={() => setIsMobileMenuOpen(false)}
-                            >
-                              {tool.title}
-                            </Link>
-                          ))}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
 
               </nav>
             </div>

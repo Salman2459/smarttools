@@ -54,12 +54,12 @@ export function FeaturesSection() {
                 className="group h-full hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 border-0 
              bg-gradient-to-br from-transparent to-transparent 
              dark:from-background dark:to-background/40 
-             backdrop-blur-sm hover:scale-105 hover:-translate-y-2 cursor-pointer"
+             backdrop-blur-sm hover:scale-105 hover:-translate-y-2 cursor-pointer border"
                 style={{
                   animationDelay: `${index * 100}ms`,
                   // The animation can be applied to the component itself,
                   // assuming you have a fade-in animation defined in your global CSS
-                  // animationName: "fadeInUp",
+                  // animationName: "fadeInUp", 
                   // animationDuration: "0.5s",
                   // animationFillMode: "forwards"
                 }}
