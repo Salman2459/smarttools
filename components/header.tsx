@@ -21,7 +21,7 @@ export function Header() {
   const navigation = [
     { name: "Home", href: "/" },
     { name: "Image Tools", href: "#" },
-    { name: "All Tools", href: "/features" },
+    { name: "Other Tools", href: "/features" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
     { name: "Privacy Policy", href: "/privacypolicy" },
