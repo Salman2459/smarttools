@@ -136,7 +136,7 @@ export function Header() {
               );
             }
 
-            if (item.name === "All Tools") {
+            if (item.name === "Other Tools") {
               return (
                 <div
                   key={item.name}
@@ -237,7 +237,7 @@ export function Header() {
 
               <nav className="p-4 space-y-1 overflow-y-auto" style={{ display: menuOpenType === 2 ? 'block' : 'none' }}>
                 {/* Regular Links */}
-                {navigation.filter(item => item.name !== 'Image Tools' && item.name !== 'All Tools').map((item) => (
+                {navigation.filter(item => item.name !== 'Image Tools' && item.name !== 'Other Tools').map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
