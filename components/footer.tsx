@@ -24,10 +24,9 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           <div className="space-y-4 sm:col-span-2 lg:col-span-1">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-primary">
-                <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
+              <div className="flex items-center justify-center h-[70px]">
+                <img src="/in row.png" alt="Logo" className="w-[160px] h-[70px]" />
               </div>
-              <span className="font-bold text-base sm:text-lg">SmartTools</span>
             </Link>
             <p className="text-xs sm:text-sm text-muted-foreground max-w-xs">
               Simplifying daily tasks with powerful productivity tools. Fast, secure, and user-friendly.

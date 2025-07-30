@@ -1,11 +1,13 @@
+// next.config.mjs
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
   images: {
-    unoptimized: true
+    unoptimized: true,
   },
   assetPrefix: process.env.NODE_ENV === 'production' ? '.' : '',
-}
+};
 
-module.exports = nextConfig
+export default nextConfig;

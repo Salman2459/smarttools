@@ -81,10 +81,10 @@ export function Header() {
           {isMobileMenuOpen && menuOpenType === 1 ? <X className="w-5 h-5" /> : <AlignLeft className="w-5 h-5" />}
         </Button>
         <Link href="/" className="flex items-center space-x-2">
-          <div className="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-primary">
-            <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-primary-foreground" />
+          <div className="flex items-center justify-center  h-[100%]">
+            <img src="/in row.png" alt="Logo" className="w-[160px] h-[70px]" />
           </div>
-          <span className="font-bold text-lg sm:text-xl">SmartTools</span>
+          {/* <span className="font-bold text-lg sm:text-xl">SmartTools</span> */}
         </Link>
 
         {/* Desktop Navigation */}

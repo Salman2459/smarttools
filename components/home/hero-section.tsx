@@ -48,13 +48,13 @@ export function HeroSection() {
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
             </Link>
           </Button>
-          <Button
+          {/* <Button
             variant="outline"
             size="lg"
             className="text-base sm:text-lg px-6 sm:px-8 h-12 sm:h-14 bg-background/50 backdrop-blur-sm border-2 hover:bg-muted/50 transition-all duration-300"
           >
             Watch Demo
-          </Button>
+          </Button> */}
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4 max-w-5xl mx-auto px-4">
