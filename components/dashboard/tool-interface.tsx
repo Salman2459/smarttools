@@ -7,7 +7,8 @@ import { TextInputArea } from "@/components/dashboard/text-input-area"
 import { ProcessingButton } from "@/components/dashboard/processing-button"
 import { ResultsArea } from "@/components/dashboard/results-area"
 import { Badge } from "@/components/ui/badge"
-import type { Tool } from "@/lib/tools-data"
+import type { toolsData } from "@/lib/tools-data"
+type Tool = typeof toolsData[number]
 
 interface ToolInterfaceProps {
   tool: Tool
@@ -26,8 +27,6 @@ export function ToolInterface({ tool }: ToolInterfaceProps) {
     alert(`${tool.title} processing completed!`)
   }
 
-  const canProcess =
-    tool.id === "ai-humanizer" ? textInput.trim().length > 0 : selectedFiles && selectedFiles.length > 0
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
@@ -86,7 +85,7 @@ export function ToolInterface({ tool }: ToolInterfaceProps) {
             />
           )}
 
-          <ProcessingButton tool={tool} isProcessing={isProcessing} canProcess={canProcess} onProcess={handleProcess} />
+          <ProcessingButton tool={tool} isProcessing={isProcessing} onProcess={handleProcess} />
         </CardContent>
       </Card>
 

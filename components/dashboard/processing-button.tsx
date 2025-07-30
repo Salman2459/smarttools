@@ -2,20 +2,21 @@
 
 import { Button } from "@/components/ui/button"
 import { Loader2 } from "lucide-react"
-import type { Tool } from "@/lib/tools-data"
+import type { toolsData } from "@/lib/tools-data"
+
+type Tool = typeof toolsData[number]
 
 interface ProcessingButtonProps {
   tool: Tool
   isProcessing: boolean
-  canProcess: boolean
   onProcess: () => void
 }
 
-export function ProcessingButton({ tool, isProcessing, canProcess, onProcess }: ProcessingButtonProps) {
+export function ProcessingButton({ tool, isProcessing, onProcess }: ProcessingButtonProps) {
   return (
     <Button
       onClick={onProcess}
-      disabled={isProcessing || !canProcess}
+      disabled={isProcessing}
       className="w-full h-12 text-base bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] disabled:transform-none disabled:hover:scale-100"
       size="lg"
     >

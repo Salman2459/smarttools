@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Sheet, SheetContent } from "@/components/ui/sheet"
 import { Plus } from "lucide-react"
-import type { Tool } from "@/lib/tools-data"
+import type { toolsData } from "@/lib/tools-data"
+type Tool = typeof toolsData[number]
 
 interface DashboardSidebarProps {
   tools: Tool[]
@@ -36,20 +37,18 @@ export function DashboardSidebar({ tools, activeToolId, onToolSelect, isOpen, on
                     <Button
                       key={tool.id}
                       variant={activeToolId === tool.id ? "secondary" : "ghost"}
-                      className={`w-full justify-start h-auto p-3 transition-all duration-300 hover:scale-[1.02] ${
-                        activeToolId === tool.id
+                      className={`w-full justify-start h-auto p-3 transition-all duration-300 hover:scale-[1.02] ${activeToolId === tool.id
                           ? "bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 shadow-sm"
                           : "hover:bg-muted/50"
-                      }`}
+                        }`}
                       onClick={() => {
                         onToolSelect(tool.id)
                         onClose()
                       }}
                     >
                       <div
-                        className={`w-8 h-8 rounded-lg ${tool.bgColor} flex items-center justify-center mr-3 flex-shrink-0 transition-transform duration-300 ${
-                          activeToolId === tool.id ? "scale-110" : "group-hover:scale-105"
-                        }`}
+                        className={`w-8 h-8 rounded-lg ${tool.bgColor} flex items-center justify-center mr-3 flex-shrink-0 transition-transform duration-300 ${activeToolId === tool.id ? "scale-110" : "group-hover:scale-105"
+                          }`}
                       >
                         <tool.icon className={`w-4 h-4 ${tool.color}`} />
                       </div>

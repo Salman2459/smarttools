@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Menu, Zap } from "lucide-react"
 import { ThemeToggle } from "@/components/theme-toggle"
-import type { Tool } from "@/lib/tools-data"
+import type { toolsData } from "@/lib/tools-data"
+type Tool = typeof toolsData[number]
 
 interface DashboardHeaderProps {
   activeTool?: Tool

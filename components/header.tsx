@@ -4,9 +4,9 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { Zap, Menu, X, ChevronDown, Icon, AlignRight, AlignLeft } from "lucide-react"
+import { X, ChevronDown, AlignRight, AlignLeft } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
-import { toolsData } from "@/lib/tools-data"
+import { toolsData } from "../lib/tools-data"
 
 export function Header() {
   const pathname = usePathname()
@@ -225,7 +225,7 @@ export function Header() {
                   <Link
                     key={index}
                     href={"/tools/" + item.id}
-                    className={`block px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 ${pathname === item.href ? "text-primary bg-primary/10" : "text-muted-foreground hover:bg-muted/50"}`}
+                    className={`block px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 ${pathname === item.id ? "text-primary bg-primary/10" : "text-muted-foreground hover:bg-muted/50"}`}
                     onClick={handleMobileLinkClick}
                   >
                     <item.icon className={`inline-block w-4 h-4 mr-2 ${item.color}`} />
