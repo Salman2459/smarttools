@@ -6,6 +6,7 @@ import { HowItWorksSection } from "@/components/home/how-it-works-section"
 import { WhyChooseUsSection } from "@/components/home/why-choose-us-section"
 import { TestimonialsSection } from "@/components/home/testimonials-section"
 import { CTASection } from "@/components/home/cta-section"
+import Head from "next/head"
 
 export default function HomePage() {
   const features = [
@@ -93,14 +94,24 @@ export default function HomePage() {
   ]
 
   return (
-    <div className="min-h-screen">
-      <HeroSection />
-      {/* <StatsSection stats={stats} /> */}
-      <FeaturesSection />
-      {/* <HowItWorksSection steps={steps} />
+    <>
+      {/* <Head>
+        <meta name="description" content="Use free productivity tools to convert images to PDF, compress files, humanize AI text, and more—no sign-up required. Boost your workflow instantly with smart tools" />
+        <meta name="description" content="Use free online tools to convert images to PDF, compress files, humanize AI text, and more – fast, secure, and no sign-up required. Contact us today!" />
+        <meta name="description" content="Boost productivity with free tools: image compressor, file converter, PDF maker, and more – all in one place. Contact us today!" />
+        <meta name="description" content="Compress images, convert documents, and rewrite AI content in seconds with no registration. 100% free, simple, and secure. Contact us today!" />
+        <meta name="description" content="All-in-one productivity toolkit: convert images to PDF, compress files, humanize text, and more – easy, fast, and no login needed. Contact us today!" />
+        <meta name="description" content="Try free productivity tools to streamline your workflow. Image to PDF, doc converter, text-to-speech, AI rewriter – all online and free with smart tools." />
+      </Head> */}
+      <div className="min-h-screen">
+        <HeroSection />
+        {/* <StatsSection stats={stats} /> */}
+        <FeaturesSection />
+        {/* <HowItWorksSection steps={steps} />
       <WhyChooseUsSection whyChooseUs={whyChooseUs} /> */}
-      <TestimonialsSection />
-      <CTASection />
-    </div>
+        <TestimonialsSection />
+        <CTASection />
+      </div>
+    </>
   )
 }

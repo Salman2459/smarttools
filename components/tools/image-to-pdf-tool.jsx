@@ -10,7 +10,7 @@ import { Badge } from "@/components/ui/badge"
 import { FileImage, Upload, Download, Loader2, Settings, X, PlusCircle } from "lucide-react"
 import { ImageIcon } from "lucide-react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Slider } from "@/components/ui/slider"
+import { Switch } from "@/components/ui/switch"
 
 const readFileAsDataURL = (file) => {
   return new Promise((resolve, reject) => {
@@ -24,25 +24,24 @@ const readFileAsDataURL = (file) => {
 export function ImageToPdfTool() {
   const [selectedFiles, setSelectedFiles] = useState([])
   const [isProcessing, setIsProcessing] = useState(false)
-  const [quality, setQuality] = useState([90])
   const [pageSize, setPageSize] = useState("A4")
   const [orientation, setOrientation] = useState("portrait")
+  const [stackImages, setStackImages] = useState(false)
   const [pdfUrl, setPdfUrl] = useState(null)
   const fileInputRef = useRef(null)
 
   const handleFileChange = (event) => {
     const files = event.target.files;
     if (files) {
-      // Filter out non-image files
       const imageFiles = Array.from(files).filter(file => file.type.startsWith('image/'));
       setSelectedFiles((prevFiles) => [...prevFiles, ...imageFiles]);
-      setPdfUrl(null); // Clear previous PDF preview
+      setPdfUrl(null);
     }
   }
 
   const handleClear = () => {
     setSelectedFiles([])
-    setPdfUrl(null) // Clear PDF preview
+    setPdfUrl(null)
     if (fileInputRef.current) {
       fileInputRef.current.value = ""
     }
@@ -63,49 +62,83 @@ export function ImageToPdfTool() {
       const filesArray = Array.from(selectedFiles)
       let addedImages = 0
 
-      for (const file of filesArray) {
-        const imageData = await readFileAsDataURL(file)
-        const img = new Image()
-        img.src = imageData
-
-        await new Promise((resolve) => {
-          img.onload = resolve
-        })
-
-        // --- FIX STARTS HERE: NORMALIZE IMAGE VIA CANVAS ---
-
-        // 1. Create a canvas element
-        const canvas = document.createElement('canvas');
-        canvas.width = img.width;
-        canvas.height = img.height;
-        const ctx = canvas.getContext('2d');
-
-        // 2. Draw the image (PNG, WEBP, JPG) onto the canvas
-        ctx.drawImage(img, 0, 0, img.width, img.height);
-
-        // 3. Convert the canvas to a JPEG data URL, applying the quality setting
-        const jpegQuality = quality[0] / 100; // Convert slider value (0-100) to 0.0-1.0
-        const finalImageData = canvas.toDataURL('image/jpeg', jpegQuality);
-
-        // --- FIX ENDS HERE ---
-
+      if (stackImages) {
+        // --- LOGIC FOR STACKING IMAGES ---
+        const pageMargin = 10 // 10mm margin
+        const imageSpacing = 5 // 5mm spacing between images
         const pdfWidth = pdf.internal.pageSize.getWidth()
         const pdfHeight = pdf.internal.pageSize.getHeight()
+        const usableWidth = pdfWidth - pageMargin * 2
+        const usableHeight = pdfHeight - pageMargin * 2
+        let currentY = pageMargin
+        let isFirstImageOnPage = true
 
-        const ratio = Math.min(pdfWidth / img.width, pdfHeight / img.height)
-        const imgWidth = img.width * ratio
-        const imgHeight = img.height * ratio
+        for (const file of filesArray) {
+          const imageData = await readFileAsDataURL(file)
+          const img = new Image()
+          img.src = imageData
+          await new Promise((resolve) => { img.onload = resolve })
 
-        const x = (pdfWidth - imgWidth) / 2
-        const y = (pdfHeight - imgHeight) / 2
+          const canvas = document.createElement('canvas');
+          canvas.width = img.width;
+          canvas.height = img.height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, img.width, img.height);
+          const finalImageData = canvas.toDataURL('image/jpeg', 0.9);
 
-        if (addedImages > 0) {
-          pdf.addPage()
+          const ratio = usableWidth / img.width
+          const imgWidth = img.width * ratio
+          const imgHeight = img.height * ratio
+
+          const requiredSpace = imgHeight + (isFirstImageOnPage ? 0 : imageSpacing);
+          if (!isFirstImageOnPage && (currentY + requiredSpace) > (usableHeight + pageMargin)) {
+            pdf.addPage()
+            currentY = pageMargin
+            isFirstImageOnPage = true
+          }
+
+          if (!isFirstImageOnPage) {
+            currentY += imageSpacing
+          }
+
+          pdf.addImage(finalImageData, "JPEG", pageMargin, currentY, imgWidth, imgHeight)
+          currentY += imgHeight
+          isFirstImageOnPage = false
+          addedImages++
         }
 
-        // Now, we always add a JPEG, making the process highly reliable
-        pdf.addImage(finalImageData, "JPEG", x, y, imgWidth, imgHeight)
-        addedImages++
+      } else {
+        // --- ORIGINAL LOGIC: ONE IMAGE PER PAGE ---
+        for (const file of filesArray) {
+          const imageData = await readFileAsDataURL(file)
+          const img = new Image()
+          img.src = imageData
+          await new Promise((resolve) => { img.onload = resolve })
+
+          const canvas = document.createElement('canvas');
+          canvas.width = img.width;
+          canvas.height = img.height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, img.width, img.height);
+          const finalImageData = canvas.toDataURL('image/jpeg', 0.9);
+
+          const pdfWidth = pdf.internal.pageSize.getWidth()
+          const pdfHeight = pdf.internal.pageSize.getHeight()
+
+          const ratio = Math.min(pdfWidth / img.width, pdfHeight / img.height)
+          const imgWidth = img.width * ratio
+          const imgHeight = img.height * ratio
+
+          const x = (pdfWidth - imgWidth) / 2
+          const y = (pdfHeight - imgHeight) / 2
+
+          if (addedImages > 0) {
+            pdf.addPage()
+          }
+
+          pdf.addImage(finalImageData, "JPEG", x, y, imgWidth, imgHeight)
+          addedImages++
+        }
       }
 
       if (addedImages > 0) {
@@ -134,7 +167,6 @@ export function ImageToPdfTool() {
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
-      {/* Tool Header */}
       <Card className="border-0 bg-gradient-to-br from-blue-50/50 to-blue-100/30 dark:from-blue-950/20 dark:to-blue-900/10 shadow-lg">
         <CardHeader className="text-center">
           <div className="flex items-center justify-center gap-4 mb-4">
@@ -162,7 +194,6 @@ export function ImageToPdfTool() {
       </Card>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Main Upload Area */}
         <div className="lg:col-span-2 space-y-6">
           <Card className="border-0 bg-gradient-to-br from-background to-muted/10 shadow-lg">
             <CardHeader className="border-b border-muted/20">
@@ -244,7 +275,6 @@ export function ImageToPdfTool() {
           </Card>
         </div>
 
-        {/* Settings Panel */}
         <div className="space-y-6">
           <Card className="border-0 bg-gradient-to-br from-background to-muted/10 shadow-lg">
             <CardHeader className="border-b border-muted/20">
@@ -282,13 +312,24 @@ export function ImageToPdfTool() {
                 </Select>
               </div>
 
-
+              <div className="space-y-2">
+                <div className="flex items-center justify-between p-3 rounded-lg bg-blue-50/50 dark:bg-blue-950/20">
+                  <Label htmlFor="stack-images" className="flex flex-col gap-1 cursor-pointer">
+                    <span className="font-medium">Stack Images</span>
+                    <span className="text-xs text-muted-foreground">Place multiple images on one page</span>
+                  </Label>
+                  <Switch
+                    id="stack-images"
+                    checked={stackImages}
+                    onCheckedChange={setStackImages}
+                  />
+                </div>
+              </div>
             </CardContent>
           </Card>
         </div>
       </div>
 
-      {/* Process Button */}
       <Card className="border-0 bg-gradient-to-br from-background to-muted/10 shadow-lg">
         <CardContent className="p-6">
           <Button
@@ -312,7 +353,6 @@ export function ImageToPdfTool() {
         </CardContent>
       </Card>
 
-      {/* Results Box */}
       <Card className="border-0 bg-gradient-to-br from-background to-muted/10 shadow-lg">
         <CardHeader className="border-b border-muted/20">
           <CardTitle className="flex items-center gap-2">

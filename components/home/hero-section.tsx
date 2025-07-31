@@ -33,8 +33,7 @@ export function HeroSection() {
         </h1>
 
         <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed px-4">
-          Transform, convert, and optimize your files with our suite of powerful productivity tools. Fast, secure, and
-          designed for modern workflows. No registration required - start using our tools immediately.
+          Use smart tools to edit text, resize images, generate voice, convert files, remove watermark from images and PDFs with just a few clicks. All are 100% free, no sign-up and lightning fast.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-12 px-4">

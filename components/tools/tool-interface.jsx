@@ -53,17 +53,18 @@ export function ToolInterface({ tool }) {
                                                     : tool.id == "excel-to-pdf" ? <DocToPdfTool toolId="excel-to-pdf" />
                                                       : tool.id == "word-to-pdf" ? <DocToPdfTool toolId="word-to-pdf" />
                                                         : tool.id == "txt-to-pdf" ? <DocToPdfTool toolId="txt-to-pdf" />
-                                                          : tool.id == "text-to-speech" ? <TextToSpeechTool />
-                                                            : tool.id == "grammar-checker" ? <GrammarCheckerTool />
-                                                              : tool.id == "text-summarizer" ? <TextSummarizerTool />
-                                                                : tool.id == "ai-humanizer" ? <AiHumanizerTool />
-                                                                  : tool.id == "qr-generator" ? <QrGeneratorTool />
-                                                                    : tool.id == "barcode-generator" ? <BarcodeGeneratorTool />
-                                                                      : tool.id == "video-compressor" ? <VideoCompressorTool />
-                                                                        : tool.id == "video-trimmer" ? <VideoTrimmerTool />
-                                                                          : tool.id == "video-cropper" ? <VideoCropperTool />
-                                                                            : tool.id == "video-resizer" ? <VideoResizerTool />
-                                                                              : null}
+                                                          : tool.id == "html-to-pdf" ? <DocToPdfTool toolId="html-to-pdf" />
+                                                            : tool.id == "text-to-speech" ? <TextToSpeechTool />
+                                                              : tool.id == "grammar-checker" ? <GrammarCheckerTool />
+                                                                : tool.id == "text-summarizer" ? <TextSummarizerTool />
+                                                                  : tool.id == "ai-humanizer" ? <AiHumanizerTool />
+                                                                    : tool.id == "qr-generator" ? <QrGeneratorTool />
+                                                                      : tool.id == "barcode-generator" ? <BarcodeGeneratorTool />
+                                                                        : tool.id == "video-compressor" ? <VideoCompressorTool />
+                                                                          : tool.id == "video-trimmer" ? <VideoTrimmerTool />
+                                                                            : tool.id == "video-cropper" ? <VideoCropperTool />
+                                                                              : tool.id == "video-resizer" ? <VideoResizerTool />
+                                                                                : null}
 
     </div>
   )
