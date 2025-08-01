@@ -22,6 +22,7 @@ import { VideoCropperTool } from "./video-cropper-tool.jsx"
 import { VideoTrimmerTool } from "./Video-trimmer-tool.jsx"
 import { VideoCompressorTool } from "./video-compressor-tool.jsx"
 import { VideoResizerTool } from "./video-resize-tool.jsx"
+import { PdfToDocTool } from "./pdf-to-doc.jsx"
 
 export function ToolInterface({ tool }) {
 
@@ -54,17 +55,18 @@ export function ToolInterface({ tool }) {
                                                       : tool.id == "word-to-pdf" ? <DocToPdfTool toolId="word-to-pdf" />
                                                         : tool.id == "txt-to-pdf" ? <DocToPdfTool toolId="txt-to-pdf" />
                                                           : tool.id == "html-to-pdf" ? <DocToPdfTool toolId="html-to-pdf" />
-                                                            : tool.id == "text-to-speech" ? <TextToSpeechTool />
-                                                              : tool.id == "grammar-checker" ? <GrammarCheckerTool />
-                                                                : tool.id == "text-summarizer" ? <TextSummarizerTool />
-                                                                  : tool.id == "ai-humanizer" ? <AiHumanizerTool />
-                                                                    : tool.id == "qr-generator" ? <QrGeneratorTool />
-                                                                      : tool.id == "barcode-generator" ? <BarcodeGeneratorTool />
-                                                                        : tool.id == "video-compressor" ? <VideoCompressorTool />
-                                                                          : tool.id == "video-trimmer" ? <VideoTrimmerTool />
-                                                                            : tool.id == "video-cropper" ? <VideoCropperTool />
-                                                                              : tool.id == "video-resizer" ? <VideoResizerTool />
-                                                                                : null}
+                                                            : tool.id == "pdf-to-txt" ? <PdfToDocTool toolId="pdf-to-txt" />
+                                                              : tool.id == "text-to-speech" ? <TextToSpeechTool />
+                                                                : tool.id == "grammar-checker" ? <GrammarCheckerTool />
+                                                                  : tool.id == "text-summarizer" ? <TextSummarizerTool />
+                                                                    : tool.id == "ai-humanizer" ? <AiHumanizerTool />
+                                                                      : tool.id == "qr-generator" ? <QrGeneratorTool />
+                                                                        : tool.id == "barcode-generator" ? <BarcodeGeneratorTool />
+                                                                          : tool.id == "video-compressor" ? <VideoCompressorTool />
+                                                                            : tool.id == "video-trimmer" ? <VideoTrimmerTool />
+                                                                              : tool.id == "video-cropper" ? <VideoCropperTool />
+                                                                                : tool.id == "video-resizer" ? <VideoResizerTool />
+                                                                                  : null}
 
     </div>
   )
