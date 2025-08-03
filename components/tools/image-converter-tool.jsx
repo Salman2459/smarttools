@@ -1,16 +1,39 @@
 "use client"
 
 import { useState, useRef } from "react"
+import dynamic from "next/dynamic" // Import 'dynamic' from Next.js
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Badge } from "@/components/ui/badge"
 import { RefreshCw, Upload, Download, Loader2, Settings, RotateCcw, ImageIcon } from "lucide-react"
-import { Slider } from "@/components/ui/slider"
+// REMOVED: import { Slider } from "@/components/ui/slider"
 import { toolsData, iconMap } from "@/lib/tools-data" // Adjust this import path if needed
 import { max } from "date-fns"
 import Link from "next/link"
+
+// Create a loading skeleton for the slider to prevent layout shift
+const SliderSkeleton = () => (
+  <div className="space-y-3 flex-shrink-0 pt-4 border-t border-muted/20 animate-pulse">
+    <div className="h-5 bg-muted/50 rounded w-1/3"></div>
+    <div className="h-5 bg-muted/50 rounded w-full"></div>
+    <div className="flex justify-between">
+      <div className="h-4 bg-muted/50 rounded w-1/4"></div>
+      <div className="h-4 bg-muted/50 rounded w-1/4"></div>
+    </div>
+  </div>
+);
+
+// Dynamically import the QualitySlider component with SSR disabled
+// Make sure the path matches where you created the new file.
+const QualitySlider = dynamic(
+  () => import("@/components/qualitysilider").then((mod) => mod.QualitySlider),
+  {
+    ssr: false, // This is the key! It disables server-side rendering for this component.
+    loading: () => <SliderSkeleton />, // Show a skeleton while the component loads on the client.
+  }
+);
 
 export function ImageConverterTool({ toolId, fromFormat, toFormat }) {
   const [selectedFiles, setSelectedFiles] = useState(null)
@@ -56,7 +79,6 @@ export function ImageConverterTool({ toolId, fromFormat, toFormat }) {
               (blob) => {
                 if (!blob) {
                   console.error(`Failed to create blob for ${file.name}`);
-                  // Optionally alert the user or handle the error
                   reject(new Error(`Conversion failed for ${file.name}`));
                   return;
                 }
@@ -134,10 +156,6 @@ export function ImageConverterTool({ toolId, fromFormat, toFormat }) {
                 >
                   {toolData.title}
                 </CardTitle>
-
-
-
-
                 <Badge variant="outline" className={`${toolData.bgColor} border-black/10`}>
                   Image Tools
                 </Badge>
@@ -254,7 +272,7 @@ export function ImageConverterTool({ toolId, fromFormat, toFormat }) {
           )}
         </div>
 
-        {/* Settings Panel - simplified for specific converters */}
+        {/* Settings Panel */}
         <div className="flex flex-col">
           <Card className="border-0 bg-gradient-to-br from-background to-muted/10 shadow-lg h-full flex flex-col">
             <CardHeader className="border-b border-muted/20 flex-shrink-0">
@@ -271,15 +289,9 @@ export function ImageConverterTool({ toolId, fromFormat, toFormat }) {
                 </div>
               </div>
 
+              {/* USE THE DYNAMICALLY IMPORTED COMPONENT HERE */}
               {(toFormat === "jpeg" || toFormat === "webp" || toFormat === "jpg") && (
-                <div className="space-y-3 flex-shrink-0 pt-4 border-t border-muted/20">
-                  <Label className="text-sm font-medium">Quality: {quality[0]}%</Label>
-                  <Slider value={quality} onValueChange={setQuality} max={100} min={10} step={5} className="w-full" />
-                  <div className="flex justify-between text-xs text-muted-foreground">
-                    <span>Smaller file</span>
-                    <span>Better quality</span>
-                  </div>
-                </div>
+                <QualitySlider quality={quality} onValueChange={setQuality} />
               )}
 
               <div style={{ maxHeight: processedImages.length > 0 ? "400px" : "250px", overflowY: "auto" }}>
@@ -290,9 +302,9 @@ export function ImageConverterTool({ toolId, fromFormat, toFormat }) {
 
                   return (
                     <Link href={`/tools/${tool.id}`} key={tool.id}>
-                      <Button
+                      <Label
                         variant="outline"
-                        className="h-10 px-6 mt-4 text-[15px] text-white w-full flex items-center justify-center"
+                        className={`1h-10 px-6 mt-4 text-[15px]  w-full flex items-center justify-center p-2 rounded-md cursor-pointer`}
                         style={{
                           backgroundColor: isSame ? "#3B82F6" : "transparent",
                         }}
@@ -300,14 +312,11 @@ export function ImageConverterTool({ toolId, fromFormat, toFormat }) {
                       >
                         <RotateCcw className="w-4 h-4 mr-2" />
                         {tool.id}
-                      </Button>
+                      </Label>
                     </Link>
                   );
                 })}
               </div>
-
-
-
             </CardContent>
           </Card>
         </div>
