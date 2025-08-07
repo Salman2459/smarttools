@@ -46,27 +46,26 @@ export function ToolInterface({ tool }) {
                                     : tool.id == "webp-to-png" ? <ImageConverterTool fromFormat="webp" toFormat="png" toolId="webp-to-png" />
                                       : tool.id == "webp-to-jpg" ? <ImageConverterTool fromFormat="webp" toFormat="jpg" toolId="webp-to-jpg" />
                                         : tool.id == "webp-to-jpeg" ? <ImageConverterTool fromFormat="webp" toFormat="jpeg" toolId="webp-to-jpeg" />
-                                          : tool.id == "image-converter" ? <ImageConverterTool />
-                                            : tool.id == "image-converter" ? <ImageConverterTool />
-                                              : tool.id == "image-watermarker" ? <ImageWatermarkerTool />
-                                                : tool.id == "image-to-pdf" ? <ImageToPdfTool />
-                                                  : tool.id == "doc-to-pdf" ? <DocToPdfTool toolId="doc-to-pdf" />
-                                                    : tool.id == "excel-to-pdf" ? <DocToPdfTool toolId="excel-to-pdf" />
-                                                      : tool.id == "word-to-pdf" ? <DocToPdfTool toolId="word-to-pdf" />
-                                                        : tool.id == "txt-to-pdf" ? <DocToPdfTool toolId="txt-to-pdf" />
-                                                          : tool.id == "html-to-pdf" ? <DocToPdfTool toolId="html-to-pdf" />
-                                                            // : tool.id == "pdf-to-txt" ? <PdfToDocTool toolId="pdf-to-txt" />
-                                                            : tool.id == "text-to-speech" ? <TextToSpeechTool />
-                                                              : tool.id == "grammar-checker" ? <GrammarCheckerTool />
-                                                                : tool.id == "text-summarizer" ? <TextSummarizerTool />
-                                                                  : tool.id == "ai-humanizer" ? <AiHumanizerTool />
-                                                                    : tool.id == "qr-generator" ? <QrGeneratorTool />
-                                                                      : tool.id == "barcode-generator" ? <BarcodeGeneratorTool />
-                                                                        : tool.id == "video-compressor" ? <VideoCompressorTool />
-                                                                          : tool.id == "video-trimmer" ? <VideoTrimmerTool />
-                                                                            : tool.id == "video-cropper" ? <VideoCropperTool />
-                                                                              : tool.id == "video-resizer" ? <VideoResizerTool />
-                                                                                : null}
+                                          : tool.id == "doc-to-pdf" ? <DocToPdfTool toolId="doc-to-pdf" />
+                                            : tool.id == "excel-to-pdf" ? <DocToPdfTool toolId="excel-to-pdf" />
+                                              : tool.id == "word-to-pdf" ? <DocToPdfTool toolId="word-to-pdf" />
+                                                : tool.id == "txt-to-pdf" ? <DocToPdfTool toolId="txt-to-pdf" />
+                                                  : tool.id == "html-to-pdf" ? <DocToPdfTool toolId="html-to-pdf" />
+                                                    : tool.id == "image-converter" ? <ImageConverterTool />
+                                                      : tool.id == "image-watermarker" ? <ImageWatermarkerTool toolId="image-watermarker" />
+                                                        : tool.id == "image-to-pdf" ? <ImageToPdfTool toolId="image-to-pdf" />
+                                                          // : tool.id == "pdf-to-txt" ? <PdfToDocTool toolId="pdf-to-txt" />
+                                                          : tool.id == "text-to-speech" ? <TextToSpeechTool toolId="text-to-speech" />
+                                                            : tool.id == "grammar-checker" ? <GrammarCheckerTool toolId="grammar-checker" />
+                                                              // : tool.id == "text-summarizer" ? <TextSummarizerTool />
+                                                              // : tool.id == "ai-humanizer" ? <AiHumanizerTool />
+                                                              : tool.id == "qr-generator" ? <QrGeneratorTool toolId="qr-generator" />
+                                                                : tool.id == "barcode-generator" ? <BarcodeGeneratorTool toolId="barcode-generator" />
+                                                                  : tool.id == "video-compressor" ? <VideoCompressorTool toolId="video-compressor" />
+                                                                    : tool.id == "video-trimmer" ? <VideoTrimmerTool toolId="video-trimmer" />
+                                                                      : tool.id == "video-cropper" ? <VideoCropperTool toolId="video-cropper" />
+                                                                        : tool.id == "video-resizer" ? <VideoResizerTool toolId="video-resizer" />
+                                                                          : null}
 
     </div>
   )

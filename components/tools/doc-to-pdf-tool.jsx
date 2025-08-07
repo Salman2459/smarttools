@@ -24,6 +24,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import * as XLSX from "xlsx"
 import mammoth from "mammoth"
 import { toolsData } from "@/lib/tools-data"
+import Head from "next/head"
 
 export function DocToPdfTool({ toolId }) {
   const [selectedFiles, setSelectedFiles] = useState([])
@@ -356,6 +357,9 @@ export function DocToPdfTool({ toolId }) {
 
   return (
     <>
+      <Head>
+        <meta name="description" content={toolData.metaDescription} />
+      </Head>
       <Card className={`border-0 bg-gradient-to-br from-${toolData.bgColor.split('-')[1]}-50/50 to-${toolData.bgColor.split('-')[1]}-100/30 dark:from-${toolData.bgColor.split('-')[1]}-950/20 dark:to-${toolData.bgColor.split('-')[1]}-900/10 shadow-lg`}>
         <CardHeader className="text-center">
           <div className="flex items-center justify-center gap-4 mb-4">
