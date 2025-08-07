@@ -10,18 +10,20 @@ import Head from "next/head"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "SmartTools - Essential Tools for Daily Tasks",
+  title: "Free Online Smart Tools – Images, PDF & AI | Smart Tools",
   description:
-    "Transform, convert, and optimize your files with our suite of powerful productivity tools. Convert images to PDF, compress files, and humanize AI text.",
-  keywords: ["productivity tools", "file conversion", "PDF converter", "image compression", "AI text humanizer"],
+    "Convert images to PDF, compress files, and humanize AI text with fast & free online tools. No sign-up required – simple and secure. Contact us today!.",
+  keywords: ["smart tools", "smart tool", "file conversion", "PDF converter", "image compression", "video tools"],
   authors: [{ name: "SmartTools" }],
   viewport: "width=device-width, initial-scale=1",
   openGraph: {
-    title: "SmartTools - Essential Tools for Daily Tasks",
-    description: "Transform, convert, and optimize your files with our suite of powerful productivity tools.",
+    title: "Free Online Smart Tools – Images, PDF & AI | Smart Tools",
+    description: "Transform, convert, and optimize your files with our suite of powerful smart tools.",
     type: "website",
   },
-  generator: 'v0.dev'
+  icons: {
+    icon: "/favicon.png",
+  },
 }
 
 export default function RootLayout({
@@ -32,10 +34,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
 
-      <Head>
-        <title>Free Online Smart Tools – Images, PDF & AI | Smart Tools</title>
-        <meta name="description" content="Convert images to PDF, compress files, and humanize AI text with fast & free online tools. No sign-up required – simple and secure. Contact us today!" />
-      </Head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange={false}>
           <div className="flex flex-col min-h-screen">
