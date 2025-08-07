@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react" // Import useEffect
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardTitleMain } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
@@ -128,7 +128,7 @@ export function TextToSpeechTool() {
       window.speechSynthesis.cancel()
     }
   }
-  
+
   // No longer need the second useState for voices
 
   return (
@@ -142,9 +142,9 @@ export function TextToSpeechTool() {
             </div>
             <div className="text-left">
               <div className="flex items-center gap-2 mb-2">
-                <CardTitle className="text-2xl bg-gradient-to-r from-pink-600 to-pink-800 bg-clip-text text-transparent">
+                <CardTitleMain className="text-2xl bg-gradient-to-r from-pink-600 to-pink-800 bg-clip-text text-transparent">
                   Text to Speech
-                </CardTitle>
+                </CardTitleMain>
                 <Badge
                   variant="outline"
                   className="bg-pink-50 dark:bg-pink-950/50 border-pink-200 dark:border-pink-800"

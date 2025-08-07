@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react"
 import dynamic from "next/dynamic" // Import 'dynamic' from Next.js
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardTitleMain } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -151,11 +151,11 @@ export function ImageConverterTool({ toolId, fromFormat, toFormat }) {
             </div>
             <div className="text-left">
               <div className="flex items-center gap-2 mb-2">
-                <CardTitle
+                <CardTitleMain
                   className={`text-2xl  bg-clip-text text-${toolData.color}`}
                 >
                   {toolData.title}
-                </CardTitle>
+                </CardTitleMain>
                 <Badge variant="outline" className={`${toolData.bgColor} border-black/10`}>
                   Image Tools
                 </Badge>

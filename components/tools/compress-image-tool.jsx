@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef, useState } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardTitleMain } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -97,9 +97,9 @@ export function CompressImageTool() {
             </div>
             <div className="text-left">
               <div className="flex items-center gap-2 mb-2">
-                <CardTitle className="text-2xl bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
+                <CardTitleMain className="text-2xl bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
                   Image Compressor
-                </CardTitle>
+                </CardTitleMain>
                 <Badge
                   variant="outline"
                   className="bg-purple-50 dark:bg-purple-950/50 border-purple-200 dark:border-purple-800"

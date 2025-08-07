@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardTitleMain } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -103,9 +103,9 @@ export function QrGeneratorTool() {
             </div>
             <div className="text-left">
               <div className="flex items-center gap-2 mb-2">
-                <CardTitle className="text-2xl bg-gradient-to-r from-slate-600 to-slate-800 bg-clip-text text-transparent">
+                <CardTitleMain className="text-2xl bg-gradient-to-r from-slate-600 to-slate-800 bg-clip-text text-transparent">
                   QR Code Generator
-                </CardTitle>
+                </CardTitleMain>
                 <Badge
                   variant="outline"
                   className="bg-slate-50 dark:bg-slate-950/50 border-slate-200 dark:border-slate-800"

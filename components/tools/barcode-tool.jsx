@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react"
 import JsBarcode from "jsbarcode"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardTitleMain } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -93,8 +93,8 @@ export function BarcodeGeneratorTool() {
     setBackgroundColor("#ffffff")
     setError(null)
     if (canvasRef.current) {
-        const context = canvasRef.current.getContext('2d');
-        context.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+      const context = canvasRef.current.getContext('2d');
+      context.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
     }
   }
 
@@ -112,9 +112,9 @@ export function BarcodeGeneratorTool() {
             </div>
             <div className="text-left">
               <div className="flex items-center gap-2 mb-2">
-                <CardTitle className="text-2xl bg-gradient-to-r from-slate-600 to-slate-800 bg-clip-text text-transparent">
+                <CardTitleMain className="text-2xl bg-gradient-to-r from-slate-600 to-slate-800 bg-clip-text text-transparent">
                   Barcode Generator
-                </CardTitle>
+                </CardTitleMain>
                 <Badge
                   variant="outline"
                   className="bg-slate-50 dark:bg-slate-950/50 border-slate-200 dark:border-slate-800"

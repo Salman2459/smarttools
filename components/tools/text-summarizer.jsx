@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardTitleMain } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
@@ -29,33 +29,33 @@ export function TextSummarizerTool() {
   const [summaryLength, setSummaryLength] = useState([3]) // Default to 3 sentences
   const [originalWordCount, setOriginalWordCount] = useState(0)
   const [summaryWordCount, setSummaryWordCount] = useState(0)
-  
 
-const handleSummarize = async () => {
-  if (!inputText.trim()) return;
-  setIsProcessing(true);
 
-  const article = String(inputText);
-  const textRank = new tr.TextRank(article);
+  const handleSummarize = async () => {
+    if (!inputText.trim()) return;
+    setIsProcessing(true);
 
-  await textRank.summarize(); // important: generates ranked sentences
+    const article = String(inputText);
+    const textRank = new tr.TextRank(article);
 
-  const rankedSentences = textRank.getRankedSentences(); // returns sentences with scores
-  const originalWords = article.trim().split(/\s+/).length;
-  setOriginalWordCount(originalWords);
+    await textRank.summarize(); // important: generates ranked sentences
 
-  const topSentences = rankedSentences
-    .slice(0, summaryLength[0])
-    .map(item => item.sentence)
-    .join(' ');
+    const rankedSentences = textRank.getRankedSentences(); // returns sentences with scores
+    const originalWords = article.trim().split(/\s+/).length;
+    setOriginalWordCount(originalWords);
 
-  setSummary(topSentences);
+    const topSentences = rankedSentences
+      .slice(0, summaryLength[0])
+      .map(item => item.sentence)
+      .join(' ');
 
-  const summaryWords = topSentences.trim().split(/\s+/).length;
-  setSummaryWordCount(summaryWords);
+    setSummary(topSentences);
 
-  setIsProcessing(false);
-};
+    const summaryWords = topSentences.trim().split(/\s+/).length;
+    setSummaryWordCount(summaryWords);
+
+    setIsProcessing(false);
+  };
 
 
   const handleClear = () => {
@@ -86,9 +86,9 @@ const handleSummarize = async () => {
             </div>
             <div className="text-left">
               <div className="flex items-center gap-2 mb-2">
-                <CardTitle className="text-2xl bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+                <CardTitleMain className="text-2xl bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
                   Text Summarizer
-                </CardTitle>
+                </CardTitleMain>
                 <Badge
                   variant="outline"
                   className="bg-blue-50 dark:bg-blue-950/50 border-blue-200 dark:border-blue-800"
@@ -124,9 +124,9 @@ const handleSummarize = async () => {
                 placeholder="Paste your text here..."
                 className="h-64 text-base resize-none border-2 border-dashed border-blue-200 dark:border-blue-800/50 focus:border-blue-400 dark:focus:border-blue-600"
               />
-               <div className="text-xs text-muted-foreground mt-2 text-right">
+              <div className="text-xs text-muted-foreground mt-2 text-right">
                 {inputText.trim().split(/\s+/).filter(Boolean).length} words
-               </div>
+              </div>
             </CardContent>
           </Card>
 

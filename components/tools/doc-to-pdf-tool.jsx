@@ -1,6 +1,6 @@
 "use client"
 import { useState, useRef, useEffect } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardTitleMain } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -363,9 +363,9 @@ export function DocToPdfTool({ toolId }) {
               <toolData.icon className={`w-8 h-8 ${toolData.color} dark:text-${toolData.color.split('-')[1]}-400`} />
             </div>
             <div className="text-left">
-              <CardTitle className={`text-2xl bg-gradient-to-r from-${toolData.color.split('-')[1]}-600 to-${toolData.color.split('-')[1]}-800 bg-clip-text text-transparent`}>
+              <CardTitleMain className={`text-2xl bg-gradient-to-r from-${toolData.color.split('-')[1]}-600 to-${toolData.color.split('-')[1]}-800 bg-clip-text text-transparent`}>
                 {toolData.title}
-              </CardTitle>
+              </CardTitleMain>
               <CardDescription className="text-base">{toolData.description}</CardDescription>
             </div>
           </div>

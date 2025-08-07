@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardTitleMain } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -209,9 +209,9 @@ export function ImageWatermarkerTool() {
             </div>
             <div className="text-left">
               <div className="flex items-center gap-2 mb-2">
-                <CardTitle className="text-2xl bg-gradient-to-r from-teal-600 to-teal-800 bg-clip-text text-transparent">
+                <CardTitleMain className="text-2xl bg-gradient-to-r from-teal-600 to-teal-800 bg-clip-text text-transparent">
                   Image Watermarker
-                </CardTitle>
+                </CardTitleMain>
                 <Badge
                   variant="outline"
                   className="bg-teal-50 dark:bg-teal-950/50 border-teal-200 dark:border-teal-800"
@@ -240,31 +240,31 @@ export function ImageWatermarkerTool() {
             </CardHeader>
             <CardContent className="p-6">
               <label htmlFor="watermark-files">
-              <div className="border-2 border-dashed border-teal-200 dark:border-teal-800/50 rounded-xl p-8 text-center hover:border-teal-400 dark:hover:border-teal-600 hover:bg-teal-50/50 dark:hover:bg-teal-950/10 transition-all duration-300 group"
-               onDragOver={(e) => e.preventDefault()}
+                <div className="border-2 border-dashed border-teal-200 dark:border-teal-800/50 rounded-xl p-8 text-center hover:border-teal-400 dark:hover:border-teal-600 hover:bg-teal-50/50 dark:hover:bg-teal-950/10 transition-all duration-300 group"
+                  onDragOver={(e) => e.preventDefault()}
                   onDrop={(e) => {
                     e.preventDefault()
                     const file = e.dataTransfer.files[0]
                     if (file) handleFileChange({ target: { files: [file] } })
                   }}>
-                <ImageIcon className="w-12 h-12 mx-auto text-teal-400 mb-4 group-hover:text-teal-600 group-hover:scale-110 transition-all duration-300" />
-                <Input
-                  id="watermark-files"
-                  type="file"
-                  accept="image/*"
-                  onChange={handleFileChange}
-                  className="hidden"
-                />
-                <Label
-                  htmlFor="watermark-files"
-                  className="cursor-pointer text-sm text-muted-foreground hover:text-teal-600 transition-colors duration-300 font-medium"
-                >
-                  Click to browse or drag and drop your image here
-                </Label>
-                <div className="text-xs text-muted-foreground mt-2 px-4 py-1 bg-teal-50 dark:bg-teal-950/20 rounded-full inline-block">
-                  Supported: JPG, PNG, WEBP, GIF
+                  <ImageIcon className="w-12 h-12 mx-auto text-teal-400 mb-4 group-hover:text-teal-600 group-hover:scale-110 transition-all duration-300" />
+                  <Input
+                    id="watermark-files"
+                    type="file"
+                    accept="image/*"
+                    onChange={handleFileChange}
+                    className="hidden"
+                  />
+                  <Label
+                    htmlFor="watermark-files"
+                    className="cursor-pointer text-sm text-muted-foreground hover:text-teal-600 transition-colors duration-300 font-medium"
+                  >
+                    Click to browse or drag and drop your image here
+                  </Label>
+                  <div className="text-xs text-muted-foreground mt-2 px-4 py-1 bg-teal-50 dark:bg-teal-950/20 rounded-full inline-block">
+                    Supported: JPG, PNG, WEBP, GIF
+                  </div>
                 </div>
-              </div>
               </label>
 
               {selectedFile && (

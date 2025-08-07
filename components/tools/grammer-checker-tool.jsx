@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import axios from "axios"; // Using axios for clean API requests
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardTitleMain } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
@@ -16,7 +16,7 @@ export function GrammarCheckerTool() {
 
   const handleGrammarCheck = async () => {
     if (!inputText.trim()) return;
-    
+
     setIsLoading(true);
     setHasChecked(true);
     setErrors([]); // Clear previous errors
@@ -49,12 +49,12 @@ export function GrammarCheckerTool() {
     setErrors([])
     setHasChecked(false)
   }
-  
+
   // Helper function to render the text with highlighted errors
   const getHighlightedText = (text, errors) => {
     let lastIndex = 0;
     const parts = [];
-    
+
     // Sort errors by their position in the text to process them correctly
     const sortedErrors = [...errors].sort((a, b) => a.offset - b.offset);
 
@@ -63,7 +63,7 @@ export function GrammarCheckerTool() {
       if (error.offset > lastIndex) {
         parts.push(<span key={`text-${lastIndex}`}>{text.substring(lastIndex, error.offset)}</span>);
       }
-      
+
       // Add the highlighted error text
       const errorText = text.substring(error.offset, error.offset + error.length);
       const categoryColor = error.rule.category.id === 'TYPOGRAPHY' ? 'bg-blue-100 dark:bg-blue-900/40' : 'bg-yellow-100 dark:bg-yellow-900/40';
@@ -72,7 +72,7 @@ export function GrammarCheckerTool() {
           {errorText}
         </span>
       );
-      
+
       lastIndex = error.offset + error.length;
     });
 
@@ -83,7 +83,7 @@ export function GrammarCheckerTool() {
 
     return parts;
   }
-  
+
   const errorCount = errors.length;
 
   return (
@@ -97,9 +97,9 @@ export function GrammarCheckerTool() {
             </div>
             <div className="text-left">
               <div className="flex items-center gap-2 mb-2">
-                <CardTitle className="text-2xl bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+                <CardTitleMain className="text-2xl bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
                   Grammar & Spell Checker
-                </CardTitle>
+                </CardTitleMain>
                 <Badge
                   variant="outline"
                   className="bg-blue-50 dark:bg-blue-950/50 border-blue-200 dark:border-blue-800"
@@ -135,9 +135,9 @@ export function GrammarCheckerTool() {
                 placeholder="Paste your text here... For example: 'This are an example of bad grammer.'"
                 className="h-64 text-base resize-none border-2 border-dashed border-blue-200 dark:border-blue-800/50 focus:border-blue-400 dark:focus:border-blue-600"
               />
-               <div className="text-xs text-muted-foreground mt-2 text-right">
+              <div className="text-xs text-muted-foreground mt-2 text-right">
                 {inputText.trim().split(/\s+/).filter(Boolean).length} words
-               </div>
+              </div>
             </CardContent>
           </Card>
 
@@ -158,7 +158,7 @@ export function GrammarCheckerTool() {
               <CardContent className="p-6">
                 {errorCount > 0 ? (
                   <div className="space-y-4">
-                     <div className="p-4 rounded-md bg-muted/50 text-base leading-relaxed border border-muted/20">
+                    <div className="p-4 rounded-md bg-muted/50 text-base leading-relaxed border border-muted/20">
                       {getHighlightedText(inputText, errors)}
                     </div>
                     {errors.map((error, index) => (

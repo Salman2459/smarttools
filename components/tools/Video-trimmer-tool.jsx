@@ -7,6 +7,7 @@ import {
     CardDescription,
     CardHeader,
     CardTitle,
+    CardTitleMain,
 } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -136,9 +137,9 @@ export function VideoTrimmerTool() {
                         </div>
                         <div className="text-left">
                             <div className="flex items-center gap-2 mb-2">
-                                <CardTitle className="text-2xl bg-gradient-to-r from-slate-600 to-blue-700 bg-clip-text text-transparent dark:from-slate-300 dark:to-blue-400">
+                                <CardTitleMain className="text-2xl bg-gradient-to-r from-slate-600 to-blue-700 bg-clip-text text-transparent dark:from-slate-300 dark:to-blue-400">
                                     Video Trimmer
-                                </CardTitle>
+                                </CardTitleMain>
                                 <Badge variant="outline" className="bg-slate-50 dark:bg-blue-950/50 border-blue-200 dark:border-slate-800">
                                     Accurate & Fast
                                 </Badge>

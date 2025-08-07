@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardTitleMain } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
@@ -168,10 +168,10 @@ export function VideoResizerTool() {
         <div className="lg:col-span-2 flex flex-col gap-6">
           <Card className="border-0 bg-gradient-to-br from-background to-muted/10 shadow-lg flex-1">
             <CardHeader className="border-b border-muted/20">
-              <CardTitle className="text-lg flex items-center gap-2">
+              <CardTitleMain className="text-lg flex items-center gap-2">
                 <UploadCloud className="w-5 h-5 text-yellow-600" />
                 Your Video
-              </CardTitle>
+              </CardTitleMain>
               <CardDescription>
                 {videoFile ? "Preview of your selected video" : "Select a video file to resize"}
               </CardDescription>

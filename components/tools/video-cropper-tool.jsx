@@ -7,6 +7,7 @@ import {
     CardDescription,
     CardHeader,
     CardTitle,
+    CardTitleMain,
 } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -177,9 +178,9 @@ export function VideoCropperTool() {
                         </div>
                         <div className="text-left">
                             <div className="flex items-center gap-2 mb-2">
-                                <CardTitle className="text-2xl bg-gradient-to-r from-cyan-600 to-cyan-800 bg-clip-text text-transparent">
+                                <CardTitleMain className="text-2xl bg-gradient-to-r from-cyan-600 to-cyan-800 bg-clip-text text-transparent">
                                     Video Cropper
-                                </CardTitle>
+                                </CardTitleMain>
                                 <Badge variant="outline" className="bg-cyan-50 dark:bg-cyan-950/50 border-cyan-200 dark:border-cyan-800">
                                     FFmpeg
                                 </Badge>

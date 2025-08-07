@@ -7,6 +7,7 @@ import {
     CardDescription,
     CardHeader,
     CardTitle,
+    CardTitleMain,
 } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -132,9 +133,9 @@ export function VideoCompressorTool() {
                         </div>
                         <div className="text-left">
                             <div className="flex items-center gap-2 mb-2">
-                                <CardTitle className="text-2xl bg-gradient-to-r from-rose-600 to-red-700 bg-clip-text text-transparent">
+                                <CardTitleMain className="text-2xl bg-gradient-to-r from-rose-600 to-red-700 bg-clip-text text-transparent">
                                     Video Compressor
-                                </CardTitle>
+                                </CardTitleMain>
                                 <Badge variant="outline" className="bg-rose-50 dark:bg-red-950/50 border-red-200 dark:border-rose-800">
                                     Optimization
                                 </Badge>
