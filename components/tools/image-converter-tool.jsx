@@ -141,9 +141,9 @@ export function ImageConverterTool({ toolId, fromFormat, toFormat }) {
 
   return (
     <>
-      <Head>
+      <head>
         <meta name="description" content={toolData.metaDescription} />
-      </Head>
+      </head>
 
       <div className="max-w-6xl mx-auto space-y-6">
         <canvas ref={canvasRef} style={{ display: "none" }} />

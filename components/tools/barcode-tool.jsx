@@ -103,9 +103,9 @@ export function BarcodeGeneratorTool({ toolId }) {
 
   return (
     <>
-      <Head>
+      <head>
         <meta name="description" content={toolData.metaDescription} />
-      </Head>
+      </head>
       <div className="max-w-4xl mx-auto space-y-6">
         {/* Hidden canvas for generation */}
         <canvas ref={canvasRef} style={{ display: "none" }} />

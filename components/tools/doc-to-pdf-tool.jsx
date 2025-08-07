@@ -357,9 +357,9 @@ export function DocToPdfTool({ toolId }) {
 
   return (
     <>
-      <Head>
+      <head>
         <meta name="description" content={toolData.metaDescription} />
-      </Head>
+      </head>
       <Card className={`border-0 bg-gradient-to-br from-${toolData.bgColor.split('-')[1]}-50/50 to-${toolData.bgColor.split('-')[1]}-100/30 dark:from-${toolData.bgColor.split('-')[1]}-950/20 dark:to-${toolData.bgColor.split('-')[1]}-900/10 shadow-lg`}>
         <CardHeader className="text-center">
           <div className="flex items-center justify-center gap-4 mb-4">

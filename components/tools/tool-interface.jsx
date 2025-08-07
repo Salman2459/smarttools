@@ -28,9 +28,9 @@ export function ToolInterface({ tool }) {
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">
-      {tool.id == "image-compressor" ? <CompressImageTool />
-        : tool.id == "image-resizer" ? <ImageResizerTool />
-          : tool.id == "image-cropper" ? <ImageCropperTool />
+      {tool.id == "image-compressor" ? <CompressImageTool toolId={"image-compressor"} />
+        : tool.id == "image-resizer" ? <ImageResizerTool toolId={"image-resizer"} />
+          : tool.id == "image-cropper" ? <ImageCropperTool toolId={"image-cropper"} />
             : tool.id == "png-to-jpg" ? <ImageConverterTool fromFormat="png" toFormat="jpg" toolId="png-to-jpg" />
               : tool.id == "png-to-jpeg" ? <ImageConverterTool fromFormat="png" toFormat="jpeg" toolId="png-to-jpeg" />
                 : tool.id == "png-to-svg" ? <ImageConverterTool fromFormat="png" toFormat="svg" toolId="png-to-svg" />

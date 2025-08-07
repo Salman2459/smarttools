@@ -132,9 +132,9 @@ export function VideoTrimmerTool({ toolId }) {
 
     return (
         <>
-            <Head>
+            <head>
                 <meta name="description" content={toolData.metaDescription} />
-            </Head>
+            </head>
             <div className="max-w-4xl mx-auto space-y-6">
                 <Card className="border-0 bg-gradient-to-br from-slate-50 to-blue-100/30 dark:from-slate-900/20 dark:to-blue-900/10 shadow-lg">
                     <CardHeader className="text-center">
