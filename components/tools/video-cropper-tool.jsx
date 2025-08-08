@@ -173,9 +173,6 @@ export function VideoCropperTool({ toolId }) {
 
     return (
         <>
-            <head>
-                <meta name="description" content={toolData.metaDescription} />
-            </head>
             <div className="max-w-4xl mx-auto space-y-6">
                 <Card className="border-0 bg-gradient-to-br from-cyan-50/50 to-cyan-100/30 dark:from-cyan-950/20 dark:to-cyan-900/10 shadow-lg">
                     <CardHeader className="text-center">

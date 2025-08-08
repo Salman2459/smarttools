@@ -137,10 +137,6 @@ export function TextToSpeechTool({ toolId }) {
   return (
 
     <>
-      <head>
-        <meta name="description" content={toolData.metaDescription} />
-      </head>
-
       <div className="max-w-4xl mx-auto space-y-6">
         {/* Tool Header */}
         <Card className="border-0 bg-gradient-to-br from-pink-50/50 to-pink-100/30 dark:from-pink-950/20 dark:to-pink-900/10 shadow-lg">

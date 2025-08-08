@@ -153,9 +153,6 @@ export function VideoResizerTool({ toolId }) {
 
   return (
     <>
-      <head>
-        <meta name="description" content={toolData.metaDescription} />
-      </head>
       <div className="max-w-6xl mx-auto space-y-6">
         {/* ... The rest of your JSX remains unchanged ... */}
         <Card className="border-0 bg-gradient-to-br from-yellow-50/50 to-yellow-100/30 dark:from-yellow-950/20 dark:to-yellow-900/10 shadow-lg" />

@@ -135,9 +135,6 @@ export function ImageResizerTool({ toolId }) {
 
   return (
     <>
-      <head>
-        <meta name="description" content={toolData.metaDescription} />
-      </head>
       <div className="max-w-6xl mx-auto space-y-6">
         <canvas ref={canvasRef} style={{ display: "none" }} />
 

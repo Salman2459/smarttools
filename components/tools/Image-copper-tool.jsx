@@ -202,9 +202,6 @@ export function ImageCropperTool({ toolId }) {
 
     return (
         <>
-            <head>
-                <meta name="description" content={toolData.metaDescription} />
-            </head>
             <div className="max-w-4xl mx-auto space-y-6">
                 <style>{cropStyle}</style>
                 <Card className="border-0 bg-gradient-to-br from-purple-50/50 to-purple-100/30 dark:from-purple-950/20 dark:to-purple-900/10 shadow-lg">

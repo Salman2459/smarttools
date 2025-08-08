@@ -15,13 +15,25 @@ export async function generateMetadata({ params }) {
   if (!tool) {
     return {
       title: "Tool Not Found",
+      alternates: {
+        canonical: `https://yourwebsite.com/tools/${toolId}`,
+      },
     }
   }
 
   return {
     title: `${tool.title} - SmartTools`,
-    description: tool.description,
-    keywords: [tool.title.toLowerCase(), tool.category.toLowerCase(), "productivity tools", "file conversion"],
+    description: tool.metaDescription,
+    keywords: [
+      tool.title.toLowerCase(),
+      tool.category.toLowerCase(),
+      "productivity tools",
+      "file conversion",
+      "smart tools",
+    ],
+    alternates: {
+      canonical: `https://yourwebsite.com/tools/${toolId}`,
+    },
   }
 }
 
@@ -38,7 +50,7 @@ export default async function ToolPage({ params }) {
     id: tool.id,
     title: tool.title,
     description: tool.description,
-    iconName: tool.iconName, // We'll use icon name instead of component
+    iconName: tool.iconName,
     acceptedTypes: tool.acceptedTypes,
     color: tool.color,
     bgColor: tool.bgColor,
