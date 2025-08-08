@@ -16,7 +16,7 @@ export async function generateMetadata({ params }) {
     return {
       title: "Tool Not Found",
       alternates: {
-        canonical: `https://yourwebsite.com/tools/${toolId}`,
+        canonical: `https://www.smarttools.fun/tools/${toolId}`,
       },
     }
   }
