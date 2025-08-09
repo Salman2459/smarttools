@@ -78,6 +78,7 @@ export default function PrivacyPolicyPage() {
     return (
         <>
             <head>
+                <link rel="canonical" href="https://smarttools.fun/privacypolicy" />
                 <meta name="description" content="Explore SmartTools.fun: a comprehensive platform offering free and smart online tools, from calculators to converters, to simplify tasks and boost productivity." />
             </head>
             <main className="bg-background">

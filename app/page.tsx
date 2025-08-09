@@ -96,7 +96,8 @@ export default function HomePage() {
   return (
     <>
       <head>
-        <meta name="description" content="Explore SmartTools.fun: a comprehensive platform offering free and smart online tools, from calculators to converters, to simplify tasks and boost productivity." />
+        {/* <meta name="description" content="Explore SmartTools.fun: a comprehensive platform offering free and smart online tools, from calculators to converters, to simplify tasks and boost productivity." /> */}
+        <link rel="canonical" href="https://smarttools.fun" />
       </head>
       <div className="min-h-screen">
         <HeroSection />

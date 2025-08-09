@@ -113,6 +113,7 @@ export default function AboutPage() {
     return (
         <>
             <head>
+                <link rel="canonical" href="https://smarttools.fun/about" />
                 <meta name="description" content="Learn more about Smart Tools, our mission, vision, and the smart tools we create to make online tasks easy, fast, and accessible to everyone." />
             </head>
             <main className="bg-muted/20">

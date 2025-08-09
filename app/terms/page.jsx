@@ -80,6 +80,7 @@ export default function TermsAndConditionsPage() {
 
         <>
             <head>
+                <link rel="canonical" href="https://smarttools.fun/terms" />
                 <meta name="description" content="Read the SmartTools Terms & Conditions: includes usage guidelines, legal information and conditions for using our smart online tool platform." />
             </head>
             <main className="bg-background">

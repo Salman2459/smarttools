@@ -32,7 +32,7 @@ export async function generateMetadata({ params }) {
       "smart tools",
     ],
     alternates: {
-      canonical: `https://yourwebsite.com/tools/${toolId}`,
+      canonical: `https://www.smarttools.fun/tools/${toolId}`,
     },
   }
 }
