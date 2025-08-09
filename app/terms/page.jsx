@@ -77,92 +77,98 @@ export default function TermsAndConditionsPage() {
     const lastUpdated = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
     return (
-        <main className="bg-background">
-            {/* Section 1: Hero */}
-            <motion.section
-                initial={{ opacity: 0, y: -50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7 }}
-                className="relative py-24 sm:py-32 bg-cover bg-center text-white"
-                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=2574&auto=format&fit=crop')" }}
-            >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/60 backdrop-blur-sm"></div>
-                <div className="relative container mx-auto px-4 text-center">
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">Terms & Conditions</h1>
-                    <p className="mt-4 text-lg text-neutral-300">Please read our terms carefully. Last Updated: {lastUpdated}</p>
-                </div>
-            </motion.section>
 
-            {/* Section 2: Content with Sticky Navigation */}
-            <section className="py-16 sm:py-24">
-                <div className="container mx-auto px-4">
-                    <div className="grid lg:grid-cols-4 gap-12">
-
-                        {/* Left Side: Sticky Table of Contents */}
-                        <aside className="lg:col-span-1 lg:sticky lg:top-24 h-fit">
-                            <h3 className="text-lg font-semibold mb-4">Sections</h3>
-                            <ul className="space-y-2">
-                                {termsSections.map(section => (
-                                    <li key={section.id}>
-                                        <Link href={`#${section.id}`} className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2">
-                                            <section.icon className="w-4 h-4 flex-shrink-0" />
-                                            <span>{section.title}</span>
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </aside>
-
-                        {/* Right Side: Main Policy Content */}
-                        <div className="lg:col-span-3">
-                            <div className="space-y-12">
-                                {termsSections.map(section => (
-                                    <motion.div
-                                        key={section.id}
-                                        id={section.id}
-                                        initial={{ opacity: 0, y: 40 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 0.5, delay: 0.1 }}
-                                        viewport={{ once: true }}
-                                    >
-                                        <h2 className="text-2xl sm:text-3xl font-bold border-b pb-4 mb-6 flex items-center gap-3">
-                                            <section.icon className="w-7 h-7 text-primary" />
-                                            {section.title}
-                                        </h2>
-                                        <div className="prose prose-neutral dark:prose-invert max-w-none prose-p:text-muted-foreground prose-li:text-muted-foreground prose-ul:list-disc prose-ul:pl-6">
-                                            {section.content}
-                                        </div>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </div>
-
+        <>
+            <head>
+                <meta name="description" content="Read the SmartTools Terms & Conditions: includes usage guidelines, legal information and conditions for using our smart online tool platform." />
+            </head>
+            <main className="bg-background">
+                {/* Section 1: Hero */}
+                <motion.section
+                    initial={{ opacity: 0, y: -50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7 }}
+                    className="relative py-24 sm:py-32 bg-cover bg-center text-white"
+                    style={{ backgroundImage: "url('https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=2574&auto=format&fit=crop')" }}
+                >
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/60 backdrop-blur-sm"></div>
+                    <div className="relative container mx-auto px-4 text-center">
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">Terms & Conditions</h1>
+                        <p className="mt-4 text-lg text-neutral-300">Please read our terms carefully. Last Updated: {lastUpdated}</p>
                     </div>
-                </div>
-            </section>
+                </motion.section>
 
-            {/* Section 3: Contact Call-to-Action */}
-            <section className="py-16 sm:py-24 bg-muted/30">
-                <div className="container mx-auto px-4 text-center">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        viewport={{ once: true }}
-                    >
-                        <Mail className="w-12 h-12 text-primary mx-auto mb-4" />
-                        <h2 className="text-3xl font-bold mb-3">Contact Us</h2>
-                        <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">
-                            If you have any questions about these Terms, please contact us.
-                        </p>
-                        <Link href="/contact">
-                            <Button size="lg">
-                                Get in Touch <ArrowRight className="w-4 h-4 ml-2" />
-                            </Button>
-                        </Link>
-                    </motion.div>
-                </div>
-            </section>
-        </main>
+                {/* Section 2: Content with Sticky Navigation */}
+                <section className="py-16 sm:py-24">
+                    <div className="container mx-auto px-4">
+                        <div className="grid lg:grid-cols-4 gap-12">
+
+                            {/* Left Side: Sticky Table of Contents */}
+                            <aside className="lg:col-span-1 lg:sticky lg:top-24 h-fit">
+                                <h3 className="text-lg font-semibold mb-4">Sections</h3>
+                                <ul className="space-y-2">
+                                    {termsSections.map(section => (
+                                        <li key={section.id}>
+                                            <Link href={`#${section.id}`} className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2">
+                                                <section.icon className="w-4 h-4 flex-shrink-0" />
+                                                <span>{section.title}</span>
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </aside>
+
+                            {/* Right Side: Main Policy Content */}
+                            <div className="lg:col-span-3">
+                                <div className="space-y-12">
+                                    {termsSections.map(section => (
+                                        <motion.div
+                                            key={section.id}
+                                            id={section.id}
+                                            initial={{ opacity: 0, y: 40 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            transition={{ duration: 0.5, delay: 0.1 }}
+                                            viewport={{ once: true }}
+                                        >
+                                            <h2 className="text-2xl sm:text-3xl font-bold border-b pb-4 mb-6 flex items-center gap-3">
+                                                <section.icon className="w-7 h-7 text-primary" />
+                                                {section.title}
+                                            </h2>
+                                            <div className="prose prose-neutral dark:prose-invert max-w-none prose-p:text-muted-foreground prose-li:text-muted-foreground prose-ul:list-disc prose-ul:pl-6">
+                                                {section.content}
+                                            </div>
+                                        </motion.div>
+                                    ))}
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+                {/* Section 3: Contact Call-to-Action */}
+                <section className="py-16 sm:py-24 bg-muted/30">
+                    <div className="container mx-auto px-4 text-center">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5 }}
+                            viewport={{ once: true }}
+                        >
+                            <Mail className="w-12 h-12 text-primary mx-auto mb-4" />
+                            <h2 className="text-3xl font-bold mb-3">Contact Us</h2>
+                            <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">
+                                If you have any questions about these Terms, please contact us.
+                            </p>
+                            <Link href="/contact">
+                                <Button size="lg">
+                                    Get in Touch <ArrowRight className="w-4 h-4 ml-2" />
+                                </Button>
+                            </Link>
+                        </motion.div>
+                    </div>
+                </section>
+            </main>
+        </>
     );
 }

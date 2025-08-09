@@ -111,80 +111,84 @@ const TeamMemberCard = ({ image, name, title, socials, index }) => (
 
 export default function AboutPage() {
     return (
-        <main className="bg-muted/20">
-            {/* Section 1: Hero */}
-            <motion.section
-                initial={{ opacity: 0, y: -50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7 }}
-                className="relative py-24 sm:py-32 bg-cover bg-center text-white"
-                style={{ backgroundImage: "url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2670&auto=format&fit=crop')" }}
-            >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/40 backdrop-blur-sm"></div>
-                <div className="relative container mx-auto px-4 text-center">
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">About SmartTools</h1>
-                    <p className="mt-4 text-lg sm:text-xl text-neutral-200 max-w-3xl mx-auto">
-                        We're a passionate team dedicated to building simple, powerful, and accessible tools to boost your productivity.
-                    </p>
-                </div>
-            </motion.section>
-
-            {/* Section 2: Our Mission */}
-            <section className="py-16 sm:py-24 bg-background">
-                <div className="container mx-auto px-4">
-                    <div className="grid lg:grid-cols-2 gap-12 items-center">
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6 }}
-                            viewport={{ once: true }}
-                        >
-                            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Our Mission</h2>
-                            <p className="text-muted-foreground text-lg mb-6">
-                                In a world filled with complex software, our mission is to create a suite of intuitive, fast, and secure tools that anyone can use. We believe that productivity should be effortless, not a chore. We focus on single-purpose, high-quality utilities that do one thing and do it exceptionally well.
-                            </p>
-                            <Button asChild size="lg">
-                                <Link href="/features">
-                                    Explore Our Tools <ArrowRight className="w-4 h-4 ml-2" />
-                                </Link>
-                            </Button>
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.6 }}
-                            viewport={{ once: true }}
-                            className="h-80 lg:h-96"
-                        >
-                            <Image
-                                src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2574&auto=format&fit=crop"
-                                alt="Team working collaboratively"
-                                width={600}
-                                height={400}
-                                className="rounded-xl object-cover w-full h-full shadow-lg"
-                            />
-                        </motion.div>
+        <>
+            <head>
+                <meta name="description" content="Learn more about Smart Tools, our mission, vision, and the smart tools we create to make online tasks easy, fast, and accessible to everyone." />
+            </head>
+            <main className="bg-muted/20">
+                {/* Section 1: Hero */}
+                <motion.section
+                    initial={{ opacity: 0, y: -50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7 }}
+                    className="relative py-24 sm:py-32 bg-cover bg-center text-white"
+                    style={{ backgroundImage: "url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2670&auto=format&fit=crop')" }}
+                >
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/40 backdrop-blur-sm"></div>
+                    <div className="relative container mx-auto px-4 text-center">
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">About SmartTools</h1>
+                        <p className="mt-4 text-lg sm:text-xl text-neutral-200 max-w-3xl mx-auto">
+                            We're a passionate team dedicated to building simple, powerful, and accessible tools to boost your productivity.
+                        </p>
                     </div>
-                </div>
-            </section>
+                </motion.section>
 
-            {/* Section 3: Our Core Values */}
-            <section className="py-16 sm:py-24">
-                <div className="container mx-auto px-4">
-                    <div className="text-center mb-12 sm:mb-16">
-                        <h2 className="text-3xl sm:text-4xl font-bold">What Drives Us</h2>
-                        <p className="mt-3 text-muted-foreground text-lg">Our principles are the foundation of our work.</p>
+                {/* Section 2: Our Mission */}
+                <section className="py-16 sm:py-24 bg-background">
+                    <div className="container mx-auto px-4">
+                        <div className="grid lg:grid-cols-2 gap-12 items-center">
+                            <motion.div
+                                initial={{ opacity: 0, x: -50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.6 }}
+                                viewport={{ once: true }}
+                            >
+                                <h2 className="text-3xl sm:text-4xl font-bold mb-4">Our Mission</h2>
+                                <p className="text-muted-foreground text-lg mb-6">
+                                    In a world filled with complex software, our mission is to create a suite of intuitive, fast, and secure tools that anyone can use. We believe that productivity should be effortless, not a chore. We focus on single-purpose, high-quality utilities that do one thing and do it exceptionally well.
+                                </p>
+                                <Button asChild size="lg">
+                                    <Link href="/features">
+                                        Explore Our Tools <ArrowRight className="w-4 h-4 ml-2" />
+                                    </Link>
+                                </Button>
+                            </motion.div>
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.6 }}
+                                viewport={{ once: true }}
+                                className="h-80 lg:h-96"
+                            >
+                                <Image
+                                    src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2574&auto=format&fit=crop"
+                                    alt="Team working collaboratively"
+                                    width={600}
+                                    height={400}
+                                    className="rounded-xl object-cover w-full h-full shadow-lg"
+                                />
+                            </motion.div>
+                        </div>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {values.map((value, index) => (
-                            <ValueCard key={value.title} {...value} index={index} />
-                        ))}
-                    </div>
-                </div>
-            </section>
+                </section>
 
-            {/* Section 4: Meet the Team */}
-            {/* <section className="py-16 sm:py-24 bg-background">
+                {/* Section 3: Our Core Values */}
+                <section className="py-16 sm:py-24">
+                    <div className="container mx-auto px-4">
+                        <div className="text-center mb-12 sm:mb-16">
+                            <h2 className="text-3xl sm:text-4xl font-bold">What Drives Us</h2>
+                            <p className="mt-3 text-muted-foreground text-lg">Our principles are the foundation of our work.</p>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            {values.map((value, index) => (
+                                <ValueCard key={value.title} {...value} index={index} />
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* Section 4: Meet the Team */}
+                {/* <section className="py-16 sm:py-24 bg-background">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12 sm:mb-16">
                         <h2 className="text-3xl sm:text-4xl font-bold">Meet the Team</h2>
@@ -197,6 +201,7 @@ export default function AboutPage() {
                     </div>
                 </div>
             </section> */}
-        </main>
+            </main>
+        </>
     );
 }

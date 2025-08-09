@@ -119,41 +119,46 @@ function ContactForm() {
 export default function ContactPage() {
     // The main page component remains the same.
     return (
-        <main className="bg-muted/20">
-            <motion.section initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="relative py-24 sm:py-32 bg-cover bg-center text-white" style={{ backgroundImage: "url('https://plus.unsplash.com/premium_photo-1675842663249-a8b70103dbaa?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y29udGFjdCUyMHVzfGVufDB8fDB8fHww" }}>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/50 backdrop-blur-sm"></div>
-                <div className="relative container mx-auto px-4 text-center">
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">Get in Touch</h1>
-                    <p className="mt-4 text-lg sm:text-xl text-neutral-300 max-w-3xl mx-auto">We’re here to help and answer any question you might have. We look forward to hearing from you.</p>
-                </div>
-            </motion.section>
-            <section className="py-16 sm:py-24">
-                <div className="container mx-auto px-4">
-                    <div className="text-center mb-12 sm:mb-16"><h2 className="text-3xl sm:text-4xl font-bold">Our Offices</h2><p className="mt-3 text-muted-foreground text-lg">Come say hello at one of our locations.</p></div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">{locations.map((location, index) => (<LocationCard key={location.city} location={location} index={index} />))}</div>
-                </div>
-            </section>
-            <section className="py-16 sm:py-24 bg-background">
-                <div className="container mx-auto px-4">
-                    <Card className="overflow-hidden">
-                        <div className="grid lg:grid-cols-2">
-                            <div className="p-8 sm:p-12 bg-muted/50">
-                                <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="space-y-8">
-                                    <h2 className="text-3xl font-bold">Contact Information</h2>
-                                    <p className="text-muted-foreground">Can't find what you're looking for? Reach out to us directly.</p>
-                                    <div className="space-y-6">
-                                        <ContactInfoItem icon={Mail} title="Email Us" value="support@smarttools.fun" href="mailto:support@smarttools.fun" />
-                                        <ContactInfoItem icon={MapPin} title="Main Office" value="123 Tech Street, London, UK" />
-                                    </div>
-                                </motion.div>
+        <>
+            <head>
+                <meta name="description" content="Contact Smart Tools for support, feedback, or inquiries. Your insights help us refine and enhance our free tools and deliver a better user experience." />
+            </head>
+            <main className="bg-muted/20">
+                <motion.section initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="relative py-24 sm:py-32 bg-cover bg-center text-white" style={{ backgroundImage: "url('https://plus.unsplash.com/premium_photo-1675842663249-a8b70103dbaa?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y29udGFjdCUyMHVzfGVufDB8fDB8fHww" }}>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/50 backdrop-blur-sm"></div>
+                    <div className="relative container mx-auto px-4 text-center">
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">Get in Touch</h1>
+                        <p className="mt-4 text-lg sm:text-xl text-neutral-300 max-w-3xl mx-auto">We’re here to help and answer any question you might have. We look forward to hearing from you.</p>
+                    </div>
+                </motion.section>
+                <section className="py-16 sm:py-24">
+                    <div className="container mx-auto px-4">
+                        <div className="text-center mb-12 sm:mb-16"><h2 className="text-3xl sm:text-4xl font-bold">Our Offices</h2><p className="mt-3 text-muted-foreground text-lg">Come say hello at one of our locations.</p></div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">{locations.map((location, index) => (<LocationCard key={location.city} location={location} index={index} />))}</div>
+                    </div>
+                </section>
+                <section className="py-16 sm:py-24 bg-background">
+                    <div className="container mx-auto px-4">
+                        <Card className="overflow-hidden">
+                            <div className="grid lg:grid-cols-2">
+                                <div className="p-8 sm:p-12 bg-muted/50">
+                                    <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="space-y-8">
+                                        <h2 className="text-3xl font-bold">Contact Information</h2>
+                                        <p className="text-muted-foreground">Can't find what you're looking for? Reach out to us directly.</p>
+                                        <div className="space-y-6">
+                                            <ContactInfoItem icon={Mail} title="Email Us" value="support@smarttools.fun" href="mailto:support@smarttools.fun" />
+                                            <ContactInfoItem icon={MapPin} title="Main Office" value="123 Tech Street, London, UK" />
+                                        </div>
+                                    </motion.div>
+                                </div>
+                                <div className="p-8 sm:p-12">
+                                    <ContactForm />
+                                </div>
                             </div>
-                            <div className="p-8 sm:p-12">
-                                <ContactForm />
-                            </div>
-                        </div>
-                    </Card>
-                </div>
-            </section>
-        </main>
+                        </Card>
+                    </div>
+                </section>
+            </main>
+        </>
     );
 }
