@@ -79,7 +79,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/terms" className="hover:text-primary transition-colors">
-                  Terms of Service
+                  Terms & Condition
                 </Link>
               </li>
             </ul>
