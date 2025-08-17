@@ -16,7 +16,7 @@ export async function generateMetadata({ params }) {
     return {
       title: "Tool Not Found",
       alternates: {
-        canonical: `https://www.smarttools.fun/tools/${toolId}`,
+        canonical: `https://smarttools.fun/tools/${toolId}`,
       },
     }
   }
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }) {
       "smart tools",
     ],
     alternates: {
-      canonical: `https://www.smarttools.fun/tools/${toolId}`,
+      canonical: `https://smarttools.fun/tools/${toolId}`,
     },
   }
 }

@@ -121,7 +121,7 @@ export default function ContactPage() {
     return (
         <>
             <head>
-                <link rel="canonical" href="https://smarttools.fun/contact" />
+                <link rel="canonical" href="https://smarttools.fun/contact/" />
                 <meta name="title" content="Get in Touch with Smart Tools & Gave Support & Feedback" />
                 <meta name="description" content="Contact Smart Tools for support, feedback, or inquiries. Your insights help us refine and enhance our free tools and deliver a better user experience." />
             </head>
