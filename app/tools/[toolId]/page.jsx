@@ -22,7 +22,7 @@ export async function generateMetadata({ params }) {
   }
 
   return {
-    title: `${tool.title} - SmartTools`,
+    title: `${tool.metaTitle}`,
     description: tool.metaDescription,
     keywords: [
       tool.title.toLowerCase(),

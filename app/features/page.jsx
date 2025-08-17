@@ -12,6 +12,7 @@ export default function FeaturesPage() {
     <>
       <head>
         <link rel="canonical" href="https://smarttools.fun/features" />
+        <meta name="title" content="Explore Full Range of Smart Tools Features Online" />
         <meta name="description" content="Discover Smart Tools features: fast, reliable online tools like unit converters, calculators, text analysers and more, all free and easy to use." />
       </head>
       <div className="min-h-screen py-8 sm:py-12 px-4">
