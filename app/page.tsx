@@ -7,6 +7,7 @@ import { WhyChooseUsSection } from "@/components/home/why-choose-us-section"
 import { TestimonialsSection } from "@/components/home/testimonials-section"
 import { CTASection } from "@/components/home/cta-section"
 import Head from "next/head"
+import { HowToUseSection } from "@/components/home/how-to-use"
 
 export default function HomePage() {
   const features = [
@@ -103,6 +104,7 @@ export default function HomePage() {
         <HeroSection />
         {/* <StatsSection stats={stats} /> */}
         <FeaturesSection />
+        <HowToUseSection />
         {/* <HowItWorksSection steps={steps} />
       <WhyChooseUsSection whyChooseUs={whyChooseUs} /> */}
         <TestimonialsSection />
