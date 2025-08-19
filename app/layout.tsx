@@ -42,7 +42,7 @@ export default function RootLayout({
           </div>
         </ThemeProvider>
       </body>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1024309119073793"
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6631051165046083"
         crossOrigin="anonymous"></script>
 
 
