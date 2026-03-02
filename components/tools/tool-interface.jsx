@@ -1,5 +1,6 @@
 "use client"
 
+import dynamic from "next/dynamic"
 import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -23,6 +24,15 @@ import { VideoTrimmerTool } from "./Video-trimmer-tool.jsx"
 import { VideoCompressorTool } from "./video-compressor-tool.jsx"
 import { VideoResizerTool } from "./video-resize-tool.jsx"
 import { PdfToDocTool } from "./pdf-to-doc.jsx"
+import { DnsCheckerTool } from "./dns-checker-tool.jsx"
+
+const BackgroundRemoverTool = dynamic(
+  () => import("./background-remover-tool.jsx").then((m) => ({ default: m.BackgroundRemoverTool })),
+  { ssr: false, loading: () => <div className="flex items-center justify-center min-h-[200px]"><Loader2 className="w-8 h-8 animate-spin text-muted-foreground" /></div> }
+)
+import { TempEmailTool } from "./temp-email-tool.jsx"
+import { ImageEnhanceTool } from "./image-enhance-tool.jsx"
+import { DocumentViewerTool } from "./document-viewer-tool.jsx"
 
 export function ToolInterface({ tool }) {
 
@@ -54,18 +64,20 @@ export function ToolInterface({ tool }) {
                                                     : tool.id == "image-converter" ? <ImageConverterTool />
                                                       : tool.id == "image-watermarker" ? <ImageWatermarkerTool toolId="image-watermarker" />
                                                         : tool.id == "image-to-pdf" ? <ImageToPdfTool toolId="image-to-pdf" />
-                                                          // : tool.id == "pdf-to-txt" ? <PdfToDocTool toolId="pdf-to-txt" />
                                                           : tool.id == "text-to-speech" ? <TextToSpeechTool toolId="text-to-speech" />
                                                             : tool.id == "grammar-checker" ? <GrammarCheckerTool toolId="grammar-checker" />
-                                                              // : tool.id == "text-summarizer" ? <TextSummarizerTool />
-                                                              // : tool.id == "ai-humanizer" ? <AiHumanizerTool />
                                                               : tool.id == "qr-generator" ? <QrGeneratorTool toolId="qr-generator" />
                                                                 : tool.id == "barcode-generator" ? <BarcodeGeneratorTool toolId="barcode-generator" />
                                                                   : tool.id == "video-compressor" ? <VideoCompressorTool toolId="video-compressor" />
                                                                     : tool.id == "video-trimmer" ? <VideoTrimmerTool toolId="video-trimmer" />
                                                                       : tool.id == "video-cropper" ? <VideoCropperTool toolId="video-cropper" />
                                                                         : tool.id == "video-resizer" ? <VideoResizerTool toolId="video-resizer" />
-                                                                          : null}
+                                                                          : tool.id == "background-remover" ? <BackgroundRemoverTool toolId="background-remover" />
+                                                                            : tool.id == "dns-checker" ? <DnsCheckerTool toolId={"dns-checker"} />
+                                                                              : tool.id == "temp-email" ? <TempEmailTool toolId="temp-email" />
+                                                                                : tool.id == "image-enhance" ? <ImageEnhanceTool toolId="image-enhance" />
+                                                                                  : ["document-viewer", "excel-viewer", "word-viewer", "text-viewer", "image-viewer", "pdf-viewer", "js-viewer", "css-viewer", "json-viewer", "html-viewer", "markdown-viewer", "python-viewer", "php-viewer"].includes(tool.id) ? <DocumentViewerTool toolId={tool.id} />
+                                                                                    : null}
 
     </div>
   )

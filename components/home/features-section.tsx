@@ -12,14 +12,15 @@ export function FeaturesSection() {
   const [searchQuery, setSearchQuery] = useState("")
 
   // Filter the tools based on the search query.
-  // The filter is case-insensitive and checks both title and description.
+  // The filter is case-insensitive and checks title, description, and optional keywords.
   const filteredFeatures = toolsData.filter((tool) => {
-    const query = searchQuery.toLowerCase()
+    const query = searchQuery.toLowerCase().trim()
+    if (!query) return true
     const titleMatch = tool.title.toLowerCase().includes(query)
     const descriptionMatch = tool.description.toLowerCase().includes(query)
-    return titleMatch || descriptionMatch
+    const keywordsMatch = (tool as { keywords?: string }).keywords?.toLowerCase().includes(query)
+    return titleMatch || descriptionMatch || !!keywordsMatch
   })
-
   return (
     <section className="py-16 sm:py-20 px-4 bg-muted/30">
       <div className="max-w-6xl mx-auto">

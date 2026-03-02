@@ -5,25 +5,76 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import Head from "next/head"
+import Script from "next/script"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Free Online Smart Tools – Images, PDF & AI | Smart Tools",
-  description: "Explore SmartTools.fun: a comprehensive platform offering free and smart online tools, from calculators to converters, to simplify tasks and boost productivity.",
-  keywords: ["smart tools", "smart tool", "file conversion", "PDF converter", "image compression", "video tools", "online smart tools ", "online smart tools no sign-up", "free tools to improve workflow", "convert files & compress images in one place", "all-in-one file converter", "privacy-focused document converter", "free productivity tools", "best productivity tools", "smart toolkit online", "no sign up smart tools", "web based smaret tools", "file conversion smart tools", "AI productivity tools", "smart tools for content creators", "pdf tools online free", "image tools for productivity", "quick smart tools for students"],
-  authors: [{ name: "SmartTools" }],
-  viewport: "width=device-width, initial-scale=1",
+  title: {
+    default: "Free Online Smart Tools – Images, PDF & AI | SmartTools.fun",
+    template: "%s | SmartTools.fun",
+  },
+  description:
+    "SmartTools.fun offers 30+ free online tools including image conversion, PDF creation, image compression, video editing, AI text humanizer, QR code generator, and more. No sign-up, no fees.",
+  keywords: [
+    "smart tools",
+    "free online tools",
+    "image to pdf",
+    "image compressor",
+    "pdf converter",
+    "word to pdf",
+    "image converter",
+    "video compressor",
+    "qr code generator",
+    "barcode generator",
+    "text to speech",
+    "AI text humanizer",
+    "online productivity tools",
+    "no sign up tools",
+    "free file converter",
+    "jpg to png",
+    "png to pdf",
+    "webp converter",
+    "pdf tools online free",
+    "smarttools.fun",
+  ],
+  authors: [{ name: "SmartTools.fun", url: "https://smarttools.fun" }],
+  creator: "SmartTools.fun",
+  publisher: "SmartTools.fun",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
-    title: "Free Online Smart Tools – Images, PDF & AI | Smart Tools",
-    description: "Explore SmartTools.fun: a comprehensive platform offering free and smart online tools, from calculators to converters, to simplify tasks and boost productivity.",
+    title: "Free Online Smart Tools – Images, PDF & AI | SmartTools.fun",
+    description:
+      "30+ free online tools: image conversion, PDF tools, video compression, AI text tools, QR code generators & more. No account needed.",
     type: "website",
+    url: "https://smarttools.fun",
+    siteName: "SmartTools.fun",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Free Online Smart Tools – Images, PDF & AI | SmartTools.fun",
+    description:
+      "30+ free online tools with no sign-up. Convert images, create PDFs, compress videos, and more.",
+  },
+  alternates: {
+    canonical: "https://smarttools.fun",
   },
   icons: {
     icon: "/favicon.png",
   },
-
+  verification: {
+    google: "", // Add your Google Search Console verification code here
+  },
 }
 
 export default function RootLayout({
@@ -33,6 +84,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Google AdSense - meta tag for "Meta tag" verification method */}
+        <meta name="google-adsense-account" content="ca-pub-3070161568608265"/>
+        {/* AdSense script - beforeInteractive so it appears in initial HTML for crawler verification */}
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3070161568608265"
+     crossOrigin="anonymous"></script>
+      </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange={false}>
           <div className="flex flex-col min-h-screen">
@@ -42,10 +100,6 @@ export default function RootLayout({
           </div>
         </ThemeProvider>
       </body>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6631051165046083"
-        crossOrigin="anonymous"></script>
-
-
     </html>
   )
 }

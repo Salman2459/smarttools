@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /_next/
 
+# Sitemaps
+Sitemap: https://www.smarttools.fun/sitemap.xml
 Sitemap: https://smarttools.fun/sitemap.xml

@@ -1,142 +1,101 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowRight, Lightbulb, Users, Shield, Github, Linkedin, Twitter } from "lucide-react"
+import { ArrowRight, Lightbulb, Users, Shield, Zap, Globe, Lock, Star } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
 
-// --- Data for Core Values ---
 const values = [
     {
         icon: Lightbulb,
         title: "Innovation",
-        description: "We constantly seek better ways to solve problems, pushing the boundaries of what's possible with creativity and technology."
+        description:
+            "We continuously build new tools and improve existing ones based on real user needs. Our goal is to stay ahead of the curve in productivity technology.",
     },
     {
         icon: Users,
-        title: "Customer-Centric",
-        description: "Our users are at the heart of everything we do. We listen, learn, and build tools that truly meet their needs and exceed expectations."
+        title: "User-Centric Design",
+        description:
+            "Every tool is designed with the end user in mind. Simple, intuitive interfaces mean you can get work done without reading a manual.",
     },
     {
         icon: Shield,
-        title: "Integrity & Trust",
-        description: "We are committed to transparency and security. Your data is sacred, and we build our products with the utmost respect for your privacy."
-    }
-];
-
-// --- Data for Team Members ---
-const teamMembers = [
-    {
-        image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=2487&auto=format&fit=crop",
-        name: "Alex Johnson",
-        title: "Founder & CEO",
-        socials: {
-            linkedin: "#",
-            twitter: "#"
-        }
+        title: "Privacy & Security",
+        description:
+            "We believe your data is yours. Files are processed and immediately deleted. We never store, share, or read your uploaded files.",
     },
-    {
-        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=2487&auto=format&fit=crop",
-        name: "Jane Doe",
-        title: "Lead Developer",
-        socials: {
-            github: "#",
-            linkedin: "#"
-        }
-    },
-    {
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2487&auto=format&fit=crop",
-        name: "Samuel Lee",
-        title: "UX/UI Designer",
-        socials: {
-            twitter: "#",
-            linkedin: "#"
-        }
-    },
-];
+]
 
-// --- Reusable Component for Value Cards ---
-const ValueCard = ({ icon: Icon, title, description, index }) => (
-    <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: index * 0.1 }}
-        viewport={{ once: true }}
-    >
-        <Card className="h-full text-center border-0 bg-background/50 backdrop-blur-sm">
-            <CardHeader>
-                <div className="mx-auto w-14 h-14 bg-primary/10 flex items-center justify-center rounded-full mb-4">
-                    <Icon className="w-8 h-8 text-primary" />
-                </div>
-                <CardTitle>{title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-                <p className="text-muted-foreground">{description}</p>
-            </CardContent>
-        </Card>
-    </motion.div>
-);
-
-// --- MODIFIED: Reusable Component for Team Member Cards with Box Shape ---
-const TeamMemberCard = ({ image, name, title, socials, index }) => (
-    <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: index * 0.1 }}
-        viewport={{ once: true }}
-        className="text-center group"
-    >
-        <div className="relative w-40 h-40 mx-auto mb-4">
-            <Image
-                src={image}
-                alt={name}
-                width={160}
-                height={160}
-                // Changed from rounded-full to rounded-xl
-                className="rounded-xl object-cover transition-all duration-300 group-hover:grayscale"
-            />
-            {/* The overlay also needs to match the new shape */}
-            {/* <div className="absolute inset-0 rounded-xl bg-primary/50 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                {socials.linkedin && <a href={socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-white hover:text-white/80"><Linkedin /></a>}
-                {socials.twitter && <a href={socials.twitter} target="_blank" rel="noopener noreferrer" className="text-white hover:text-white/80"><Twitter /></a>}
-                {socials.github && <a href={socials.github} target="_blank" rel="noopener noreferrer" className="text-white hover:text-white/80"><Github /></a>}
-            </div> */}
-        </div>
-        <h3 className="font-semibold text-lg">{name}</h3>
-        <p className="text-primary">{title}</p>
-    </motion.div>
-);
+const stats = [
+    { number: "30+", label: "Free Tools", icon: Zap },
+    { number: "50K+", label: "Files Processed", icon: Globe },
+    { number: "10K+", label: "Monthly Users", icon: Users },
+    { number: "0", label: "Required Sign-Ups", icon: Lock },
+]
 
 export default function AboutPage() {
     return (
         <>
             <head>
-
                 <link rel="canonical" href="https://smarttools.fun/about/" />
-                <meta name="title" content="About Smart Tools | Learn About Who We Are & What We Do" />
-                <meta name="description" content="Learn more about Smart Tools, our mission, vision, and the smart tools we create to make online tasks easy, fast, and accessible to everyone." />
+                <meta name="title" content="About SmartTools.fun – Free Online Productivity Tools" />
+                <meta
+                    name="description"
+                    content="Learn about SmartTools.fun – our mission to provide 30+ free, privacy-focused online tools for image conversion, PDF creation, video editing, and AI-powered productivity."
+                />
             </head>
             <main className="bg-muted/20">
-                {/* Section 1: Hero */}
+                {/* Hero */}
                 <motion.section
                     initial={{ opacity: 0, y: -50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7 }}
                     className="relative py-24 sm:py-32 bg-cover bg-center text-white"
-                    style={{ backgroundImage: "url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2670&auto=format&fit=crop')" }}
+                    style={{
+                        backgroundImage:
+                            "url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2670&auto=format&fit=crop')",
+                    }}
                 >
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/40 backdrop-blur-sm"></div>
                     <div className="relative container mx-auto px-4 text-center">
-                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">About SmartTools</h1>
+                        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 text-sm mb-6">
+                            <Star className="w-4 h-4" />
+                            <span>Our Story</span>
+                        </div>
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">About SmartTools.fun</h1>
                         <p className="mt-4 text-lg sm:text-xl text-neutral-200 max-w-3xl mx-auto">
-                            We're a passionate team dedicated to building simple, powerful, and accessible tools to boost your productivity.
+                            We&apos;re passionate developers dedicated to making powerful digital tools accessible to everyone — for free.
                         </p>
                     </div>
                 </motion.section>
 
-                {/* Section 2: Our Mission */}
+                {/* Stats */}
+                <section className="py-10 bg-background border-b">
+                    <div className="container mx-auto px-4">
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                            {stats.map((stat, i) => (
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.4, delay: i * 0.1 }}
+                                    viewport={{ once: true }}
+                                    className="text-center p-6 bg-muted/30 rounded-xl border"
+                                >
+                                    <div className="flex justify-center mb-2">
+                                        <stat.icon className="w-6 h-6 text-primary" />
+                                    </div>
+                                    <div className="text-3xl font-bold text-primary">{stat.number}</div>
+                                    <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* Our Mission */}
                 <section className="py-16 sm:py-24 bg-background">
                     <div className="container mx-auto px-4">
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -146,9 +105,13 @@ export default function AboutPage() {
                                 transition={{ duration: 0.6 }}
                                 viewport={{ once: true }}
                             >
-                                <h2 className="text-3xl sm:text-4xl font-bold mb-4">Our Mission</h2>
-                                <p className="text-muted-foreground text-lg mb-6">
-                                    In a world filled with complex software, our mission is to create a suite of intuitive, fast, and secure tools that anyone can use. We believe that productivity should be effortless, not a chore. We focus on single-purpose, high-quality utilities that do one thing and do it exceptionally well.
+                                <Badge variant="outline" className="mb-4">Our Mission</Badge>
+                                <h2 className="text-3xl sm:text-4xl font-bold mb-4">Making Productivity Free for Everyone</h2>
+                                <p className="text-muted-foreground text-lg mb-4 leading-relaxed">
+                                    SmartTools.fun was built on a simple belief: <strong>essential digital tools should be free and accessible to everyone</strong>, without the need to create accounts, pay subscriptions, or sacrifice privacy.
+                                </p>
+                                <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
+                                    Whether you&apos;re a student, freelancer, small business owner, or just someone who needs to convert a file, our platform gives you instant access to 30+ professional-grade tools — directly in your browser.
                                 </p>
                                 <Button asChild size="lg">
                                     <Link href="/features">
@@ -156,55 +119,155 @@ export default function AboutPage() {
                                     </Link>
                                 </Button>
                             </motion.div>
+
                             <motion.div
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
+                                initial={{ opacity: 0, x: 50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.6 }}
                                 viewport={{ once: true }}
-                                className="h-80 lg:h-96"
+                                className="rounded-xl overflow-hidden shadow-xl"
                             >
-                                <Image
-                                    src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2574&auto=format&fit=crop"
-                                    alt="Team working collaboratively"
-                                    width={600}
-                                    height={400}
-                                    className="rounded-xl object-cover w-full h-full shadow-lg"
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img
+                                    src="https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&w=2670&auto=format&fit=crop"
+                                    alt="Developer working on productivity tools"
+                                    className="w-full h-80 object-cover"
                                 />
                             </motion.div>
                         </div>
                     </div>
                 </section>
 
-                {/* Section 3: Our Core Values */}
-                <section className="py-16 sm:py-24">
+                {/* What We Offer */}
+                <section className="py-16 sm:py-24 bg-muted/20">
                     <div className="container mx-auto px-4">
-                        <div className="text-center mb-12 sm:mb-16">
-                            <h2 className="text-3xl sm:text-4xl font-bold">What Drives Us</h2>
-                            <p className="mt-3 text-muted-foreground text-lg">Our principles are the foundation of our work.</p>
+                        <div className="text-center mb-12">
+                            <Badge variant="outline" className="mb-4">What We Offer</Badge>
+                            <h2 className="text-3xl sm:text-4xl font-bold">A Complete Toolkit for Modern Work</h2>
+                            <p className="mt-4 text-muted-foreground text-lg max-w-3xl mx-auto">
+                                From image editing to AI-powered writing tools, SmartTools.fun covers every tool you need to be productive online.
+                            </p>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            {values.map((value, index) => (
-                                <ValueCard key={value.title} {...value} index={index} />
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {[
+                                { title: "Image Tools", desc: "Convert between JPG, PNG, WebP, SVG formats. Compress, resize, crop, and watermark images.", icon: "🖼️" },
+                                { title: "PDF Tools", desc: "Convert Word, Excel, HTML, and images to PDF. Also convert PDF back to Word, Excel, or text.", icon: "📄" },
+                                { title: "Video Tools", desc: "Compress large video files, trim, and crop videos — all directly in your browser.", icon: "🎬" },
+                                { title: "AI Text Tools", desc: "Humanize AI-generated text, check grammar, and make your content sound more natural.", icon: "🤖" },
+                                { title: "Generator Tools", desc: "Create custom QR codes and barcodes for links, text, contact info, and product IDs.", icon: "📱" },
+                                { title: "Voice Tools", desc: "Convert text to natural-sounding speech in multiple voices and languages.", icon: "🎙️" },
+                            ].map((item, idx) => (
+                                <motion.div
+                                    key={item.title}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.4, delay: idx * 0.08 }}
+                                    viewport={{ once: true }}
+                                >
+                                    <Card className="h-full bg-background border hover:shadow-md transition-shadow">
+                                        <CardHeader>
+                                            <div className="text-3xl mb-2">{item.icon}</div>
+                                            <CardTitle>{item.title}</CardTitle>
+                                        </CardHeader>
+                                        <CardContent>
+                                            <p className="text-muted-foreground text-sm">{item.desc}</p>
+                                        </CardContent>
+                                    </Card>
+                                </motion.div>
                             ))}
                         </div>
                     </div>
                 </section>
 
-                {/* Section 4: Meet the Team */}
-                {/* <section className="py-16 sm:py-24 bg-background">
-                <div className="container mx-auto px-4">
-                    <div className="text-center mb-12 sm:mb-16">
-                        <h2 className="text-3xl sm:text-4xl font-bold">Meet the Team</h2>
-                        <p className="mt-3 text-muted-foreground text-lg">The minds behind the magic.</p>
+                {/* Core Values */}
+                <section className="py-16 sm:py-24 bg-background">
+                    <div className="container mx-auto px-4">
+                        <div className="text-center mb-12">
+                            <Badge variant="outline" className="mb-4">Our Values</Badge>
+                            <h2 className="text-3xl sm:text-4xl font-bold">What Drives Us</h2>
+                            <p className="mt-3 text-muted-foreground text-lg">
+                                The principles behind every tool we build.
+                            </p>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            {values.map((value, index) => (
+                                <motion.div
+                                    key={value.title}
+                                    initial={{ opacity: 0, y: 50 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                    viewport={{ once: true }}
+                                >
+                                    <Card className="h-full text-center border-0 bg-muted/30">
+                                        <CardHeader>
+                                            <div className="mx-auto w-14 h-14 bg-primary/10 flex items-center justify-center rounded-full mb-4">
+                                                <value.icon className="w-8 h-8 text-primary" />
+                                            </div>
+                                            <CardTitle>{value.title}</CardTitle>
+                                        </CardHeader>
+                                        <CardContent>
+                                            <p className="text-muted-foreground">{value.description}</p>
+                                        </CardContent>
+                                    </Card>
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-8">
-                        {teamMembers.map((member, index) => (
-                            <TeamMemberCard key={member.name} {...member} index={index} />
-                        ))}
+                </section>
+
+                {/* Advertising Disclosure */}
+                <section className="py-12 bg-muted/20 border-t">
+                    <div className="container mx-auto px-4 max-w-3xl text-center">
+                        <h2 className="text-2xl font-bold mb-3">How We Stay Free</h2>
+                        <p className="text-muted-foreground leading-relaxed">
+                            SmartTools.fun is a completely free platform. To cover server costs and continue building new tools, our site
+                            displays advertisements through <strong>Google AdSense</strong>. These ads are clearly marked and delivered by Google.
+                            We do not control which ads are displayed, and <strong>we never sell your personal data</strong>. If you prefer not to see
+                            personalized ads, you can opt out via{" "}
+                            <a
+                                href="https://www.google.com/settings/ads"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-primary underline"
+                            >
+                                Google Ads Settings
+                            </a>
+                            . For more information, read our{" "}
+                            <Link href="/privacypolicy" className="text-primary underline">
+                                Privacy Policy
+                            </Link>
+                            .
+                        </p>
                     </div>
-                </div>
-            </section> */}
+                </section>
+
+                {/* CTA */}
+                <section className="py-16 sm:py-24 bg-background">
+                    <div className="container mx-auto px-4 text-center">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5 }}
+                            viewport={{ once: true }}
+                        >
+                            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Ready to Try Our Tools?</h2>
+                            <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">
+                                Browse our full collection of free online tools. No account, no fees — just results.
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                <Button asChild size="lg">
+                                    <Link href="/features">
+                                        Browse All Tools <ArrowRight className="w-4 h-4 ml-2" />
+                                    </Link>
+                                </Button>
+                                <Button asChild variant="outline" size="lg">
+                                    <Link href="/contact">Contact Us</Link>
+                                </Button>
+                            </div>
+                        </motion.div>
+                    </div>
+                </section>
             </main>
         </>
-    );
+    )
 }

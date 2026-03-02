@@ -12,8 +12,10 @@ export function Header() {
   const pathname = usePathname()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isImageToolsDropdownOpen, setIsImageToolsDropdownOpen] = useState(false)
+  const [isViewerToolsDropdownOpen, setIsViewerToolsDropdownOpen] = useState(false)
   const [isAllToolsDropdownOpen, setIsAllToolsDropdownOpen] = useState(false)
   const imageToolsDropdownRef = useRef<HTMLDivElement>(null)
+  const viewerToolsDropdownRef = useRef<HTMLDivElement>(null)
   const allToolsDropdownRef = useRef<HTMLDivElement>(null)
   const [openMobileAccordion, setOpenMobileAccordion] = useState<string | null>(null)
   const [menuOpenType, setMenuOpenType] = useState<number | null>(null)
@@ -21,6 +23,7 @@ export function Header() {
   const navigation = [
     { name: "Home", href: "/" },
     { name: "Image Tools", href: "#" },
+    { name: "Viewer Tools", href: "#" },
     { name: "Other Tools", href: "/features" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
@@ -28,12 +31,15 @@ export function Header() {
   ]
 
   const imageTools = toolsData.filter((tool) => tool.category === "Image Tools");
-  const otherToolsCategories = ["PDF Tools", "Text Tools", "Video Tools", "Other Tools"];
+  const otherToolsCategories = ["Viewer Tools", "PDF Tools", "Text Tools", "Video Tools", "Other Tools"];
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (imageToolsDropdownRef.current && !imageToolsDropdownRef.current.contains(event.target as Node)) {
         setIsImageToolsDropdownOpen(false)
+      }
+      if (viewerToolsDropdownRef.current && !viewerToolsDropdownRef.current.contains(event.target as Node)) {
+        setIsViewerToolsDropdownOpen(false)
       }
       if (allToolsDropdownRef.current && !allToolsDropdownRef.current.contains(event.target as Node)) {
         setIsAllToolsDropdownOpen(false)
@@ -54,6 +60,7 @@ export function Header() {
 
   const closeAllDropdowns = () => {
     setIsImageToolsDropdownOpen(false)
+    setIsViewerToolsDropdownOpen(false)
     setIsAllToolsDropdownOpen(false)
   }
 
@@ -91,6 +98,7 @@ export function Header() {
         <nav className="hidden md:flex items-center space-x-6 -mt-1">
           {navigation.map((item) => {
             if (item.name === "Image Tools") {
+              const imageTools = toolsData.filter((tool) => tool.category === "Image Tools");
               return (
                 <div
                   key={item.name}
@@ -126,6 +134,53 @@ export function Header() {
                             </div>
                             <div>
                               <p className="text-[12px] font-medium text-foreground">{tool.title.replace("Converter", "")}</p>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
+            if (item.name === "Viewer Tools") {
+              const viewerTools = toolsData.filter((tool) => tool.category === "Viewer Tools");
+              return (
+                <div
+                  key={item.name}
+                  className="relative"
+                  ref={viewerToolsDropdownRef}
+                  onMouseEnter={() => setIsViewerToolsDropdownOpen(true)}
+                  onMouseLeave={() => setIsViewerToolsDropdownOpen(false)}
+                >
+                  <button
+                    className={`flex items-center gap-1 text-sm font-medium transition-colors border-b-2 border-transparent hover:border-primary ${pathname.startsWith('/tools') && viewerTools.some(t => `/tools/${t.id}` === pathname)
+                      ? "text-primary border-primary"
+                      : "text-muted-foreground"
+                      }`}
+                  >
+                    {item.name}
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isViewerToolsDropdownOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  <div
+                    className={`absolute left-1/2 -translate-x-1/2 top-full mt-0 w-[80vw] max-w-4xl rounded-lg shadow-md  transition-all duration-200 ${isViewerToolsDropdownOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+                      }`}
+                  >
+                    <div className="bg-background mt-2 border p-6">
+                      <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-4">
+                        {viewerTools.map((tool) => (
+                          <Link
+                            key={tool.id}
+                            href={`/tools/${tool.id}`}
+                            onClick={closeAllDropdowns}
+                            className="group flex items-center gap-3 p-0 rounded-md hover:bg-muted/50 -mt-1"
+                          >
+                            <div className={`flex items-center justify-center text-sm w-6 h-6 rounded-md bg-muted ${tool.color}`}>
+                              <tool.icon className={`w-4 h-4 text-muted-foreground group-hover:text-foreground ${tool.color}`} />
+                            </div>
+                            <div>
+                              <p className="text-[12px] font-medium text-foreground">{tool.title}</p>
                             </div>
                           </Link>
                         ))}
