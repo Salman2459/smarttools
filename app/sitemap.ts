@@ -1,12 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { toolsData } from '@/lib/tools-data';
-
-// Served at /sitemap.xml (Next.js App Router). robots.txt references this URL.
-function getBaseUrl(): string {
-  if (process.env.SITE_URL) return process.env.SITE_URL.replace(/\/$/, '');
-  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
-  return 'https://smarttools.fun';
-}
+import { getBaseUrl } from '@/lib/env';
 
 export const revalidate = 3600; // revalidate sitemap every hour
 

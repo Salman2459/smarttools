@@ -1,8 +1,5 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-// Initialize the Google Generative AI client with your API key from environment variables
-const genAI = new GoogleGenerativeAI("AIzaSyCWyvoh03WxPhP8zy_zbm98nMeUbFaTdXU");
-
 // Helper function to handle API calls with retries and exponential backoff
 async function generateContentWithRetry(model, prompt, maxRetries = 3) {
   let attempt = 0;
@@ -56,7 +53,8 @@ async function generateContentWithRetry(model, prompt, maxRetries = 3) {
 export async function POST(req) {
   try {
     // Check if API key is configured
-    if (!process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
+    const apiKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
+    if (!apiKey) {
       return new Response(
         JSON.stringify({ error: "Google Generative AI API key is not configured." }), 
         { status: 500, headers: { 'Content-Type': 'application/json' } }
@@ -72,7 +70,7 @@ export async function POST(req) {
       );
     }
 
-    // Access the generative model with the current recommended model name
+    const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro-latest" });
 
     // Construct a detailed prompt for the AI
