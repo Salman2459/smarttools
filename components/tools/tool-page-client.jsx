@@ -6,7 +6,7 @@ import { ToolSidebar } from "@/components/tools/tool-sidebar"
 import { ToolInterface } from "@/components/tools/tool-interface"
 import { toolsData, iconMap } from "@/lib/tools-data"
 
-export function ToolPageClient({ tool }) {
+export function ToolPageClient({ tool, children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   // Convert iconName back to icon component
@@ -30,6 +30,7 @@ export function ToolPageClient({ tool }) {
         <main className="flex-1 lg:ml-64 pb-8">
           <div className="p-4 lg:p-8 min-h-full">
             <ToolInterface tool={toolWithIcon} />
+            {children}
           </div>
         </main>
       </div>

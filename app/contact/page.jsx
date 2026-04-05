@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Send, Mail, MessageSquare, Clock, HelpCircle, CheckCircle, XCircle, Zap } from "lucide-react"
+import { ContactSeoRichSection } from "@/components/contact/contact-seo-rich-section"
 
 const contactReasons = [
     {
@@ -260,6 +261,8 @@ export default function ContactPage() {
                         </Card>
                     </div>
                 </section>
+
+                <ContactSeoRichSection />
 
                 {/* FAQ Section */}
                 <section className="py-16 sm:py-24 bg-background">

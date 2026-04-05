@@ -1,5 +1,7 @@
 import { notFound } from "next/navigation"
 import { toolsData } from "@/lib/tools-data"
+import { buildToolSeoContent } from "@/lib/tool-seo-content"
+import { ToolSeoGuide } from "@/components/seo/tool-seo-guide"
 import { ToolPageClient } from "@/components/tools/tool-page-client"
 
 export async function generateStaticParams() {
@@ -55,7 +57,18 @@ export default async function ToolPage({ params }) {
     color: tool.color,
     bgColor: tool.bgColor,
     category: tool.category,
+    metaDescription: tool.metaDescription,
   }
 
-  return <ToolPageClient tool={serializableTool} />
+  const seoContent = buildToolSeoContent(serializableTool)
+
+  return (
+    <ToolPageClient tool={serializableTool}>
+      <ToolSeoGuide
+        content={seoContent}
+        toolTitle={tool.title}
+        category={tool.category}
+      />
+    </ToolPageClient>
+  )
 }

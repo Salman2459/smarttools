@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Plus } from "lucide-react"
 import { toolsData } from "@/lib/tools-data"
+import { FeaturesSeoRichSection } from "@/components/features/features-seo-rich-section"
 
 export default function FeaturesPage() {
   const categories = [...new Set(toolsData.map((tool) => tool.category))]
@@ -12,7 +13,7 @@ export default function FeaturesPage() {
     <>
       <head>
         <link rel="canonical" href="https://smarttools.fun/features/" />
-        <meta name="title" content="Explore Full Range of Smart Tools Feature~s Online" />
+        <meta name="title" content="Explore the Full Range of Smart Tools Online" />
         <meta name="description" content="Discover Smart Tools features: fast, reliable online tools like unit converters, calculators, text analysers and more, all free and easy to use." />
       </head>
       <div className="min-h-screen py-8 sm:py-12 px-4">
@@ -84,6 +85,8 @@ export default function FeaturesPage() {
               </CardContent>
             </Card>
           </div>
+
+          <FeaturesSeoRichSection />
 
           {/* CTA Section */}
           <div className="text-center">

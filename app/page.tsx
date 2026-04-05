@@ -5,6 +5,7 @@ import { WhyUsSection } from "@/components/home/why-us-section"
 import { HowToUseSection } from "@/components/home/how-to-use"
 import { TestimonialsSection } from "@/components/home/testimonials-section"
 import { HomeFAQSection } from "@/components/home/home-faq-section"
+import { HomeSeoRichSection } from "@/components/home/home-seo-rich-section"
 import { CTASection } from "@/components/home/cta-section"
 
 export default function HomePage() {
@@ -26,6 +27,9 @@ export default function HomePage() {
 
         {/* 3. Highlighted tool cards with rich descriptions (good for SEO) */}
         <ToolHighlightsSection />
+
+        {/* 3b. Long-form guide-style content + cards (AdSense-friendly depth) */}
+        <HomeSeoRichSection />
 
         {/* 4. Why choose us + stats strip */}
         <WhyUsSection />

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowRight, Lightbulb, Users, Shield, Zap, Globe, Lock, Star } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
+import { AboutSeoRichSection } from "@/components/about/about-seo-rich-section"
 
 const values = [
     {
@@ -214,6 +215,8 @@ export default function AboutPage() {
                         </div>
                     </div>
                 </section>
+
+                <AboutSeoRichSection />
 
                 {/* Advertising Disclosure */}
                 <section className="py-12 bg-muted/20 border-t">
