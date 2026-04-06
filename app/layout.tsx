@@ -5,8 +5,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import Script from "next/script"
-
+import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
@@ -88,8 +87,11 @@ export default function RootLayout({
         {/* Google AdSense - meta tag for "Meta tag" verification method */}
         <meta name="google-adsense-account" content="ca-pub-1519616963911527"/>
         {/* AdSense script - beforeInteractive so it appears in initial HTML for crawler verification */}
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1519616963911527"
-     crossorigin="anonymous"></script>
+        <Script
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1519616963911527"
+          strategy="beforeInteractive"
+          crossOrigin="anonymous"
+        />
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange={false}>
