@@ -86,10 +86,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* Google AdSense - meta tag for "Meta tag" verification method */}
-        <meta name="google-adsense-account" content="ca-pub-3070161568608265"/>
+        <meta name="google-adsense-account" content="ca-pub-1519616963911527">
         {/* AdSense script - beforeInteractive so it appears in initial HTML for crawler verification */}
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3070161568608265"
-     crossOrigin="anonymous"></script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1519616963911527"
+     crossorigin="anonymous"></script>
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange={false}>
