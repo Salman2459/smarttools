@@ -89,7 +89,7 @@ export default function RootLayout({
         <meta name="google-adsense-account" content="ca-pub-1519616963911527"/>
         {/* AdSense script - beforeInteractive so it appears in initial HTML for crawler verification */}
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1519616963911527"
-     crosOorigin="anonymous"></script>
+     crossorigin="anonymous"></script>
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange={false}>
