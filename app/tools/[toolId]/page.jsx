@@ -74,7 +74,7 @@ export default async function ToolPage({ params }) {
   return (
     <ToolPageClient tool={serializableTool}>
       <ToolSeoGuide
-        content={tool.description}
+        content={seoContent}
         toolTitle={tool.title}
         category={tool.category}
       />
