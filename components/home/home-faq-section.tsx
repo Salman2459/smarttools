@@ -6,27 +6,27 @@ import { ArrowRight } from "lucide-react"
 const faqs = [
     {
         q: "Are all tools on SmartTools.fun completely free?",
-        a: "Yes! Every tool on SmartTools.fun is 100% free to use. There are no hidden fees, premium plans, or required subscriptions. We generate revenue through advertising (Google AdSense) which allows us to keep everything free."
+        a: "Core utilities stay free at the point of use: open a tool, run your job, download or copy the result. SmartTools.fun is supported in part by Google AdSense display ads, which helps pay for bandwidth and development instead of charging per conversion. Fair-use expectations and our terms still apply—this is not unlimited API-style automation.",
     },
     {
         q: "Do I need to create an account to use the tools?",
-        a: "No account or registration is required. Simply navigate to any tool, upload your file, and get instant results. We believe productivity tools should be accessible to everyone without barriers."
+        a: "No. We skip mandatory sign-up so teachers, travelers, and contractors can finish one-off tasks on shared PCs. Bookmark individual /tools/ URLs if you revisit weekly; accounts are optional only if we add them later for saved preferences.",
     },
     {
         q: "Are my uploaded files secure?",
-        a: "Absolutely. Files you upload are processed solely for the purpose you intend (e.g., conversion, compression) and are automatically deleted from our servers immediately after processing. We never store, read, analyze, or share your files."
+        a: "Files are handled to produce your output and should not linger for unrelated analytics. Avoid regulated or classified data on any consumer website—including ours—and follow your employer’s policy on public Wi‑Fi. Clear downloads and close tabs on kiosks after sensitive work.",
     },
     {
         q: "What file formats are supported?",
-        a: "SmartTools.fun supports a wide range of formats including JPG, JPEG, PNG, WebP, SVG, PDF, DOCX (Word), XLSX (Excel), TXT, and more. Each tool page lists all supported input and output formats."
+        a: "Coverage spans raster images, common Office formats, HTML, plain text, video, and many developer formats inside the viewers. Because each converter is different, read the accept list on the specific tool page; similar-sounding utilities (for example PNG→JPG versus PNG→WebP) exist for different trade-offs.",
     },
     {
         q: "Why do I see advertisements on the site?",
-        a: "Ads served through Google AdSense help us cover server costs and develop new tools — keeping everything free for you. Google may use cookies to show you relevant ads. You can opt out of personalized ads at Google Ads Settings."
+        a: "AdSense placements fund hosting and improvements while keeping tools accessible globally. You may see contextual or interest-based ads; Google’s settings explain how to limit personalization. We aim to balance revenue with readable layouts and substantive articles—not empty grids.",
     },
     {
         q: "Can I use SmartTools.fun on my phone or tablet?",
-        a: "Yes! All our tools are fully responsive and optimized for mobile browsers. No app download is needed — just open your browser and start using any tool instantly."
+        a: "Layouts are responsive. Quick image tweaks, QR generation, or text checks work well on phones; large video jobs or huge spreadsheets are usually smoother on Wi‑Fi with a desktop browser. No app store install is required—just use a current mobile browser.",
     },
 ]
 

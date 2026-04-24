@@ -15,7 +15,7 @@ export default function HomePage() {
         <link rel="canonical" href="https://smarttools.fun" />
         <meta
           name="description"
-          content="SmartTools.fun – Free online tools for image conversion, PDF creation, image compression, video editing, AI text tools, QR code generation and more. No sign-up required."
+          content="SmartTools.fun: unique long-form help on every tool page—compress and convert images, build PDFs, edit video, check writing, generate QR codes, inspect DNS, and preview documents in your browser without signing up."
         />
       </head>
       <div className="min-h-screen">

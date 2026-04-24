@@ -28,10 +28,11 @@ export function FeaturesSection() {
           <Badge variant="outline" className="mb-4">
             Our Tools
           </Badge>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Powerful Tools for Every Need</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Browse every SmartTools.fun utility</h2>
           <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Our comprehensive suite of tools helps you work smarter, not harder. Choose from our collection of
-            productivity enhancers designed for modern workflows.
+            Each card links to a dedicated page with its own long guide—image, PDF, video, text, DNS, generators, and
+            multi-format viewers. Search by task or scroll the grid; descriptions are unique per tool so you can tell
+            converters apart before you open them.
           </p>
         </div>
 
@@ -76,7 +77,10 @@ export function FeaturesSection() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="text-center pt-0">
-                  <CardDescription className="text-xs sm:text-sm leading-relaxed group-hover:text-foreground/80 transition-colors duration-300">
+                  <CardDescription
+                    title={feature.description}
+                    className="text-xs sm:text-sm leading-relaxed group-hover:text-foreground/80 transition-colors duration-300 line-clamp-6 sm:line-clamp-8"
+                  >
                     {feature.description}
                   </CardDescription>
                 </CardContent>

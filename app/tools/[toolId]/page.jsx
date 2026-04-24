@@ -28,10 +28,19 @@ export async function generateMetadata({ params }) {
     description: tool.metaDescription,
     keywords: [
       tool.title.toLowerCase(),
+      tool.id.replace(/-/g, " "),
       tool.category.toLowerCase(),
-      "productivity tools",
-      "file conversion",
-      "smart tools",
+      "smarttools.fun",
+      `${tool.category.toLowerCase()} online`,
+      tool.category.includes("Image")
+        ? "image conversion browser"
+        : tool.category.includes("PDF")
+          ? "pdf converter online"
+          : tool.category.includes("Video")
+            ? "video tool online"
+            : tool.category.includes("Viewer")
+              ? "document viewer online"
+              : "free online tool",
     ],
     alternates: {
       canonical: `https://smarttools.fun/tools/${toolId}`,
@@ -65,7 +74,7 @@ export default async function ToolPage({ params }) {
   return (
     <ToolPageClient tool={serializableTool}>
       <ToolSeoGuide
-        content={seoContent}
+        content={tool.description}
         toolTitle={tool.title}
         category={tool.category}
       />

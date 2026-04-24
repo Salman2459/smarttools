@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     template: "%s | SmartTools.fun",
   },
   description:
-    "SmartTools.fun offers 30+ free online tools including image conversion, PDF creation, image compression, video editing, AI text humanizer, QR code generator, and more. No sign-up, no fees.",
+    "SmartTools.fun bundles 45+ browser tools: unique guides for each image and PDF converter, video trimmers, QR and barcode makers, DNS checks, grammar and text-to-speech helpers, and all-in-one document viewers—free to use, no account required.",
   keywords: [
     "smart tools",
     "free online tools",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "qr code generator",
     "barcode generator",
     "text to speech",
-    "AI text humanizer",
+    "grammar checker online",
     "online productivity tools",
     "no sign up tools",
     "free file converter",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Free Online Smart Tools – Images, PDF & AI | SmartTools.fun",
     description:
-      "30+ free online tools: image conversion, PDF tools, video compression, AI text tools, QR code generators & more. No account needed.",
+      "45+ browser tools with unique guides: image/PDF conversion, video edits, writing helpers, QR & barcodes, DNS checks, multi-format viewers. No account needed.",
     type: "website",
     url: "https://smarttools.fun",
     siteName: "SmartTools.fun",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Free Online Smart Tools – Images, PDF & AI | SmartTools.fun",
     description:
-      "30+ free online tools with no sign-up. Convert images, create PDFs, compress videos, and more.",
+      "Image & PDF utilities, video tools, writing aids, QR/barcode generators, DNS checker, document viewers—each page includes a full guide.",
   },
   alternates: {
     canonical: "https://smarttools.fun",

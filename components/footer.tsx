@@ -4,12 +4,17 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Mail, Shield, FileText } from "lucide-react"
 
-export function Footer() {
+type FooterProps = {
+  /** Renders the full footer even on `/tools/*` (e.g. embedded in ToolSeoGuide). The root layout still omits the default footer on tool pages to avoid a duplicate. */
+  forceShow?: boolean
+}
+
+export function Footer({ forceShow = false }: FooterProps = {}) {
   const pathname = usePathname()
 
   const isToolPage = pathname.startsWith("/tools/")
 
-  if (isToolPage) {
+  if (isToolPage && !forceShow) {
     return null
   }
 

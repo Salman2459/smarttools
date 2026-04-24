@@ -4,11 +4,11 @@ import { Zap, ArrowRight, CheckCircle } from "lucide-react"
 
 export function HeroSection() {
   const benefits = [
-    "No registration required",
-    "Secure file processing",
-    "Fast conversion speeds",
-    "Multiple format support",
-    "Privacy-focused design",
+    "Dedicated page + FAQ for every tool",
+    "Browser-based—no installers",
+    "Honest limits spelled out in guides",
+    "HTTPS and clear privacy disclosures",
+    "Built for students, teams, and freelancers",
   ]
 
   return (
@@ -33,7 +33,9 @@ export function HeroSection() {
         </h1>
 
         <p className="text-base sm:text-lg lg:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed px-4">
-          Use smart tools to edit text, resize images, generate voice, convert files, remove watermark from images and PDFs with just a few clicks. All are 100% free, no sign-up and lightning fast.
+          Compress and convert images, build PDFs from Office or HTML, trim video, listen to drafts with text-to-speech,
+          check grammar, create QR and barcodes, run DNS lookups, and open spreadsheets or code in a viewer—each with
+          unique written guidance beneath the controls. Free to use in your browser; no mandatory account.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-12 px-4">

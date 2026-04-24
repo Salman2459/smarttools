@@ -14,7 +14,10 @@ export default function FeaturesPage() {
       <head>
         <link rel="canonical" href="https://smarttools.fun/features/" />
         <meta name="title" content="Explore the Full Range of Smart Tools Online" />
-        <meta name="description" content="Discover Smart Tools features: fast, reliable online tools like unit converters, calculators, text analysers and more, all free and easy to use." />
+        <meta
+          name="description"
+          content="Full directory of SmartTools.fun: image and PDF converters, video utilities, QR and barcode generators, DNS checker, grammar and speech tools, and multi-format viewers—each with its own guide."
+        />
       </head>
       <div className="min-h-screen py-8 sm:py-12 px-4">
         <div className="max-w-7xl mx-auto">
@@ -24,7 +27,8 @@ export default function FeaturesPage() {
             </Badge>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Choose Your Tool</h1>
             <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
-              Select a tool below to get started. All tools are free to use with no registration required.
+              Pick a category badge to orient yourself, then open any card for the live utility plus a long FAQ and
+              workflow article—same catalog as the home page, sorted for directory browsing.
             </p>
           </div>
 
@@ -56,7 +60,10 @@ export default function FeaturesPage() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="text-center pt-0">
-                    <CardDescription className="text-xs sm:text-sm leading-relaxed mb-2 group-hover:text-foreground/80 transition-colors duration-300">
+                    <CardDescription
+                      title={tool.description}
+                      className="text-xs sm:text-sm leading-relaxed mb-2 group-hover:text-foreground/80 transition-colors duration-300 line-clamp-6"
+                    >
                       {tool.description}
                     </CardDescription>
                     <Badge variant="outline" className="text-xs bg-background/50">

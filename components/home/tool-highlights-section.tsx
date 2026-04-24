@@ -32,8 +32,9 @@ const toolHighlights = [
         icon: Zap,
         color: "text-orange-500",
         bgColor: "bg-orange-50 dark:bg-orange-950/30",
-        title: "AI Text Humanizer",
-        description: "Make AI-generated text sound natural and human-like. Bypass AI detectors and improve readability instantly.",
+        title: "Grammar & writing check",
+        description:
+            "Paste essays, emails, or support macros to catch spelling and grammar issues before you send. Suggestions are advisory—always keep your brand voice and facts in mind.",
         link: "/tools/grammar-checker"
     },
     {
