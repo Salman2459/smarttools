@@ -86,11 +86,13 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* Google AdSense - meta tag for "Meta tag" verification method */}
-        <meta name="google-adsense-account" content="ca-pub-1519616963911527"/>
-        {/* AdSense script - beforeInteractive so it appears in initial HTML for crawler verification */}
+        <meta name="google-adsense-account" content="ca-pub-1519616963911527" />
+        {/* AdSense loader – matches Google’s async snippet (ads.txt: google.com, pub-1519616963911527, DIRECT, …) */}
         <Script
+          id="adsbygoogle-js"
+          async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1519616963911527"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
           crossOrigin="anonymous"
         />
       </head>

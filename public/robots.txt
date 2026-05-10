@@ -3,6 +3,13 @@ Allow: /
 Disallow: /api/
 Disallow: /_next/
 
+# Google Publisher / AdSense crawlers (must reach pages & /ads.txt)
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
 # Sitemaps
 Sitemap: https://www.allinonetools.online/sitemap.xml
 Sitemap: https://allinonetools.online/sitemap.xml
