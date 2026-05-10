@@ -52,13 +52,13 @@ export function HomeSeoRichSection() {
         <div className="text-center space-y-4 max-w-3xl mx-auto">
           <Badge variant="outline" className="gap-1">
             <Zap className="h-3.5 w-3.5" aria-hidden />
-            SmartTools.fun resource hub
+            AllInOneTools resource hub
           </Badge>
           <h2 id="home-seo-rich-heading" className="text-2xl sm:text-4xl font-bold tracking-tight">
             Free online productivity tools with real educational depth
           </h2>
           <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-            SmartTools.fun exists as a practical alternative to bloated desktop suites when you only need one task done well: convert a file, check a record, or preview a document before a meeting. We publish long-form guides on every tool page so visitors understand not only which button to press but why that step matters for SEO, accessibility, and professional presentation.
+            AllInOneTools exists as a practical alternative to bloated desktop suites when you only need one task done well: convert a file, check a record, or preview a document before a meeting. We publish long-form guides on every tool page so visitors understand not only which button to press but why that step matters for SEO, accessibility, and professional presentation.
           </p>
         </div>
 
@@ -81,24 +81,24 @@ export function HomeSeoRichSection() {
         <div className="space-y-6 text-sm sm:text-base text-foreground leading-relaxed max-w-4xl mx-auto">
           <h3 className="text-xl sm:text-2xl font-semibold">Why browser-based tools matter for modern workflows</h3>
           <p>
-            Teams today work across time zones and device types. A designer might start on a company laptop, continue on a personal tablet, and approve a final export from a phone. Installing identical software everywhere is not always possible, especially on locked-down corporate machines or classroom Chromebooks. SmartTools.fun keeps the interface consistent: open the site, choose the utility, complete the job, and move on. That predictability reduces friction when you are juggling email, chat, and cloud storage tabs already.
+            Teams today work across time zones and device types. A designer might start on a company laptop, continue on a personal tablet, and approve a final export from a phone. Installing identical software everywhere is not always possible, especially on locked-down corporate machines or classroom Chromebooks. AllInOneTools keeps the interface consistent: open the site, choose the utility, complete the job, and move on. That predictability reduces friction when you are juggling email, chat, and cloud storage tabs already.
           </p>
           <p>
             From a quality perspective, we focus on clarity and honest expectations. Browser-based image and video processing can handle most everyday files beautifully, while extremely large or unusual encodings may still need dedicated desktop software. We say that directly on tool pages because readers deserve transparency—not marketing hype—when they plan a production workflow. When you know the limits, you can combine our tools with offline apps in a sensible pipeline instead of hitting surprises at the deadline.
           </p>
           <p>
-            Privacy and trust are part of the same story. Files you upload are processed to deliver your result and are not repurposed for unrelated analytics. We do not require accounts for core tools, which means fewer passwords to rotate and fewer databases holding your personal data. For sensitive contracts or regulated data, you should still follow your organization&apos;s policies and use approved environments; for everyday creative and office tasks, SmartTools.fun aims to be a convenient layer on top of your existing habits.
+            Privacy and trust are part of the same story. Files you upload are processed to deliver your result and are not repurposed for unrelated analytics. We do not require accounts for core tools, which means fewer passwords to rotate and fewer databases holding your personal data. For sensitive contracts or regulated data, you should still follow your organization&apos;s policies and use approved environments; for everyday creative and office tasks, AllInOneTools aims to be a convenient layer on top of your existing habits.
           </p>
 
           <h3 className="text-xl sm:text-2xl font-semibold pt-2">Content quality, advertising, and how we support the site</h3>
           <p>
-            SmartTools.fun is supported in part by display advertising, including Google AdSense. Ads help cover hosting, bandwidth, and development time so the tools remain free at the point of use. We pair those placements with substantive pages: each tool includes a detailed guide, benefit cards, and frequently asked questions written for humans first and search engines second. That approach aligns with modern expectations for helpful content—readers should leave with a clearer understanding of the task, not just a download button.
+            AllInOneTools is supported in part by display advertising, including Google AdSense. Ads help cover hosting, bandwidth, and development time so the tools remain free at the point of use. We pair those placements with substantive pages: each tool includes a detailed guide, benefit cards, and frequently asked questions written for humans first and search engines second. That approach aligns with modern expectations for helpful content—readers should leave with a clearer understanding of the task, not just a download button.
           </p>
           <p>
             If you are a student, educator, or blogger, you can safely link to individual tool pages as references for “how to compress an image before uploading to WordPress” or “how to verify DNS after changing registrars.” The canonical URLs use HTTPS and stable paths under <code className="text-sm bg-muted px-1.5 py-0.5 rounded">/tools/</code> so your citations stay valid over time. We also maintain a public sitemap and robots configuration so crawlers can discover updates when we add new utilities or expand documentation.
           </p>
 
-          <h3 className="text-xl sm:text-2xl font-semibold pt-2">Getting the most from SmartTools.fun</h3>
+          <h3 className="text-xl sm:text-2xl font-semibold pt-2">Getting the most from AllInOneTools</h3>
           <p>
             Start from the home page to browse categories, or jump to the <Link href="/features/" className="text-primary font-medium underline-offset-4 hover:underline">full feature directory</Link> if you already know the format you need. Read the short description on each card, then open the tool. When you are unsure which option to pick—PNG versus JPG, for example—read the guide section below the interface on the tool page; it explains trade-offs in plain language. Bookmark the tools you reuse weekly and keep a notes file with the settings that produced the best results for your brand or classroom.
           </p>
@@ -106,7 +106,7 @@ export function HomeSeoRichSection() {
             For questions about policies, data handling, or partnerships, visit our <Link href="/about/" className="text-primary font-medium underline-offset-4 hover:underline">about</Link>,{" "}
             <Link href="/contact/" className="text-primary font-medium underline-offset-4 hover:underline">contact</Link>,{" "}
             <Link href="/privacypolicy/" className="text-primary font-medium underline-offset-4 hover:underline">privacy policy</Link>, and{" "}
-            <Link href="/terms/" className="text-primary font-medium underline-offset-4 hover:underline">terms</Link> pages. We welcome feedback when a tool could be clearer or when a new workflow would help your community—many additions to SmartTools.fun started as user suggestions.
+            <Link href="/terms/" className="text-primary font-medium underline-offset-4 hover:underline">terms</Link> pages. We welcome feedback when a tool could be clearer or when a new workflow would help your community—many additions to AllInOneTools started as user suggestions.
           </p>
 
           <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-border">
@@ -121,7 +121,7 @@ export function HomeSeoRichSection() {
             Search engines and human readers both reward pages that answer follow-up questions before they are asked. That is why we describe not only what each tool does but also typical failure modes: a PDF that looks correct on screen but embeds the wrong font, an image that is sharp on desktop but oversized on mobile, or a DNS record that propagates in one region before another. When you understand those patterns, you waste less time guessing and more time shipping finished work.
           </p>
           <p>
-            We also acknowledge the role of advertising in keeping utilities free. Transparency about AdSense, cookies, and opt-out links belongs in the same conversation as feature lists. Visitors deserve to know how the site sustains itself without surprise paywalls. If you are a publisher evaluating SmartTools.fun as a reference for your own audience, you can quote short excerpts with attribution and point readers to our canonical URLs for the latest instructions.
+            We also acknowledge the role of advertising in keeping utilities free. Transparency about AdSense, cookies, and opt-out links belongs in the same conversation as feature lists. Visitors deserve to know how the site sustains itself without surprise paywalls. If you are a publisher evaluating AllInOneTools as a reference for your own audience, you can quote short excerpts with attribution and point readers to our canonical URLs for the latest instructions.
           </p>
         </div>
       </div>

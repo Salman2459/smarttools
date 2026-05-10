@@ -13,7 +13,7 @@ const policySections = [
         content: (
             <>
                 <p className="lead text-lg text-muted-foreground">
-                    Welcome to <strong>SmartTools.fun</strong>. We are committed to protecting your privacy and being transparent about how we use data. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at <strong>https://smarttools.fun</strong>.
+                    Welcome to <strong>AllInOneTools</strong>. We are committed to protecting your privacy and being transparent about how we use data. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at <strong>https://allinonetools.online</strong>.
                 </p>
                 <p className="mt-4 text-muted-foreground">
                     Please read this policy carefully. If you disagree with its terms, please discontinue use of the site. This policy was last updated on <strong>February 26, 2026</strong>.
@@ -33,7 +33,7 @@ const policySections = [
                 <p>When you use our contact form, you voluntarily provide us with personally identifiable information such as your <strong>name</strong> and <strong>email address</strong>. You are under no obligation to provide us with personal information of any kind.</p>
 
                 <h3 className="text-lg font-semibold mt-5 mb-2">Automatically Collected Usage Data</h3>
-                <p>When you visit SmartTools.fun, our servers and third-party services may automatically collect certain technical information, including:</p>
+                <p>When you visit AllInOneTools, our servers and third-party services may automatically collect certain technical information, including:</p>
                 <ul className="list-disc pl-6 mt-2 space-y-1">
                     <li>Your Internet Protocol (IP) address</li>
                     <li>Browser type and version</li>
@@ -179,7 +179,7 @@ const policySections = [
                     <li><strong>Right to Object:</strong> Object to the processing of your personal data for direct marketing purposes.</li>
                     <li><strong>CCPA (California Residents):</strong> You have the right to know what personal information is collected, the right to opt-out of the sale of personal information, and the right to non-discrimination for exercising your rights.</li>
                 </ul>
-                <p className="mt-4">To exercise these rights, contact us at <a href="mailto:support@smarttools.fun" className="text-primary underline">support@smarttools.fun</a>.</p>
+                <p className="mt-4">To exercise these rights, contact us at <a href="mailto:support@allinonetools.online" className="text-primary underline">support@allinonetools.online</a>.</p>
             </>
         )
     },
@@ -189,7 +189,7 @@ const policySections = [
         title: "8. Children's Privacy",
         content: (
             <p>
-                Our Site is not directed to children under the age of 13. We do not knowingly collect personally identifiable information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately at <a href="mailto:support@smarttools.fun" className="text-primary underline">support@smarttools.fun</a>, and we will take steps to delete such information.
+                Our Site is not directed to children under the age of 13. We do not knowingly collect personally identifiable information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately at <a href="mailto:support@allinonetools.online" className="text-primary underline">support@allinonetools.online</a>, and we will take steps to delete such information.
             </p>
         )
     },

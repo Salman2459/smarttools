@@ -1,8 +1,9 @@
 "use client"
 
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Menu, Zap } from "lucide-react"
+import { Menu } from "lucide-react"
 import { ThemeToggle } from "@/components/theme-toggle"
 import type { toolsData } from "@/lib/tools-data"
 type Tool = typeof toolsData[number]
@@ -26,17 +27,16 @@ export function DashboardHeader({ activeTool, onMenuClick }: DashboardHeaderProp
             <Menu className="h-5 w-5" />
           </Button>
 
-          <div className="flex items-center gap-3">
-            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-primary/80 shadow-md">
-              <Zap className="w-5 h-5 text-primary-foreground" />
-            </div>
-            <div className="hidden sm:block">
-              <h1 className="font-semibold text-lg bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text">
-                SmartTools
-              </h1>
+          <Link href="/" className="flex items-center gap-2 min-w-0">
+            <img
+              src="/mainLogo.png"
+              alt="AllInOneTools"
+              className="h-8 w-auto max-w-[140px] sm:max-w-[160px] object-contain object-left"
+            />
+            <div className="hidden sm:block min-w-0">
               <p className="text-sm text-muted-foreground">Dashboard</p>
             </div>
-          </div>
+          </Link>
         </div>
 
         <div className="flex items-center gap-4">

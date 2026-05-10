@@ -15,13 +15,17 @@ export type ToolSeoGuideProps = {
     benefitCards: { title: string; body: string }[]
     faqs: { q: string; a: string }[]
     relatedNote: string
+    deepContent?: {
+      heading: string
+      html: string
+    }
   }
   toolTitle: string
   category: string
 }
 
 export function ToolSeoGuide({ content, toolTitle, category }: ToolSeoGuideProps) {
-  const { intro, sections, benefitCards, faqs, relatedNote } = content
+  const { intro, sections, benefitCards, faqs, relatedNote, deepContent } = content
 
   return (
     <>
@@ -60,6 +64,23 @@ export function ToolSeoGuide({ content, toolTitle, category }: ToolSeoGuideProps
             </div>
           </header>
 
+          {/* Deep SEO Content Block */}
+          {deepContent && (
+            <section id="deep-content" className="space-y-6 scroll-mt-24">
+              <h3 className="text-xl sm:text-2xl font-semibold text-foreground flex items-center gap-2">
+                <BookOpen className="h-5 w-5 shrink-0 text-primary" aria-hidden />
+                {deepContent.heading}
+              </h3>
+              <div 
+                className="prose prose-sm sm:prose-base dark:prose-invert max-w-none 
+                  text-muted-foreground leading-relaxed
+                  prose-headings:text-foreground prose-headings:font-semibold
+                  prose-p:mb-4 prose-ul:list-disc prose-ul:pl-6 prose-li:mb-2"
+                dangerouslySetInnerHTML={{ __html: deepContent.html }} 
+              />
+            </section>
+          )}
+
           {sections.map((section) => (
             <section key={section.id} id={section.id} className="space-y-4 scroll-mt-24" aria-labelledby={`${section.id}-heading`}>
               <h3 id={`${section.id}-heading`} className="text-xl sm:text-2xl font-semibold text-foreground flex items-center gap-2">
@@ -73,6 +94,7 @@ export function ToolSeoGuide({ content, toolTitle, category }: ToolSeoGuideProps
               </div>
             </section>
           ))}
+
 
           <section aria-labelledby="tool-benefits-heading" className="space-y-4">
             <h3 id="tool-benefits-heading" className="text-xl sm:text-2xl font-semibold text-foreground flex items-center gap-2">
@@ -109,10 +131,6 @@ export function ToolSeoGuide({ content, toolTitle, category }: ToolSeoGuideProps
               ))}
             </ul>
           </section>
-        </div>
-
-        <div className="mt-12 max-w-4xl mx-auto px-4 lg:px-8">
-          <Footer forceShow />
         </div>
       </article>
     </>

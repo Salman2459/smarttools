@@ -12,10 +12,10 @@ export default function HomePage() {
   return (
     <>
       <head>
-        <link rel="canonical" href="https://smarttools.fun" />
+        <link rel="canonical" href="https://allinonetools.online" />
         <meta
           name="description"
-          content="SmartTools.fun: unique long-form help on every tool page—compress and convert images, build PDFs, edit video, check writing, generate QR codes, inspect DNS, and preview documents in your browser without signing up."
+          content="AllInOneTools: unique long-form help on every tool page—compress and convert images, build PDFs, edit video, check writing, generate QR codes, inspect DNS, and preview documents in your browser without signing up."
         />
       </head>
       <div className="min-h-screen">

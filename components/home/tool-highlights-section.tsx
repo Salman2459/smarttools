@@ -83,7 +83,7 @@ export function ToolHighlightsSection() {
                         Everything You Need in One Place
                     </h2>
                     <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
-                        From file conversion to AI-powered tools, SmartTools.fun gives you instant access to the most
+                        From file conversion to AI-powered tools, AllInOneTools gives you instant access to the most
                         essential digital tools — all for free, with no sign-up required.
                     </p>
                 </div>

@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Mail, Copy, RefreshCw, Loader2, Inbox, Clock, Trash2 } from "lucide-react"
 import { toolsData } from "@/lib/tools-data"
 
-const STORAGE_KEY = "smarttools_temp_email"
+const STORAGE_KEY = "allinonetools_temp_email"
 const TTL_MS = 24 * 60 * 60 * 1000 // 24 hours
 const DOMAINS = ["1secmail.com", "1secmail.org", "1secmail.net"]
 const POLL_INTERVAL_MS = 25000

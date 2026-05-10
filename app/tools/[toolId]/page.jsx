@@ -18,7 +18,7 @@ export async function generateMetadata({ params }) {
     return {
       title: "Tool Not Found",
       alternates: {
-        canonical: `https://smarttools.fun/tools/${toolId}`,
+        canonical: `https://allinonetools.online/tools/${toolId}`,
       },
     }
   }
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }) {
       tool.title.toLowerCase(),
       tool.id.replace(/-/g, " "),
       tool.category.toLowerCase(),
-      "smarttools.fun",
+      "allinonetools.online",
       `${tool.category.toLowerCase()} online`,
       tool.category.includes("Image")
         ? "image conversion browser"
@@ -43,7 +43,7 @@ export async function generateMetadata({ params }) {
               : "free online tool",
     ],
     alternates: {
-      canonical: `https://smarttools.fun/tools/${toolId}`,
+      canonical: `https://allinonetools.online/tools/${toolId}`,
     },
   }
 }

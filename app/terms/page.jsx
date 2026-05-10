@@ -13,7 +13,7 @@ const termsSections = [
         content: (
             <>
                 <p className="lead text-lg text-muted-foreground">
-                    By accessing or using the website <strong>SmartTools.fun</strong> ("Site", "we", "us", or "our"), you agree to be bound by these Terms and Conditions ("Terms"). If you do not agree to all of these Terms, you are expressly prohibited from using the Site and must discontinue use immediately.
+                    By accessing or using the website <strong>AllInOneTools</strong> ("Site", "we", "us", or "our"), you agree to be bound by these Terms and Conditions ("Terms"). If you do not agree to all of these Terms, you are expressly prohibited from using the Site and must discontinue use immediately.
                 </p>
                 <p className="mt-4">
                     These Terms were last updated on <strong>February 26, 2026</strong>. We reserve the right to make changes to these Terms at any time. When we do, we will revise the updated date. Your continued use of the Site after any modification constitutes your acceptance of the new Terms.
@@ -46,11 +46,11 @@ const termsSections = [
         content: (
             <>
                 <p>
-                    SmartTools.fun provides a suite of <strong>free online productivity tools</strong> including but not limited to: image conversion, PDF conversion, image compression, video tools, AI-powered text tools, and QR/barcode generators.
+                    AllInOneTools provides a suite of <strong>free online productivity tools</strong> including but not limited to: image conversion, PDF conversion, image compression, video tools, AI-powered text tools, and QR/barcode generators.
                 </p>
                 <h3 className="text-lg font-semibold mt-5 mb-2">Free Tools</h3>
                 <p>
-                    All tools on SmartTools.fun are provided free of charge. We reserve the right to modify, suspend, or discontinue any tool at any time without prior notice.
+                    All tools on AllInOneTools are provided free of charge. We reserve the right to modify, suspend, or discontinue any tool at any time without prior notice.
                 </p>
                 <h3 className="text-lg font-semibold mt-5 mb-2">File Handling</h3>
                 <p>
@@ -93,7 +93,7 @@ const termsSections = [
         content: (
             <>
                 <p>
-                    Unless otherwise indicated, the Site and all its content — including source code, designs, software, text, graphics, logos, and trademarks — are the proprietary property of <strong>SmartTools.fun</strong> and are protected by applicable copyright and intellectual property laws.
+                    Unless otherwise indicated, the Site and all its content — including source code, designs, software, text, graphics, logos, and trademarks — are the proprietary property of <strong>AllInOneTools</strong> and are protected by applicable copyright and intellectual property laws.
                 </p>
                 <p className="mt-4">
                     You are granted a limited, non-exclusive, non-transferable, revocable license to access and use the Site for your personal, non-commercial use. This license does not include the right to:
@@ -113,7 +113,7 @@ const termsSections = [
         content: (
             <>
                 <p>
-                    To the maximum extent permitted by applicable law, SmartTools.fun and its affiliates, directors, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to: loss of profits, loss of data, loss of goodwill, service interruption, computer damage, or system failure — even if advised of the possibility of such damages.
+                    To the maximum extent permitted by applicable law, AllInOneTools and its affiliates, directors, employees, and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to: loss of profits, loss of data, loss of goodwill, service interruption, computer damage, or system failure — even if advised of the possibility of such damages.
                 </p>
                 <p className="mt-4">
                     Our total liability to you for all claims arising out of or relating to the use of the Site shall not exceed <strong>$100 USD</strong> in any case.
@@ -174,8 +174,8 @@ const termsSections = [
             <>
                 <p>If you have any questions about these Terms and Conditions, please contact us:</p>
                 <ul className="list-none mt-3 space-y-2">
-                    <li><strong>Email:</strong> <a href="mailto:support@smarttools.fun" className="text-primary underline">support@smarttools.fun</a></li>
-                    <li><strong>Website:</strong> <a href="https://smarttools.fun/contact" className="text-primary underline">https://smarttools.fun/contact</a></li>
+                    <li><strong>Email:</strong> <a href="mailto:support@allinonetools.online" className="text-primary underline">support@allinonetools.online</a></li>
+                    <li><strong>Website:</strong> <a href="https://allinonetools.online/contact" className="text-primary underline">https://allinonetools.online/contact</a></li>
                 </ul>
             </>
         )
@@ -188,9 +188,9 @@ export default function TermsAndConditionsPage() {
     return (
         <>
             <head>
-                <link rel="canonical" href="https://smarttools.fun/terms/" />
-                <meta name="title" content="Terms & Conditions of Use | SmartTools.fun" />
-                <meta name="description" content="Read the SmartTools.fun Terms & Conditions. Understand the rules for using our free online tools, including file handling, prohibited activities, and our advertising policies." />
+                <link rel="canonical" href="https://allinonetools.online/terms/" />
+                <meta name="title" content="Terms & Conditions of Use | AllInOneTools" />
+                <meta name="description" content="Read the AllInOneTools Terms & Conditions. Understand the rules for using our free online tools, including file handling, prohibited activities, and our advertising policies." />
             </head>
             <main className="bg-background">
                 {/* Section 1: Hero */}

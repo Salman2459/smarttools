@@ -4,5 +4,5 @@ Disallow: /api/
 Disallow: /_next/
 
 # Sitemaps
-Sitemap: https://www.smarttools.fun/sitemap.xml
-Sitemap: https://smarttools.fun/sitemap.xml
+Sitemap: https://www.allinonetools.online/sitemap.xml
+Sitemap: https://allinonetools.online/sitemap.xml

@@ -12,11 +12,11 @@ export default function FeaturesPage() {
   return (
     <>
       <head>
-        <link rel="canonical" href="https://smarttools.fun/features/" />
+        <link rel="canonical" href="https://allinonetools.online/features/" />
         <meta name="title" content="Explore the Full Range of Smart Tools Online" />
         <meta
           name="description"
-          content="Full directory of SmartTools.fun: image and PDF converters, video utilities, QR and barcode generators, DNS checker, grammar and speech tools, and multi-format viewers—each with its own guide."
+          content="Full directory of AllInOneTools: image and PDF converters, video utilities, QR and barcode generators, DNS checker, grammar and speech tools, and multi-format viewers—each with its own guide."
         />
       </head>
       <div className="min-h-screen py-8 sm:py-12 px-4">

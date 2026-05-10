@@ -7,9 +7,11 @@ import { Mail, Shield, FileText } from "lucide-react"
 type FooterProps = {
   /** Renders the full footer even on `/tools/*` (e.g. embedded in ToolSeoGuide). The root layout still omits the default footer on tool pages to avoid a duplicate. */
   forceShow?: boolean
+  /** Removes the 'container mx-auto' constraint for a full-width look (e.g. within a sidebar-adjusted layout). */
+  fullWidth?: boolean
 }
 
-export function Footer({ forceShow = false }: FooterProps = {}) {
+export function Footer({ forceShow = false, fullWidth = false }: FooterProps = {}) {
   const pathname = usePathname()
 
   const isToolPage = pathname.startsWith("/tools/")
@@ -19,15 +21,15 @@ export function Footer({ forceShow = false }: FooterProps = {}) {
   }
 
   return (
-    <footer className="border-t bg-muted/30">
-      <div className="container mx-auto px-4 py-8 sm:py-12">
+    <footer className="border-t bg-muted/30 w-full">
+      <div className={`${fullWidth ? "w-full px-6 lg:px-12" : "container mx-auto px-4"} py-8 sm:py-12`}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
 
           {/* Brand Column */}
           <div className="space-y-4 sm:col-span-2 lg:col-span-1">
             <Link href="/" className="flex items-center space-x-2">
               <div className="flex items-center justify-center h-[70px]">
-                <img src="/in row.png" alt="SmartTools.fun Logo" className="w-[160px] h-[70px]" />
+                <img src="/mainLogo.png" alt="AllInOneTools" className="h-10 w-auto max-w-[180px] sm:h-12 object-contain object-left" />
               </div>
             </Link>
             <p className="text-xs sm:text-sm text-muted-foreground max-w-xs">
@@ -36,8 +38,8 @@ export function Footer({ forceShow = false }: FooterProps = {}) {
             </p>
             <div className="flex items-center gap-2 text-xs text-muted-foreground">
               <Mail className="w-3 h-3" />
-              <a href="mailto:support@smarttools.fun" className="hover:text-primary transition-colors">
-                support@smarttools.fun
+              <a href="mailto:support@allinonetools.online" className="hover:text-primary transition-colors">
+                support@allinonetools.online
               </a>
             </div>
           </div>
@@ -159,7 +161,7 @@ export function Footer({ forceShow = false }: FooterProps = {}) {
 
         <div className="border-t mt-6 sm:mt-8 pt-6 sm:pt-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm text-muted-foreground">
-            <p>© {new Date().getFullYear()} SmartTools.fun. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} AllInOneTools. All rights reserved.</p>
             <div className="flex items-center gap-4">
               <Link href="/privacypolicy" className="hover:text-primary transition-colors">Privacy</Link>
               <Link href="/terms" className="hover:text-primary transition-colors">Terms</Link>

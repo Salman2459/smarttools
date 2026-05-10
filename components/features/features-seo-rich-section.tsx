@@ -14,7 +14,7 @@ const topicCards = [
   },
   {
     title: "Chain tools together",
-    body: "Many projects need more than one step: compress an image, embed it in a document, export to PDF, then share a link. SmartTools.fun is designed so you can move between tools in new tabs without losing momentum.",
+    body: "Many projects need more than one step: compress an image, embed it in a document, export to PDF, then share a link. AllInOneTools is designed so you can move between tools in new tabs without losing momentum.",
   },
 ]
 
@@ -28,10 +28,10 @@ export function FeaturesSeoRichSection() {
             Directory guide
           </Badge>
           <h2 id="features-seo-heading" className="text-2xl sm:text-3xl font-bold tracking-tight">
-            How to choose the right SmartTools.fun feature for your task
+            How to choose the right AllInOneTools feature for your task
           </h2>
           <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-            This directory lists every public tool on SmartTools.fun in one scrollable grid. Use it when you know you need “some kind of converter” but are not sure of the exact name, or when you want to compare similar utilities side by side before opening a tool page.
+            This directory lists every public tool on AllInOneTools in one scrollable grid. Use it when you know you need “some kind of converter” but are not sure of the exact name, or when you want to compare similar utilities side by side before opening a tool page.
           </p>
         </div>
 
@@ -54,7 +54,7 @@ export function FeaturesSeoRichSection() {
         <div className="space-y-5 text-sm sm:text-base leading-relaxed text-foreground">
           <h3 className="text-xl font-semibold flex items-center gap-2">
             <BookOpen className="h-5 w-5 text-primary" aria-hidden />
-            Understanding the full SmartTools.fun feature set
+            Understanding the full AllInOneTools feature set
           </h3>
           <p>
             Image utilities cover compression, resizing, cropping, watermarking, and dozens of format conversions between PNG, JPG, JPEG, WebP, SVG, and related types. Those tools matter for bloggers who must meet strict upload limits, for ecommerce managers who need consistent catalog dimensions, and for students who submit assignments through learning portals with file-size caps. PDF utilities focus on turning editable office files and HTML into stable PDFs for submission and archiving, which is still the default format for legal and academic workflows worldwide.
@@ -66,7 +66,7 @@ export function FeaturesSeoRichSection() {
             Viewer tools open spreadsheets, Word documents, code files, JSON, Markdown, images, and PDFs in the browser when you only need to read or inspect content. That is especially useful on shared computers or Chromebooks where installing LibreOffice or Adobe Acrobat is not an option. When a file is sensitive, use your organization&apos;s approved workflow; for general-purpose reading, viewers save time and disk space.
           </p>
           <p>
-            SmartTools.fun does not lock features behind accounts. The trade-off is that you should keep local backups of important files and note which settings worked for your brand. For more context on our mission, privacy practices, and support channels, read the{" "}
+            AllInOneTools does not lock features behind accounts. The trade-off is that you should keep local backups of important files and note which settings worked for your brand. For more context on our mission, privacy practices, and support channels, read the{" "}
             <Link href="/about/" className="text-primary font-medium underline-offset-4 hover:underline">
               about page
             </Link>

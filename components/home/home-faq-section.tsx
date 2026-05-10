@@ -5,8 +5,8 @@ import { ArrowRight } from "lucide-react"
 
 const faqs = [
     {
-        q: "Are all tools on SmartTools.fun completely free?",
-        a: "Core utilities stay free at the point of use: open a tool, run your job, download or copy the result. SmartTools.fun is supported in part by Google AdSense display ads, which helps pay for bandwidth and development instead of charging per conversion. Fair-use expectations and our terms still apply—this is not unlimited API-style automation.",
+        q: "Are all tools on AllInOneTools completely free?",
+        a: "Core utilities stay free at the point of use: open a tool, run your job, download or copy the result. AllInOneTools is supported in part by Google AdSense display ads, which helps pay for bandwidth and development instead of charging per conversion. Fair-use expectations and our terms still apply—this is not unlimited API-style automation.",
     },
     {
         q: "Do I need to create an account to use the tools?",
@@ -25,7 +25,7 @@ const faqs = [
         a: "AdSense placements fund hosting and improvements while keeping tools accessible globally. You may see contextual or interest-based ads; Google’s settings explain how to limit personalization. We aim to balance revenue with readable layouts and substantive articles—not empty grids.",
     },
     {
-        q: "Can I use SmartTools.fun on my phone or tablet?",
+        q: "Can I use AllInOneTools on my phone or tablet?",
         a: "Layouts are responsive. Quick image tweaks, QR generation, or text checks work well on phones; large video jobs or huge spreadsheets are usually smoother on Wi‑Fi with a desktop browser. No app store install is required—just use a current mobile browser.",
     },
 ]
@@ -38,7 +38,7 @@ export function HomeFAQSection() {
                     <Badge variant="outline" className="mb-4">FAQ</Badge>
                     <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
                     <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Everything you need to know about SmartTools.fun. Can't find the answer? Contact our support team.
+                        Everything you need to know about AllInOneTools. Can't find the answer? Contact our support team.
                     </p>
                 </div>
 

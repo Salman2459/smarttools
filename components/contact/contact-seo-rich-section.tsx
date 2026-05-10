@@ -17,7 +17,7 @@ const supportTopics = [
   {
     icon: Headphones,
     title: "Privacy and account questions",
-    body: "SmartTools.fun does not require accounts for core utilities. If you have questions about cookies, ads, or data handling, you can also read our privacy policy and terms—those documents complement what we share here on the contact page.",
+    body: "AllInOneTools does not require accounts for core utilities. If you have questions about cookies, ads, or data handling, you can also read our privacy policy and terms—those documents complement what we share here on the contact page.",
   },
 ]
 
@@ -31,7 +31,7 @@ export function ContactSeoRichSection() {
             How we handle messages and what to include for a faster reply
           </h2>
           <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-            The contact form connects you with the SmartTools.fun team for technical help, feedback, and general questions about our free online tools. We read every message; response time is typically within one to two business days depending on volume and complexity.
+            The contact form connects you with the AllInOneTools team for technical help, feedback, and general questions about our free online tools. We read every message; response time is typically within one to two business days depending on volume and complexity.
           </p>
         </div>
 
@@ -53,10 +53,10 @@ export function ContactSeoRichSection() {
 
         <div className="space-y-5 text-sm sm:text-base leading-relaxed text-foreground">
           <p>
-            When you write about a specific tool, link to its page or mention the exact name (for example, “PNG to JPG converter” rather than “image tool”). That small detail routes your email to the right mental context immediately. If you are a teacher or student referencing SmartTools.fun in coursework, you are welcome to quote short excerpts from our tool guides with attribution and a link to the canonical URL.
+            When you write about a specific tool, link to its page or mention the exact name (for example, “PNG to JPG converter” rather than “image tool”). That small detail routes your email to the right mental context immediately. If you are a teacher or student referencing AllInOneTools in coursework, you are welcome to quote short excerpts from our tool guides with attribution and a link to the canonical URL.
           </p>
           <p>
-            Advertising on SmartTools.fun is served through Google AdSense. We do not sell email addresses from contact submissions to third-party marketers. Information you submit through the form is used to respond to you and to improve the service when your feedback identifies a recurring issue. For a full explanation of categories of data, cookies, and third-party processors, see our{" "}
+            Advertising on AllInOneTools is served through Google AdSense. We do not sell email addresses from contact submissions to third-party marketers. Information you submit through the form is used to respond to you and to improve the service when your feedback identifies a recurring issue. For a full explanation of categories of data, cookies, and third-party processors, see our{" "}
             <Link href="/privacypolicy/" className="text-primary font-medium underline-offset-4 hover:underline">
               privacy policy
             </Link>
@@ -68,8 +68,8 @@ export function ContactSeoRichSection() {
           </p>
           <p>
             If you prefer not to use the form, you can email{" "}
-            <a href="mailto:support@smarttools.fun" className="text-primary font-medium underline-offset-4 hover:underline">
-              support@smarttools.fun
+            <a href="mailto:support@allinonetools.online" className="text-primary font-medium underline-offset-4 hover:underline">
+              support@allinonetools.online
             </a>{" "}
             directly from your mail client. Include the same details you would in the form so we can troubleshoot efficiently. For the fastest self-service help, browse the{" "}
             <Link href="/features/" className="text-primary font-medium underline-offset-4 hover:underline">

@@ -40,11 +40,11 @@ export default function AboutPage() {
     return (
         <>
             <head>
-                <link rel="canonical" href="https://smarttools.fun/about/" />
-                <meta name="title" content="About SmartTools.fun – Free Online Productivity Tools" />
+                <link rel="canonical" href="https://allinonetools.online/about/" />
+                <meta name="title" content="About AllInOneTools – Free Online Productivity Tools" />
                 <meta
                     name="description"
-                    content="Learn about SmartTools.fun – our mission to provide 30+ free, privacy-focused online tools for image conversion, PDF creation, video editing, and AI-powered productivity."
+                    content="Learn about AllInOneTools – our mission to provide 30+ free, privacy-focused online tools for image conversion, PDF creation, video editing, and AI-powered productivity."
                 />
             </head>
             <main className="bg-muted/20">
@@ -65,7 +65,7 @@ export default function AboutPage() {
                             <Star className="w-4 h-4" />
                             <span>Our Story</span>
                         </div>
-                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">About SmartTools.fun</h1>
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">About AllInOneTools</h1>
                         <p className="mt-4 text-lg sm:text-xl text-neutral-200 max-w-3xl mx-auto">
                             We&apos;re passionate developers dedicated to making powerful digital tools accessible to everyone — for free.
                         </p>
@@ -109,7 +109,7 @@ export default function AboutPage() {
                                 <Badge variant="outline" className="mb-4">Our Mission</Badge>
                                 <h2 className="text-3xl sm:text-4xl font-bold mb-4">Making Productivity Free for Everyone</h2>
                                 <p className="text-muted-foreground text-lg mb-4 leading-relaxed">
-                                    SmartTools.fun was built on a simple belief: <strong>essential digital tools should be free and accessible to everyone</strong>, without the need to create accounts, pay subscriptions, or sacrifice privacy.
+                                    AllInOneTools was built on a simple belief: <strong>essential digital tools should be free and accessible to everyone</strong>, without the need to create accounts, pay subscriptions, or sacrifice privacy.
                                 </p>
                                 <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
                                     Whether you&apos;re a student, freelancer, small business owner, or just someone who needs to convert a file, our platform gives you instant access to 30+ professional-grade tools — directly in your browser.
@@ -146,7 +146,7 @@ export default function AboutPage() {
                             <Badge variant="outline" className="mb-4">What We Offer</Badge>
                             <h2 className="text-3xl sm:text-4xl font-bold">A Complete Toolkit for Modern Work</h2>
                             <p className="mt-4 text-muted-foreground text-lg max-w-3xl mx-auto">
-                                From image editing to AI-powered writing tools, SmartTools.fun covers every tool you need to be productive online.
+                                From image editing to AI-powered writing tools, AllInOneTools covers every tool you need to be productive online.
                             </p>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -223,7 +223,7 @@ export default function AboutPage() {
                     <div className="container mx-auto px-4 max-w-3xl text-center">
                         <h2 className="text-2xl font-bold mb-3">How We Stay Free</h2>
                         <p className="text-muted-foreground leading-relaxed">
-                            SmartTools.fun is a completely free platform. To cover server costs and continue building new tools, our site
+                            AllInOneTools is a completely free platform. To cover server costs and continue building new tools, our site
                             displays advertisements through <strong>Google AdSense</strong>. These ads are clearly marked and delivered by Google.
                             We do not control which ads are displayed, and <strong>we never sell your personal data</strong>. If you prefer not to see
                             personalized ads, you can opt out via{" "}

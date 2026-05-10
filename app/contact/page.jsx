@@ -128,9 +128,9 @@ export default function ContactPage() {
     return (
         <>
             <head>
-                <link rel="canonical" href="https://smarttools.fun/contact/" />
-                <meta name="title" content="Contact SmartTools.fun – Support, Feedback & Inquiries" />
-                <meta name="description" content="Get in touch with SmartTools.fun for technical support, tool feedback, or business inquiries. We respond within 1–2 business days." />
+                <link rel="canonical" href="https://allinonetools.online/contact/" />
+                <meta name="title" content="Contact AllInOneTools – Support, Feedback & Inquiries" />
+                <meta name="description" content="Get in touch with AllInOneTools for technical support, tool feedback, or business inquiries. We respond within 1–2 business days." />
             </head>
             <main className="bg-muted/20">
                 {/* Hero */}
@@ -217,8 +217,8 @@ export default function ContactPage() {
                                                 </div>
                                                 <div>
                                                     <h3 className="font-semibold text-lg">Email Us</h3>
-                                                    <a href="mailto:support@smarttools.fun" className="text-white/80 hover:text-white transition-colors">
-                                                        support@smarttools.fun
+                                                    <a href="mailto:support@allinonetools.online" className="text-white/80 hover:text-white transition-colors">
+                                                        support@allinonetools.online
                                                     </a>
                                                 </div>
                                             </div>
@@ -275,7 +275,7 @@ export default function ContactPage() {
                             {[
                                 {
                                     q: "Are all tools completely free?",
-                                    a: "Yes! All tools on SmartTools.fun are 100% free to use with no registration or account required."
+                                    a: "Yes! All tools on AllInOneTools are 100% free to use with no registration or account required."
                                 },
                                 {
                                     q: "Are my uploaded files safe?",
@@ -291,7 +291,7 @@ export default function ContactPage() {
                                 },
                                 {
                                     q: "How do I report a bug or suggest a new tool?",
-                                    a: "Use the contact form above or email us directly at support@smarttools.fun. We love feature requests and bug reports from our community!"
+                                    a: "Use the contact form above or email us directly at support@allinonetools.online. We love feature requests and bug reports from our community!"
                                 }
                             ].map((faq, idx) => (
                                 <motion.div

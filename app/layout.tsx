@@ -9,12 +9,13 @@ import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://allinonetools.online"),
   title: {
-    default: "Free Online Smart Tools – Images, PDF & AI | SmartTools.fun",
-    template: "%s | SmartTools.fun",
+    default: "Free Online Smart Tools – Images, PDF & AI | AllInOneTools",
+    template: "%s | AllInOneTools",
   },
   description:
-    "SmartTools.fun bundles 45+ browser tools: unique guides for each image and PDF converter, video trimmers, QR and barcode makers, DNS checks, grammar and text-to-speech helpers, and all-in-one document viewers—free to use, no account required.",
+    "AllInOneTools bundles 45+ browser tools: unique guides for each image and PDF converter, video trimmers, QR and barcode makers, DNS checks, grammar and text-to-speech helpers, and all-in-one document viewers—free to use, no account required.",
   keywords: [
     "smart tools",
     "free online tools",
@@ -35,11 +36,11 @@ export const metadata: Metadata = {
     "png to pdf",
     "webp converter",
     "pdf tools online free",
-    "smarttools.fun",
+    "allinonetools.online",
   ],
-  authors: [{ name: "SmartTools.fun", url: "https://smarttools.fun" }],
-  creator: "SmartTools.fun",
-  publisher: "SmartTools.fun",
+  authors: [{ name: "AllInOneTools", url: "https://allinonetools.online" }],
+  creator: "AllInOneTools",
+  publisher: "AllInOneTools",
   robots: {
     index: true,
     follow: true,
@@ -52,21 +53,21 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Free Online Smart Tools – Images, PDF & AI | SmartTools.fun",
+    title: "Free Online Smart Tools – Images, PDF & AI | AllInOneTools",
     description:
       "45+ browser tools with unique guides: image/PDF conversion, video edits, writing helpers, QR & barcodes, DNS checks, multi-format viewers. No account needed.",
     type: "website",
-    url: "https://smarttools.fun",
-    siteName: "SmartTools.fun",
+    url: "https://allinonetools.online",
+    siteName: "AllInOneTools",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Online Smart Tools – Images, PDF & AI | SmartTools.fun",
+    title: "Free Online Smart Tools – Images, PDF & AI | AllInOneTools",
     description:
       "Image & PDF utilities, video tools, writing aids, QR/barcode generators, DNS checker, document viewers—each page includes a full guide.",
   },
   alternates: {
-    canonical: "https://smarttools.fun",
+    canonical: "https://allinonetools.online",
   },
   icons: {
     icon: "/favicon.png",

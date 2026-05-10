@@ -89,9 +89,13 @@ export function Header() {
         </Button>
         <Link href="/" className="flex items-center space-x-2">
           <div className="flex items-center justify-center  h-[100%]">
-            <img src="/in row.png" alt="Logo" className="w-[160px] h-[70px]" />
+            <img
+              src="/mainLogo.png"
+              alt="AllInOneTools"
+              className="h-9 w-auto max-h-11 max-w-[160px] object-contain object-left sm:h-10"
+            />
           </div>
-          {/* <span className="font-bold text-lg sm:text-xl">SmartTools</span> */}
+          {/* <span className="font-bold text-lg sm:text-xl">AllInOneTools</span> */}
         </Link>
 
         {/* Desktop Navigation */}

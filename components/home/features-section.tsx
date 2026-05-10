@@ -28,7 +28,7 @@ export function FeaturesSection() {
           <Badge variant="outline" className="mb-4">
             Our Tools
           </Badge>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Browse every SmartTools.fun utility</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Browse every AllInOneTools utility</h2>
           <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
             Each card links to a dedicated page with its own long guide—image, PDF, video, text, DNS, generators, and
             multi-format viewers. Search by task or scroll the grid; descriptions are unique per tool so you can tell

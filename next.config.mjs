@@ -5,7 +5,7 @@ const nextConfig = {
   images: {
     unoptimized: true, // only if you’re not using Image Optimization
   },
-  // assetPrefix: 'https://smarttools.fun/',
+  // assetPrefix: 'https://allinonetools.online/',
   serverExternalPackages: ['onnxruntime-web', '@imgly/background-removal'],
   webpack: (config, { isServer }) => {
     if (!isServer) {

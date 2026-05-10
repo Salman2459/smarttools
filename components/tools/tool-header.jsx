@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Menu, Zap } from "lucide-react"
+import { Menu } from "lucide-react"
 import { ThemeToggle } from "@/components/theme-toggle"
 
 export function ToolHeader({ tool, onMenuClick }) {
@@ -12,15 +12,22 @@ export function ToolHeader({ tool, onMenuClick }) {
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 shadow-sm lg:hidden">
       <div className="flex h-16 items-center justify-between px-4 lg:px-8">
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 min-w-0 flex-1">
           <Button
             variant="ghost"
             size="sm"
-            className="lg:hidden hover:bg-primary/10 transition-colors duration-200"
+            className="lg:hidden shrink-0 hover:bg-primary/10 transition-colors duration-200"
             onClick={onMenuClick}
           >
             <Menu className="h-5 w-5" />
           </Button>
+          <Link href="/" className="flex items-center min-w-0">
+            <img
+              src="/mainLogo.png"
+              alt="AllInOneTools"
+              className="h-7 w-auto max-w-[min(100%,140px)] object-contain object-left"
+            />
+          </Link>
         </div>
 
         <div className="flex items-center gap-4">

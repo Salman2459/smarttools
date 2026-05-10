@@ -24,7 +24,7 @@ export async function POST(request) {
 
         const mailOptions = {
             from: `"${name}" <${"salman216030@gmail.com"}>`, // Sender's name and your sending email
-            to: "support@smarttools.fun", // The address that receives the email
+            to: "support@allinonetools.online", // The address that receives the email
             replyTo: email, // Set the reply-to to the user's email
             subject: `New Contact Form Submission: ${subject}`,
             html: `

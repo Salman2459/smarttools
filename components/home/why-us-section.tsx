@@ -25,7 +25,7 @@ const reasons = [
         icon: Lock,
         title: "No Account Needed",
         description:
-            "Unlike many platforms, SmartTools.fun requires zero registration. Just open a tool, upload your file, and get results instantly.",
+            "Unlike many platforms, AllInOneTools requires zero registration. Just open a tool, upload your file, and get results instantly.",
     },
     {
         icon: Globe,
@@ -55,12 +55,12 @@ export function WhyUsSection() {
 
                 {/* Why Choose Us */}
                 <div className="text-center mb-12">
-                    <Badge variant="outline" className="mb-4">Why SmartTools?</Badge>
+                    <Badge variant="outline" className="mb-4">Why AllInOneTools?</Badge>
                     <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
                         Built for Speed, Privacy, and Simplicity
                     </h2>
                     <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto">
-                        We built SmartTools.fun to solve a simple problem: most online tools are too slow, require sign-ups, or
+                        We built AllInOneTools to solve a simple problem: most online tools are too slow, require sign-ups, or
                         can't be trusted with your data. We built something better.
                     </p>
                 </div>

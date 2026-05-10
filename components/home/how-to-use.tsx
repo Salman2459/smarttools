@@ -33,7 +33,7 @@ export function HowToUseSection() {
                     </Badge>
                     <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Simple in 3 Steps</h2>
                     <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
-                        Get started with SmartTools in just three easy steps. No registration required.
+                        Get started with AllInOneTools in just three easy steps. No registration required.
                     </p>
                 </div>
 

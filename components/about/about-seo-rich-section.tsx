@@ -7,7 +7,7 @@ const storyCards = [
   {
     icon: Rocket,
     title: "From experiments to a public toolkit",
-    body: "SmartTools.fun began as small utilities that solved repetitive file tasks faster than opening heavy desktop suites. Sharing them on the open web made sense: the same problems appear in classrooms, startups, and home offices worldwide. Publishing long guides next to each tool keeps the experience educational, not just transactional.",
+    body: "AllInOneTools began as small utilities that solved repetitive file tasks faster than opening heavy desktop suites. Sharing them on the open web made sense: the same problems appear in classrooms, startups, and home offices worldwide. Publishing long guides next to each tool keeps the experience educational, not just transactional.",
   },
   {
     icon: GraduationCap,
@@ -28,7 +28,7 @@ export function AboutSeoRichSection() {
         <div className="text-center space-y-3">
           <Badge variant="secondary">Our story in depth</Badge>
           <h2 id="about-seo-heading" className="text-2xl sm:text-4xl font-bold tracking-tight">
-            Why SmartTools.fun invests in long-form guides and transparent policies
+            Why AllInOneTools invests in long-form guides and transparent policies
           </h2>
           <p className="text-muted-foreground text-base sm:text-lg leading-relaxed max-w-3xl mx-auto">
             Productivity sites can easily become grids of icons with one-line descriptions. That minimal approach loads fast but teaches little. We deliberately pair each utility with detailed context so visitors understand how a format works, when to choose it, and what privacy expectations apply—especially important for students, freelancers, and small teams without dedicated IT staff.
