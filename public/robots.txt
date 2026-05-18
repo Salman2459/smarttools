@@ -1,3 +1,5 @@
+# Site: allinonetools.online (matches sitemap <loc> URLs)
+
 User-agent: *
 Allow: /
 Disallow: /api/
@@ -10,6 +12,5 @@ Allow: /
 User-agent: AdsBot-Google
 Allow: /
 
-# Sitemaps
-Sitemap: https://www.allinonetools.online/sitemap.xml
+# Sitemap (same domain as https://allinonetools.online/sitemap.xml)
 Sitemap: https://allinonetools.online/sitemap.xml
