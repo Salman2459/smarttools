@@ -187,11 +187,6 @@ export default function TermsAndConditionsPage() {
 
     return (
         <>
-            <head>
-                <link rel="canonical" href="https://allinonetools.online/terms/" />
-                <meta name="title" content="Terms & Conditions of Use | AllInOneTools" />
-                <meta name="description" content="Read the AllInOneTools Terms & Conditions. Understand the rules for using our free online tools, including file handling, prohibited activities, and our advertising policies." />
-            </head>
             <main className="bg-background">
                 {/* Section 1: Hero */}
                 <motion.section

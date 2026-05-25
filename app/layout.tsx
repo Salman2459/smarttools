@@ -6,13 +6,13 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import Script from "next/script";
-import { getBaseUrl } from "@/lib/env";
+import { getBaseUrl, getCanonicalUrl } from "@/lib/env";
 
 const inter = Inter({ subsets: ["latin"] })
 const siteUrl = getBaseUrl();
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(`${siteUrl}/`),
   title: {
     default: "Free Online Smart Tools – Images, PDF & AI | AllInOneTools",
     template: "%s | AllInOneTools",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     "pdf tools online free",
     "allinonetools.online",
   ],
-  authors: [{ name: "AllInOneTools", url: siteUrl }],
+  authors: [{ name: "AllInOneTools", url: getCanonicalUrl('/') }],
   creator: "AllInOneTools",
   publisher: "AllInOneTools",
   robots: {
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     description:
       "45+ browser tools with unique guides: image/PDF conversion, video edits, writing helpers, QR & barcodes, DNS checks, multi-format viewers. No account needed.",
     type: "website",
-    url: siteUrl,
+    url: getCanonicalUrl('/'),
     siteName: "AllInOneTools",
   },
   twitter: {
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
       "Image & PDF utilities, video tools, writing aids, QR/barcode generators, DNS checker, document viewers—each page includes a full guide.",
   },
   alternates: {
-    canonical: siteUrl,
+    canonical: getCanonicalUrl('/'),
   },
   icons: {
     icon: "/favicon.png",

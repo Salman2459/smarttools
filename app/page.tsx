@@ -1,3 +1,5 @@
+import type { Metadata } from "next"
+import { getCanonicalUrl } from "@/lib/env"
 import { HeroSection } from "@/components/home/hero-section"
 import { FeaturesSection } from "@/components/home/features-section"
 import { ToolHighlightsSection } from "@/components/home/tool-highlights-section"
@@ -8,44 +10,26 @@ import { HomeFAQSection } from "@/components/home/home-faq-section"
 import { HomeSeoRichSection } from "@/components/home/home-seo-rich-section"
 import { CTASection } from "@/components/home/cta-section"
 
+export const metadata: Metadata = {
+  alternates: {
+    canonical: getCanonicalUrl("/"),
+  },
+  description:
+    "AllInOneTools: unique long-form help on every tool page—compress and convert images, build PDFs, edit video, check writing, generate QR codes, inspect DNS, and preview documents in your browser without signing up.",
+}
+
 export default function HomePage() {
   return (
-    <>
-      <head>
-        <link rel="canonical" href="https://allinonetools.online" />
-        <meta
-          name="description"
-          content="AllInOneTools: unique long-form help on every tool page—compress and convert images, build PDFs, edit video, check writing, generate QR codes, inspect DNS, and preview documents in your browser without signing up."
-        />
-      </head>
-      <div className="min-h-screen">
-        {/* 1. Hero – above the fold, key value prop */}
-        <HeroSection />
-
-        {/* 2. All Tools search grid */}
-        <FeaturesSection />
-
-        {/* 3. Highlighted tool cards with rich descriptions (good for SEO) */}
-        <ToolHighlightsSection />
-
-        {/* 3b. Long-form guide-style content + cards (AdSense-friendly depth) */}
-        <HomeSeoRichSection />
-
-        {/* 4. Why choose us + stats strip */}
-        <WhyUsSection />
-
-        {/* 5. How to use – 3-step explainer */}
-        <HowToUseSection />
-
-        {/* 6. Testimonials – social proof */}
-        <TestimonialsSection />
-
-        {/* 7. FAQ – keyword-rich, helps with AdSense approval */}
-        <HomeFAQSection />
-
-        {/* 8. Final CTA */}
-        <CTASection />
-      </div>
-    </>
+    <div className="min-h-screen">
+      <HeroSection />
+      <FeaturesSection />
+      <ToolHighlightsSection />
+      <HomeSeoRichSection />
+      <WhyUsSection />
+      <HowToUseSection />
+      <TestimonialsSection />
+      <HomeFAQSection />
+      <CTASection />
+    </div>
   )
 }

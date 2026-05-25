@@ -3,6 +3,7 @@ import { toolsData } from "@/lib/tools-data"
 import { buildToolSeoContent } from "@/lib/tool-seo-content"
 import { ToolSeoGuide } from "@/components/seo/tool-seo-guide"
 import { ToolPageClient } from "@/components/tools/tool-page-client"
+import { getCanonicalUrl } from "@/lib/env"
 
 export async function generateStaticParams() {
   return toolsData.map((tool) => ({
@@ -18,7 +19,7 @@ export async function generateMetadata({ params }) {
     return {
       title: "Tool Not Found",
       alternates: {
-        canonical: `https://allinonetools.online/tools/${toolId}`,
+        canonical: getCanonicalUrl(`/tools/${toolId}/`),
       },
     }
   }
@@ -43,7 +44,7 @@ export async function generateMetadata({ params }) {
               : "free online tool",
     ],
     alternates: {
-      canonical: `https://allinonetools.online/tools/${toolId}`,
+      canonical: getCanonicalUrl(`/tools/${toolId}/`),
     },
   }
 }

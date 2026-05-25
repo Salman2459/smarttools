@@ -127,11 +127,6 @@ function ContactForm() {
 export default function ContactPage() {
     return (
         <>
-            <head>
-                <link rel="canonical" href="https://allinonetools.online/contact/" />
-                <meta name="title" content="Contact AllInOneTools – Support, Feedback & Inquiries" />
-                <meta name="description" content="Get in touch with AllInOneTools for technical support, tool feedback, or business inquiries. We respond within 1–2 business days." />
-            </head>
             <main className="bg-muted/20">
                 {/* Hero */}
                 <motion.section

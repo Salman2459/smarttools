@@ -39,14 +39,6 @@ const stats = [
 export default function AboutPage() {
     return (
         <>
-            <head>
-                <link rel="canonical" href="https://allinonetools.online/about/" />
-                <meta name="title" content="About AllInOneTools – Free Online Productivity Tools" />
-                <meta
-                    name="description"
-                    content="Learn about AllInOneTools – our mission to provide 30+ free, privacy-focused online tools for image conversion, PDF creation, video editing, and AI-powered productivity."
-                />
-            </head>
             <main className="bg-muted/20">
                 {/* Hero */}
                 <motion.section
